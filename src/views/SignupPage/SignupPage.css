@@ -1,0 +1,117 @@
+/* signup page */
+.signup-page {
+  background-color: #d63e39;
+}
+.signup-page header {
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url('../../assets/img/header-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.signup-page h1 {
+  color: #fff;
+  font-family: "Barlow", sans-serif;
+  margin-top: 3rem;
+  text-transform: capitalize;
+}
+.signup-page .signup-logo {
+  align-self: flex-end;
+}
+/* signup form area */
+.signup-page .signup-main {
+  border-radius: 3rem 0 0 0;
+  background-color: #fff;
+  padding: 5rem 2rem 3rem;
+  text-align: center;
+  color: #404040;
+}
+.signup-page .signup-main h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.signup-page .signup-main .signup-form {
+  max-width: 500px;
+  width: 90%;
+  margin: 3rem auto 1.5rem;
+}
+.signup-form .input-field {
+  width: 100%;
+  display: flex;
+  position: relative;
+  border: 1px solid #707070;
+  border-radius: 4px;
+  margin: 1.8rem 0;
+}
+.input-field input {
+  width: 100%;
+  padding: 1rem 0.9rem;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background-color: transparent;
+  font-size: .7rem;
+}
+.input-field .label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0.3rem;
+  padding: 0 0.6rem;
+  background-color: #fff;
+  color: #404040;
+  transition: top 0.3s ease, left 0.3s ease, font-size 0.3s ease;
+  font-size: 0.9rem;
+}
+.input-field input:focus + .label,
+.input-field input:valid + .label {
+  top: 0%;
+  left: 1.2rem;
+  font-size: 0.7rem;
+}
+.signup-form .submit-btn {
+  background-color: #d63e39;
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: "Nunito Sans", sans-serif;
+  color: #fff;
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 4px;
+  text-transform: capitalize;
+}
+.signup-form .submit-btn:hover {
+  background-color: #a3312d;
+}
+.signup-main .remember-me {
+  text-align: left;
+  max-width: 500px;
+  width: 90%;
+  margin: 1rem auto 2rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 0.9rem;
+}
+/* checkbox styling */
+.signup-main .remember-me input {
+  margin-left: 1rem;
+} 
+/* end of checkbox styling */
+.signup-main footer {
+  font-size: 0.9rem;
+}
+.signup-main footer a {
+  color: #404040;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+.signup-main footer a:hover {
+  color:#D63E39;
+  border-color: #D63E39 ;
+}

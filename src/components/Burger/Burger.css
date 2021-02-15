@@ -1,0 +1,15 @@
+.burger {
+  display: grid;
+  gap: 5px;
+  padding: 10px;
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+.burger span {
+  background-color: black;
+  width: 25px;
+  height: 3px;
+  border-radius: 3px;
+}

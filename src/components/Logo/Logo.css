@@ -1,0 +1,18 @@
+.brand {
+  display: flex;
+  align-items: center;
+}
+.brand .brand-text {
+  font-family: "Barlow", sans-serif;
+  margin-left: 0.2rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.logo { 
+ width: 33px;
+ display: flex;
+ align-items: center;
+}
+.logo img {
+  width: 100%;
+}
