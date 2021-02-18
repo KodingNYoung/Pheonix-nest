@@ -1,7 +1,7 @@
 .home {
   padding: 2rem 0;
 }
-.home nav {
+/* .home nav {
   padding: 0 1rem;
 }
 .home nav .nav-top{
@@ -21,7 +21,7 @@
   left: 0;
   right: 0;
   z-index: -1;
-}
+} */
 .home nav .search-field {
   width: 90%;
   margin: 1.5rem auto;

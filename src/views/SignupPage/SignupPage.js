@@ -1,5 +1,5 @@
 import React from "react";
-import {Logo} from "../../components/Logo/Logo";
+import { Logo } from "../../components/Logo/Logo";
 
 // router
 import { useHistory } from "react-router-dom";
@@ -7,6 +7,10 @@ import { useHistory } from "react-router-dom";
 // css
 import "./SignupPage.css";
 
+// components
+import FormView from "../../components/FormView/FormView";
+import { Input, Button } from "../../components/FormView/Inputs";
+import {Anchor} from '../../components/Navs/Links'
 const SignupPage = () => {
   const history = useHistory();
 
@@ -16,51 +20,57 @@ const SignupPage = () => {
   };
 
   return (
-    <div className="signup-page">
-      <header>
-        <Logo className="signup-logo" />
-        <h1>Phoenix Nest</h1>
-      </header>
-      <main className="signup-main">
-        <h2>sign up</h2>
-        <form className="signup-form" onSubmit={handleUserSignup}>
-          <p>Please fill in the details requested</p>
-          <div className="input-field">
-            <input type="text" name="name" id="name" required />
-            <label htmlFor="name" className="label">
-              Full Name
-            </label>
-          </div>
-          <div className="input-field">
-            <input type="text" name="email" id="email" required />
-            <label htmlFor="email" className="label">
-              Email
-            </label>
-          </div>
-          <div className="input-field">
-            <input type="tel" name="email" id="email" required />
-            <label htmlFor="email" className="label">
-              Phone Number
-            </label>
-          </div>
-          <div className="input-field">
-            <input type="password" name="password" id="password" required />
-            <label htmlFor="password" className="label">
-              Password
-            </label>
-          </div>
-          <div className="input-field">
-            <input type="password" name="password-confirm" id="password-confirm" required />
-            <label htmlFor="password-confirm" className="label">
-              Confirm Password
-            </label>
-          </div>
-          <button type="submit" className="submit-btn">
-            sign up
-          </button>
-        </form>
-      </main>
-    </div>
+    <FormView>
+      <h2>sign up</h2>
+      <form
+        className='signup-form'
+        onSubmit={handleUserSignup}
+        autoComplete={false}
+      >
+        <p className='sub-heading'>Please fill in the details requested</p>
+        <Input
+          type='text'
+          name='fullname'
+          id='fullname'
+          required={true}
+          placeholder='fullname'
+        />
+        <Input
+          type='text'
+          name='email'
+          id='email'
+          required={true}
+          placeholder='email'
+        />
+        <Input
+          type='tel'
+          name='phone'
+          id='phone'
+          required={true}
+          placeholder='phone number'
+        />
+        <Input
+          type='password'
+          name='password'
+          id='password'
+          required={true}
+          placeholder='password'
+        />
+        <Input
+          type='password'
+          name='confirm-password'
+          id='confirm-password'
+          required={true}
+          placeholder='confirm password'
+        />
+        <p className='warning'>
+          By signing in you agree to the{" "}
+          <Anchor className='transparent-link'> Terms and conditions</Anchor> of
+          the organisation
+        </p>
+        <Button type='submit'> sign up</Button>
+      </form>
+    </FormView>
   );
 };
 

@@ -8,3 +8,12 @@
 body {
   font-family: "Nunito Sans", sans-serif;
 }
+html {
+  font-size: 10px;
+}
+
+@media screen and (min-width: 560px) {
+  .dspr-lg {
+    display: none !important;
+  }
+}
