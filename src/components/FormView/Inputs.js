@@ -1,22 +1,39 @@
-import React from 'react'
-import './FormView.css'
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
+import "./FormView.css";
 
-
-export const Input = ({type, name, id, required, placeholder}) => {
+export const Input = ({ type, name, id, required, placeholder }) => {
   return (
     <div className='input-field'>
-      <input type={type} name={name} id={id} required={required}/>
+      <input type={type} name={name} id={id} required={required} />
       <label htmlFor={id} className='label'>
         {placeholder}
       </label>
     </div>
   );
-}
+};
 
-export const Button = ({type, children}) => {
+export const Button = ({ type, children }) => {
   return (
     <button type={type} className='submit-btn'>
       {children}
     </button>
   );
-}
+};
+
+export const SearchField = () => {
+  return (
+    <form className='search-field'>
+      <input
+        type='text'
+        name='search'
+        placeholder='Search for a Pitch'
+        id='search'
+      />
+      <button>
+        <FontAwesomeIcon icon={faSearch} />
+      </button>
+    </form>
+  );
+};

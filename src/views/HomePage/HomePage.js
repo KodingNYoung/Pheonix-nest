@@ -18,29 +18,21 @@ import { ReactComponent as Fashion } from "../../assets/svg/fashion.svg";
 import { ReactComponent as Retail } from "../../assets/svg/retail.svg";
 import { ReactComponent as Technology } from "../../assets/svg/technology.svg";
 import { HomeNavbar } from "../../components/Navs/Navs";
+import { SearchField } from "../../components/FormView/Inputs";
 
 const HomePage = () => {
   return (
     <div className='home'>
       <HomeNavbar />
       <section className='hero'>
-        <form className='search-field'>
-          <input
-            type='text'
-            name='search'
-            placeholder='Search for a Pitch'
-            id='search'
-          />
-          <button>
-            <FontAwesomeIcon icon={faSearch} />
-          </button>
-        </form>
+        <SearchField />
         <img src={hero} />
         <h1>What's Holding You Back?</h1>
+
         <Anchor to='/' className='primary-link'>
           Pitch Your idea today
         </Anchor>
-        {/* <section className='industry-picthes'>
+        <section className='industry-picthes'>
           <h2>Explore Pitches in Various Inustries</h2>
           <div className='industries-grid'>
             <div className='industry'>
@@ -71,13 +63,13 @@ const HomePage = () => {
           <Anchor to='/' className='transparent-link'>
             See all
           </Anchor>
-        </section> */}
+        </section>
       </section>
 
       <section className='rated-pitches'>
         <h2>Checkout the most rated pitches</h2>
         <div className='pitches'>
-          <div className='pitch-card'>
+          <Anchor to="/pitch" className='pitch-card'>
             <div className='card-img'>
               <img src={image1} />
             </div>
@@ -88,7 +80,7 @@ const HomePage = () => {
               </span>
               <span className='pitch-owner'>-janet</span>
             </div>
-          </div>
+          </Anchor>
           <div className='pitch-card'>
             <div className='card-img'>
               <img src={image1} />

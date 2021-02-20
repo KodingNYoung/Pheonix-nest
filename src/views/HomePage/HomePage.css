@@ -1,82 +1,24 @@
-.home {
-  padding: 2rem 0;
-}
-/* .home nav {
-  padding: 0 1rem;
-}
-.home nav .nav-top{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-}
-.home nav .burger {
-  transform: scale(.9);
-}
-.home nav .nav-brand {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  z-index: -1;
-} */
-.home nav .search-field {
-  width: 90%;
-  margin: 1.5rem auto;
-  display: grid;
-  grid-template-columns: 95% 5%;
-  border-radius: 3px;
-  box-shadow: 0px 1.5px 4px #0000000F;
-  align-items: center;
-  padding: 0 1rem;
-}
-.search-field input {
-  border: none;
-  outline: none;
-  padding: .5rem 0;
-}
-.search-field input::placeholder {
-  color: #00000047;
-}
-.search-field button {
-  background-color: transparent;
-  color: #00000047;
-  border: none;
-  outline: none;
-}
 .home .hero {
-  height: 65vh;
   position: relative;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  border: 1px solid red;
 }
-.home .hero img {
-  height: 100%;
+.home img {
   width: 100%;
+}
+.home .hero > *:not(img) {
   position: absolute;
-  top: 0;
   left: 0;
-  z-index: -1;
+  z-index: 1;
+  top: 0;
 }
-.home .hero h1 {
-  font-size: 2em;
-  text-align: center;
-  width: 90%;
-  padding: 1rem;
-  line-height: 2rem;
+.home .hero .search-field {
+  position: relative;
 }
-.home .hero a.primary-link {
-  padding: .65rem;
-  font-size: .85rem;
-  font-weight: 500;
-  text-transform: capitalize;
+
+/* for the industries */
+.home .hero .industry-picthes {
+  position: relative;
 }
-/* industry pitches */
 .home .industry-picthes,
 .home .rated-pitches {
   padding: 2.5rem 1.5rem;
@@ -84,7 +26,7 @@
 }
 .industry-picthes h2,
 .rated-pitches h2 {
-  font-size: 1.2rem;
+  font-size: 1.7rem;
   width: 70%;
   text-align: left;
   text-transform: capitalize;
@@ -102,20 +44,20 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 /* rated pitches */
 .rated-pitches .pitches {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   gap: 1rem;
-  padding:1rem 0;
+  padding: 1rem 0;
 }
 .pitches .pitch-card {
   background-color: #fcd413;
   display: grid;
   grid-template-columns: 25% 75%;
-  padding: .5rem 0;
+  padding: 0.5rem 0;
   border-radius: 5px;
 }
 .pitch-card .card-img {
@@ -127,13 +69,13 @@
 }
 .pitch-card .card-text {
   display: grid;
-  padding: .6rem;
-  font-size: .65rem;
+  padding: 0.6rem;
+  font-size: 0.65rem;
   text-align: left;
 }
 .pitch-card .pitch-topic {
   font-weight: 600;
-  font-size: .85rem;
+  font-size: 0.85rem;
 }
 .pitch-card .card-text .pitch-owner {
   text-align: right;

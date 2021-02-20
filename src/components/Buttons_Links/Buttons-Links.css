@@ -1,11 +1,13 @@
-/* a.primary-link {
-  color: #000;
-  background-color: #fcd413;
-  text-decoration: none;
-  font-size: 0.8rem;
-  border-radius: 4px;
+.logout-btn {
+  background-color: transparent;
+  color: #d63e39;
+  border: 0;
+  outline: none;
+  font-weight: lighter;
+  display: flex;
+  align-items: center;
+  padding: 3rem 1rem;
 }
-a.transparent-link {
-  color: #000;
-  text-decoration: none;
-} */
+.logout-btn span {
+  padding-left: 0.3rem;
+}

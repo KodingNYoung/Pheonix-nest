@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Brand } from "../../components/Logo/Logo";
 import { Link } from "react-router-dom";
@@ -15,7 +15,7 @@ import avatar from "../../assets/img/avatar.png";
 
 export const Navbar = () => {
   return (
-    <header>
+    <header className="navbar">
       <Brand />
       <nav>
         <div className='links'>
@@ -31,17 +31,26 @@ export const Navbar = () => {
     </header>
   );
 };
+
 export const HomeNavbar = () => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const openDrawer = () => {
+    setDrawerOpen(true);
+  };
+  const closeDrawer = () => {
+    setDrawerOpen(false)
+  }
   return (
-    <header className='home-navbar'>
+    <header className='home-navbar navbar'>
       <div className='sm-screen'>
-        <Burger />
+        <Burger onClick={openDrawer} />
         <Brand />
         <NavLink to='/messages'>
           <FontAwesomeIcon icon={faComments} />
         </NavLink>
       </div>
-      <nav className="nav-links">
+      <nav className='nav-links'>
         <NavLink to='/home' active={true}>
           home
         </NavLink>
@@ -53,12 +62,12 @@ export const HomeNavbar = () => {
         <div className='avatar'>
           <img src={avatar} alt='' />
         </div>
-        <button to='' className="logout-btn">
+        <button to='' className='logout-btn'>
           <FontAwesomeIcon icon={faSignOutAlt} />
           <span>Logout</span>
         </button>
       </nav>
-      <Drawer className="side-drawer"/>
+      <Drawer className='side-drawer' open={drawerOpen} closeDrawer={closeDrawer}/>
     </header>
   );
 };

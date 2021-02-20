@@ -1,15 +1,23 @@
-.burger {
-  display: grid;
-  gap: 5px;
+button.icon-btn {
+  background-color: transparent;
   padding: 10px;
   cursor: pointer;
-  background-color: transparent;
   outline: none;
   border: none;
 }
-.burger span {
-  background-color: black;
+button.icon-btn span {
   width: 25px;
   height: 3px;
   border-radius: 3px;
+}
+.burger {
+  display: grid;
+  gap: 5px;
+}
+.burger span {
+  background-color: black;
+}
+.times {
+  color: white;
+  font-size: 1.5rem;
 }

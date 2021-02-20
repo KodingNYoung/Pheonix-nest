@@ -6,23 +6,23 @@ import LandingPage from "./views/LandingPage/LandingPage";
 import LoginPage from "./views/LoginPage/LoginPage";
 import SignupPage from "./views/SignupPage/SignupPage";
 import HomePage from "./views/HomePage/HomePage";
-import PitchPage from "./views/PitchPage";
-import ProfilePage from "./views/ProfilePage";
+import PitchPage from "./views/PitchPage/PitchPage";
+import ProfilePage from "./views/ProfilePage/ProfilePage";
 
 // css
-import "./App.css" 
+import "./App.css";
 
 const App = () => {
   return (
     <Router>
-      <div className="App">
+      <div className='App'>
         <Switch>
-          <Route exact path="/" component={() => <LandingPage />} />
-          <Route path="/login" component={() => <LoginPage />} />
-          <Route path="/signup" component={() => <SignupPage />} />
-          <Route path="/home" component={() => <HomePage />} />
-          {/* <Route path="/pitch" component={() => <PitchPage />} /> */}
-          {/* <Route path="/profile" component={() => <ProfilePage />} /> */}
+          <Route exact path='/' component={() => <LandingPage />} />
+          <Route path='/login' component={() => <LoginPage />} />
+          <Route path='/signup' component={() => <SignupPage />} />
+          <Route path='/home' component={() => <HomePage />} />
+          <Route path='/pitch' component={() => <PitchPage />} />
+          <Route path='/profile' component={() => <ProfilePage />} />
         </Switch>
       </div>
     </Router>

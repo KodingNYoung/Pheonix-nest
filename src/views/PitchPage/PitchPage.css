@@ -1,0 +1,309 @@
+.pitch-banner .banner-image {
+  height: 50vh;
+  width: 100%;
+  position: relative;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pitch-banner .banner-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+.pitch-banner .banner-image span,
+.pitch-banner .banner-image h1 {
+  position: relative;
+  top: 0;
+}
+.pitch-banner .banner-image h1 {
+  font-size: 7rem;
+  font-family: "Atomic Age", cursive;
+  margin-top: 20px;
+}
+.pitch-banner .banner-image span {
+  font-size: 1.9em;
+  font-family: "Monserrat", sans-serif;
+  font-weight: 100;
+  letter-spacing: 0.3rem;
+}
+
+/* user details */
+.pitch-page .user-details {
+  display: grid;
+  grid-template-columns: 150px auto;
+  padding-left: 4rem;
+  justify-items: center;
+  transform: translateY(-40px);
+}
+.user-details .user-avatar {
+  width: 150px;
+  height: 150px;
+}
+.user-avatar img {
+  width: 100%;
+  height: 100%;
+}
+.user-details .user-info {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 60px auto;
+  padding-top: 40px;
+}
+.user-details .user-info .details {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-height: 60px;
+  background-color: #fcd413;
+  align-items: center;
+  padding: 0 6rem 0 1.5rem;
+  color: #000;
+  text-decoration: none;
+}
+.user-info .details .name {
+  font-size: 2rem;
+  text-transform: capitalize;
+}
+.user-details .details .red-bg-link {
+  padding: 0.4rem 1.5rem;
+  text-transform: capitalize;
+  border-radius: 4px;
+}
+.user-details .details .ellipsis {
+  display: none;
+}
+.pitch-page .share {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+}
+.share .left {
+  display: flex;
+  align-items: center;
+}
+.share .left .primary-link {
+  color: #000;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-size: 1.25rem;
+  margin: 1rem;
+  padding: 0.65rem 2rem;
+}
+.share .left .red-bg-link {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.share .right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.share .right .time {
+  font-size: 0.85rem;
+}
+/* the pitch */
+.pitch-page .pitch {
+  padding: 1rem 4rem;
+  width: 100%;
+  max-width: 500px;
+}
+.pitch-page .pitch .title {
+  font-size: 3.2rem;
+  padding: 0.5rem 0;
+}
+.pitch-page .pitch .body {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+}
+/* contact */
+.pitch-page .contact {
+  width: 100%;
+  max-width: 330px;
+  padding: 2rem;
+  margin: 3rem 4rem;
+  border-bottom: 1px solid #e1e1e1;
+  border-top: 1px solid #e1e1e1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pitch-page .contact span {
+  font-size: 1.4rem;
+  font-weight: 600;
+  width: 100px;
+}
+.pitch-page .contact .primary-link {
+  font-size: 1.7rem;
+  color: #000;
+  text-decoration: none;
+  padding: 0.7rem 5rem;
+}
+/* like - dislike */
+.pitch-page .like-dislike {
+  display: flex;
+  justify-content: flex-start;
+  margin: 3rem 4rem;
+  align-items: center;
+}
+.pitch-page .like-dislike button {
+  margin-right: 2rem;
+  font-size: 1.8rem;
+  background-color: #fff;
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+}
+.pitch-page .like-dislike button span {
+  font-size: 1.3rem;
+  padding: 0.4rem;
+}
+.pitch-page .like-dislike .thumbsUp-btn.active svg {
+  color: #fcd413;
+}
+.pitch-page .like-dislike .thumbsDown-btn.active svg {
+  color: #d63e39;
+}
+/* comments */
+.pitch-page .comments-section {
+  margin: 3rem 4rem;
+  width: 100%;
+  max-width: 330px;
+}
+.pitch-page .comments-section h2 {
+  font-size: 1.9rem;
+  padding-bottom: 1.5rem;
+}
+.comments-section .comment {
+  display: grid;
+  grid-template-columns: 40px auto;
+  align-items: flex-start;
+  gap: 1rem;
+  border-bottom: 1px solid #e1e1e1;
+  padding: 1.5rem 0;
+}
+.comments-section .comment:last-child {
+  border-bottom: none;
+}
+.comment .commentor-avatar {
+  width: 100%;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.comment .commentor-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.comment .comment-detail header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+.comment-detail header h4 {
+  font-size: 1.2rem;
+}
+.comment-detail header .time {
+  font-size: 0.8rem;
+  color: #979797;
+}
+.comments-section .see-comments {
+  text-align: center;
+}
+.see-comments .transparent-link {
+  color: #000;
+  text-transform: capitalize;
+}
+/* post comment */
+.comments-section .post-comment {
+  padding: 5rem 0;
+  display: grid;
+  justify-items: center;
+}
+.post-comment input {
+  width: 100%;
+  border: none;
+  outline: none;
+  box-shadow: 1.5px 1.5px 7px #e1e1e1;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+.post-comment input::placeholder {
+  color: #e1e1e1;
+  text-transform: capitalize;
+}
+.post-comment button {
+  background-color: #d63e39;
+  color: #fff;
+  padding: 0.7rem 2.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+}
+@media screen and (max-width: 700px) {
+  .pitch-page .user-details {
+    display: grid;
+    grid-template-columns: 80px auto;
+    padding-left: 4rem;
+    padding-bottom: 50px;
+    justify-items: center;
+    transform: translateY(-10px);
+    position: relative;
+  }
+  .pitch-page .user-details .user-avatar {
+    width: 80px;
+    height: 80px;
+  }
+  .user-details .user-info {
+    padding-top: 10px;
+  }
+  .pitch-page .share {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0px;
+    padding: 0 3.1rem;
+  }
+  .pitch-page .user-details .user-info .details {
+    padding: 0 4rem 0 1.5rem;
+  }
+  .pitch-page .user-details .details .ellipsis {
+    display: block;
+  }
+  .pitch-page .user-details .details .red-bg-link {
+    display: none;
+  }
+  /* the pitch */
+  .pitch-page .pitch {
+    padding: 1rem 4rem;
+    width: 100%;
+    max-width: 500px;
+  }
+  .pitch-page .pitch .title {
+    font-size: 2.2rem;
+    border-bottom: 1px solid #e1e1e1;
+    padding: 1rem 0;
+  }
+  .pitch-page .pitch .body {
+    font-size: 1.1rem;
+    padding: 1.1rem 0;
+  }
+}

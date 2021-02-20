@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url('../../assets/img/header-bg.png');
+  background: url("../../assets/img/header-bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -54,7 +54,7 @@
   outline: none;
   border-radius: 4px;
   background-color: transparent;
-  font-size: .7rem;
+  font-size: 0.7rem;
 }
 .input-field .label {
   position: absolute;
@@ -93,3 +93,70 @@
 .submit-btn:hover {
   background-color: #a3312d;
 }
+
+.search-field {
+  width: 90%;
+  max-width: 350px;
+  margin: 1.5rem auto;
+  display: grid;
+  grid-template-columns: 95% 5%;
+  border-radius: 3px;
+  box-shadow: 0px 1.5px 4px #0000000f;
+  align-items: center;
+  padding: 0 1rem;
+  background-color: #fff;
+}
+.search-field input {
+  border: none;
+  outline: none;
+  padding: 1rem 0;
+}
+.search-field input::placeholder {
+  color: #00000047;
+}
+.search-field button {
+  background-color: transparent;
+  color: #00000047;
+  border: none;
+  outline: none;
+}
+@media screen and (min-width: 560px) {
+  .search-field button {
+    color: #d63e39;
+  }
+}
+
+/*
+.home .hero {
+  height: 65vh;
+  position: relative;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.home .hero img {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.home .hero h1 {
+  font-size: 2em;
+  text-align: center;
+  width: 90%;
+  padding: 1rem;
+  line-height: 2rem;
+  position: absolute;
+}
+.home .hero a.primary-link {
+  padding: 0.65rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+ industry pitches 
+ */
