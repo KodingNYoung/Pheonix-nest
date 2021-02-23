@@ -7,7 +7,13 @@ import "./ProfilePage.css";
 
 import avatar from "../../assets/img/avatar2.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEllipsisH, faShareAlt } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEnvelope,
+  faMapMarkerAlt,
+  faPhoneAlt,
+} from "@fortawesome/free-solid-svg-icons";
+import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+import Footer from "../../components/Footer/Footer";
 
 const ProfilePage = () => {
   return (
@@ -31,12 +37,6 @@ const ProfilePage = () => {
               <span className='position'>
                 Farm manager at Agrocreate Farms, Nigeria
               </span>
-              <a
-                href='https://www.linkedin.com'
-                className='linkedin transparent-link'
-              >
-                linkedin.com
-              </a>
             </div>
             <Anchor to='/pitch' className='red-bg-link sm-screen-dspr'>
               View pitch
@@ -72,13 +72,52 @@ const ProfilePage = () => {
             elit.
           </p>
         </div>
-        <div className='contact'>
+        <div className='contacts'>
           <h2 className='title'>User info</h2>
           <div className='body'>
-            
+            <div className='contact-item'>
+              <div className='contact-icon'>
+                <FontAwesomeIcon icon={faMapMarkerAlt} />
+              </div>
+              <div className='contact-details'>
+                <span className='contact-title'>Location</span>
+                <span className='contact-value'>Lagos, Nigeria</span>
+              </div>
+            </div>
+            <div className='contact-item'>
+              <div className='contact-icon'>
+                <FontAwesomeIcon icon={faPhoneAlt} />
+              </div>
+              <div className='contact-details'>
+                <span className='contact-title'>Phone</span>
+                <span className='contact-value'>08105234564</span>
+              </div>
+            </div>
+            <div className='contact-item'>
+              <div className='contact-icon'>
+                <FontAwesomeIcon icon={faEnvelope} />
+              </div>
+              <div className='contact-details'>
+                <span className='contact-title'>Email</span>
+                <span className='contact-value'>
+                  janetakingbade2012@gmail.com
+                </span>
+              </div>
+            </div>
+            <div className='contact-item'>
+              <div className='contact-icon'>
+                <FontAwesomeIcon icon={faLinkedinIn} />
+              </div>
+              <div className='contact-details'>
+                <span className='contact-title'>Linkedin Profile</span>
+
+                <span className='contact-value'>linkedin.com</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      <Footer />
     </section>
   );
 };

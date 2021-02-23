@@ -1,6 +1,7 @@
 /* login page */
 .form-page {
   background-color: #d63e39;
+  min-height: 100vh;
 }
 .form-page header {
   padding: 2rem 1.5rem;
@@ -125,38 +126,33 @@
     color: #d63e39;
   }
 }
-
-/*
-.home .hero {
-  height: 65vh;
-  position: relative;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+@media screen and (min-width: 700px) {
+  .form-page {
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    background: url("../../assets/img/header-bg.png"), #d63e39;
+    align-content: center;
+    align-items: start;
+    justify-items: center;
+  }
+  .form-page header {
+    background: none;
+    display: flex;
+    width: 100%;
+    text-align: center;
+    min-height: fit-content;
+    align-items: flex-start;
+  }
+  .form-page header .form-logo {
+    position: relative;
+    top: 0;
+    right: 0;
+    align-self: unset;
+  }
+  .form-page main.form-main {
+    max-width: 500px;
+    border-radius: 3rem 0.5rem 0.5rem 0.5rem;
+    width: 100%;
+  }
 }
-.home .hero img {
-  height: 100%;
-  width: 100%;
-  position: relative;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-.home .hero h1 {
-  font-size: 2em;
-  text-align: center;
-  width: 90%;
-  padding: 1rem;
-  line-height: 2rem;
-  position: absolute;
-}
-.home .hero a.primary-link {
-  padding: 0.65rem;
-  font-size: 0.85rem;
-  font-weight: 500;
-  text-transform: capitalize;
-}
- industry pitches 
- */

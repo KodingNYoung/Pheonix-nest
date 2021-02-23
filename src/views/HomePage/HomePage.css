@@ -1,83 +1,266 @@
-.home .hero {
-  position: relative;
-  border: 1px solid red;
+.home .hero .sm-screen-disp {
+  display: none;
 }
-.home img {
-  width: 100%;
+.home .hero .lg-screen-disp {
+  background-image: url("../../assets/img/home-hero.png");
+  background-position: center;
+  background-repeat: none;
+  background-size: cover;
+  padding: 4rem 6rem;
+  color: #fff;
+  display: grid;
 }
-.home .hero > *:not(img) {
-  position: absolute;
-  left: 0;
-  z-index: 1;
-  top: 0;
+.home .lg-screen-disp .container {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
 }
-.home .hero .search-field {
-  position: relative;
+.home .lg-screen-disp h1.heading {
+  display: grid;
+  justify-items: center;
+  font-size: 2.5rem;
 }
-
-/* for the industries */
-.home .hero .industry-picthes {
-  position: relative;
-}
-.home .industry-picthes,
-.home .rated-pitches {
-  padding: 2.5rem 1.5rem;
+/* slide show region */
+.home .industry-slide {
+  padding: 2rem 0;
   text-align: center;
 }
-.industry-picthes h2,
-.rated-pitches h2 {
-  font-size: 1.7rem;
-  width: 70%;
-  text-align: left;
-  text-transform: capitalize;
+.home .industry-slide .slide-show {
+  display: flex;
+  align-items: center;
+  margin: 1rem;
 }
-.industry-picthes .industries-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  padding: 1rem 0;
-  gap: 1rem;
+.home .slide-show .control-btn {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  color: #d63e39;
+  font-weight: lighter;
 }
-.industries-grid .industry {
+.home .slide-show .slide-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+}
+/* style for the industry cards */
+.industry-card {
   background-color: #fcd413;
-  height: 150px;
+  margin: 0.5rem;
+  padding: 2rem;
+  text-align: center;
+  width: 80px;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-size: 0.8rem;
+  border-radius: 2px;
 }
-/* rated pitches */
-.rated-pitches .pitches {
+.industry-card .industry-icon {
+  width: 20px;
+  height: 20px;
+  margin: 0.5rem auto;
+}
+.industry-card .industry-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.industry-card .industry-name {
+  color: #000;
+  text-transform: capitalize;
+}
+/* end of style for the industry card */
+.industry-slide .nav-link {
+  font-size: 1rem;
+  color: #fff;
+  text-decoration: none;
+}
+/* end of slide show region */
+
+/* message icon */
+.home .hero .message-icon {
+  color: #000;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  text-transform: capitalize;
+  justify-self: end;
+}
+.home .hero .message-icon svg {
+  color: #d63e39;
+  font-size: 1.4rem;
+}
+.home .hero .message-icon span {
+  padding-left: 0.5rem;
+}
+/* pitch cards */
+.home .rated-pitches {
+  padding: 2.5rem 3rem;
+}
+.home .rated-pitches h2{
+  font-size: 2.5rem;
+  width: 70%;
+  padding-bottom: 2rem; 
+}
+.home .rated-pitches .pitch-card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  gap: 1rem;
-  padding: 1rem 0;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  column-gap: 1rem;
+  row-gap: 2rem;
 }
-.pitches .pitch-card {
+.rated-pitches .pitch-card-grid .pitch-card {
   background-color: #fcd413;
-  display: grid;
-  grid-template-columns: 25% 75%;
-  padding: 0.5rem 0;
-  border-radius: 5px;
+  display: flex;
+  padding: .4rem;
+  border-radius: 4px;
+  max-width: 400px;
 }
-.pitch-card .card-img {
-  border-radius: 0 5px 5px 0;
+.pitch-card .img-container {
+  width: 90px;
+  height: 70px;
+  border-radius: 4px;
   overflow: hidden;
 }
-.pitch-card .card-img {
+.pitch-card .img-container img {
   width: 100%;
+  height: 100%;
 }
-.pitch-card .card-text {
+.pitch-card .pitch-details {
   display: grid;
-  padding: 0.6rem;
-  font-size: 0.65rem;
-  text-align: left;
+  padding: 0 1rem;
+  gap: .3rem;
 }
-.pitch-card .pitch-topic {
+.pitch-card .pitch-details .thumbs{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.pitch-details .thumbs svg{
+  color: #d63e39;
+  font-size: 1.2rem;
+}
+.pitch-details .thumbs span{
+  padding-left: .3rem;
+}
+.pitch-details .pitch-title {
+  font-size: 1.15rem;
   font-weight: 600;
-  font-size: 0.85rem;
 }
-.pitch-card .card-text .pitch-owner {
-  text-align: right;
+.pitch-details .pitch-owner {
+  justify-self: end;
   text-transform: capitalize;
+}
+@media screen and (max-width: 700px) {
+  .home .hero .lg-screen-disp {
+    display: none;
+  }
+  .home .hero .sm-screen-disp {
+    display: grid;
+  }
+  .home .hero .sm-screen-disp .search-field {
+    max-width: 80%;
+  }
+  .home .hero .hero-carousel {
+    position: relative;
+    height: 70vh;
+  }
+  .home .hero-carousel .carousel-slide {
+    position: absolute;
+    height: 100%;
+  }
+  .hero-carousel .carousel-slide .slide-item {
+    height: 100%;
+    position: relative;
+  }
+  .hero-carousel .slide-item .img-container {
+    height: 100%;
+  }
+  .hero-carousel .img-container img {
+    width: 100%;
+    height: 100%;
+  }
+  .hero-carousel .slide-item .carousel-text {
+    position: absolute;
+    color: #fff;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-carousel .carousel-text h2 {
+    width: 70%;
+    font-size: 3rem;
+  }
+  .hero-carousel .carousel-text .nav-link {
+    color: #000;
+    padding: 1rem 1.7rem;
+    margin: 0.5rem 0;
+    text-transform: capitalize;
+    font-weight: lighter;
+    font-size: 1.2rem;
+  }
+  .home .hero-carousel .carousel-indicators {
+    position: absolute;
+    bottom: 1rem;
+    z-index: 3;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .carousel-indicators .indicator {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #b1b1b1;
+    margin: 0.1rem;
+  }
+  .carousel-indicators .indicator.active {
+    background-color: #fff;
+  }
+  /* industry pitches */
+  .hero .sm-screen-disp .industry-pitches {
+    padding: 5rem 3rem;
+    text-align: center;
+  }
+  .industry-pitches h2 {
+    width: 70%;
+    font-size: 1.8rem;
+    text-align: left;
+  }
+  .industry-pitches .pitches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  .industry-pitches .pitches-grid .industry-card {
+    width: 100%;
+    height: 130px;
+    margin: 0;
+  }
+  .industry-card .industry-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .industry-pitches .transparent-link {
+    color: black;
+    text-transform: capitalize;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
 }

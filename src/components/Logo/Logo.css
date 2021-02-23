@@ -8,11 +8,12 @@
   font-size: 1.6em;
   font-weight: 500;
 }
-.logo { 
- width: 33px;
- display: flex;
- align-items: center;
+.logo {
+  width: 33px;
+  display: flex;
+  align-items: center;
 }
 .logo img {
   width: 100%;
+  height: auto;
 }
