@@ -1,9 +1,17 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import FormView from "../../components/FormView/FormView";
 import { Input, Button } from "../../components/FormView/Inputs";
 
 import "./ResetPassword.css";
 const ResetPassword = () => {
+  const history = useHistory();
+
+  const handlePasswordReset = () => {
+    // validate then use history.psuh
+    history.push("/login");
+  };
+
   return (
     <div className='reset-password'>
       <FormView>
@@ -12,7 +20,7 @@ const ResetPassword = () => {
             <h2>Reset Password</h2>
             <span>Enter a new password to continue</span>
           </div>
-          <form>
+          <form onSubmit={handlePasswordReset}>
             <Input
               type='password'
               name='password'

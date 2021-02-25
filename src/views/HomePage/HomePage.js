@@ -11,7 +11,7 @@ import {
   faSearch,
   faThumbsUp,
 } from "@fortawesome/free-solid-svg-icons";
-import { Anchor } from "../../components/Buttons_Links/Links";
+import { Anchor } from "../../components/Navs/Links";
 
 // css
 import "./HomePage.css";
@@ -129,7 +129,7 @@ const IndustryCard = ({ name, icon }) => {
 };
 const PitchCard = ({}) => {
   return (
-    <div className='pitch-card'>
+    <Anchor to="/pitch" className='pitch-card'>
       <div className='img-container'>
         <img src={image1} />
       </div>
@@ -145,7 +145,7 @@ const PitchCard = ({}) => {
           - <span className='name'>janet</span>
         </span>
       </div>
-    </div>
+    </Anchor>
   );
 };
 export default HomePage;

@@ -16,7 +16,7 @@ const SignupPage = () => {
 
   const handleUserSignup = () => {
     // validaete then use history.psuh
-    history.push("/home");
+    history.push("/signup/welcome");
   };
 
   return (

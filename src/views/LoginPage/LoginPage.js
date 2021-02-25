@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 // component
 import FormView from "../../components/FormView/FormView";
 import { Input, Button } from "../../components/FormView/Inputs";
+import { Anchor } from "../../components/Navs/Links";
 
 // css
 import "./LoginPage.css";
@@ -14,7 +15,7 @@ const LoginPage = () => {
   const history = useHistory();
 
   const handleUserLogin = () => {
-    // validaete then use history.psuh
+    // validate then use history.psuh
     history.push("/home");
   };
 
@@ -46,10 +47,10 @@ const LoginPage = () => {
         <footer>
           <div className='signup-text'>
             <span>
-              Don't have an account? <a href='#'>sign up</a>
+              Don't have an account? <Anchor to="/signup">sign up</Anchor>
             </span>
           </div>
-          <a href='#'>forgot password?</a>
+          <Anchor to="../recover-password">forgot password?</Anchor>
         </footer>
       </div>
     </FormView>

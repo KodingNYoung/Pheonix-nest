@@ -37,7 +37,7 @@ const SuccessfulSignup = () => {
             your profile to make your pitch and find people to help
           </span>
         </div>
-        <Anchor className='red-bg-link'>proceed</Anchor>
+        <Anchor className='red-bg-link' to="../home">proceed</Anchor>
       </div>
     </div>
   );
