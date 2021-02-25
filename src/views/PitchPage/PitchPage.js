@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import { HomeNavbar } from "../../components/Navs/Navs";
 import { Anchor } from "../../components/Navs/Links";
-import banner_image from "../../assets/img/pitch-banner.png";
-
-import "./PitchPage.css";
-
-import avatar from "../../assets/img/avatar2.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEllipsisH,
@@ -14,7 +9,12 @@ import {
   faThumbsDown,
   faThumbsUp,
 } from "@fortawesome/free-solid-svg-icons";
+import Footer from "../../components/Footer/Footer"
 
+import banner_image from "../../assets/img/pitch-banner.png";
+import avatar from "../../assets/img/avatar2.png";
+
+import "./PitchPage.css";
 const PitchPage = () => {
   const [like, setLike] = useState(false);
   const [dislike, setDislike] = useState(false);
@@ -192,6 +192,7 @@ const PitchPage = () => {
           <button>Post comment</button>
         </form>
       </div>
+      <Footer />
     </section>
   );
 };

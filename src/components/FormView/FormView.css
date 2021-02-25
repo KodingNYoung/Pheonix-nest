@@ -1,6 +1,7 @@
 /* login page */
 .form-page {
   background-color: #d63e39;
+  min-height: 100vh;
 }
 .form-page header {
   padding: 2rem 1.5rem;
@@ -49,30 +50,31 @@
 }
 .input-field input {
   width: 100%;
-  padding: 1rem 0.9rem;
+  padding: 1.5rem 1.5rem;
   border: none;
   outline: none;
   border-radius: 4px;
   background-color: transparent;
   font-size: 0.7rem;
+  font-size: 1.3rem;
 }
 .input-field .label {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 0.3rem;
+  left: 0.8rem;
   padding: 0 0.6rem;
   background-color: #fff;
   color: #404040;
   transition: top 0.3s ease, left 0.3s ease, font-size 0.3s ease;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   text-transform: capitalize;
 }
 .input-field input:focus + .label,
 .input-field input:valid + .label {
   top: 0%;
   left: 1.2rem;
-  font-size: 0.7rem;
+  font-size: 1rem;
 }
 
 /* buttons */
@@ -85,7 +87,7 @@
   border: none;
   outline: none;
   width: 100%;
-  padding: 0.8rem;
+  padding: 1.2rem;
   border-radius: 4px;
   text-transform: capitalize;
   margin-top: 1rem;
@@ -125,38 +127,34 @@
     color: #d63e39;
   }
 }
-
-/*
-.home .hero {
-  height: 65vh;
-  position: relative;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+@media screen and (min-width: 700px) {
+  .form-page {
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    background: url("../../assets/img/header-bg.png"), #d63e39;
+    align-content: center;
+    align-items: start;
+    justify-items: center;
+  }
+  .form-page header {
+    background: none;
+    display: flex;
+    width: 100%;
+    text-align: center;
+    min-height: fit-content;
+    align-items: flex-start;
+  }
+  .form-page header .form-logo {
+    position: relative;
+    top: 0;
+    right: 0;
+    align-self: unset;
+  }
+  .form-page main.form-main {
+    max-width: 500px;
+    border-radius: 3rem 0.5rem 0.5rem 0.5rem;
+    width: 100%;
+    min-height: 35vw;
+  }
 }
-.home .hero img {
-  height: 100%;
-  width: 100%;
-  position: relative;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-.home .hero h1 {
-  font-size: 2em;
-  text-align: center;
-  width: 90%;
-  padding: 1rem;
-  line-height: 2rem;
-  position: absolute;
-}
-.home .hero a.primary-link {
-  padding: 0.65rem;
-  font-size: 0.85rem;
-  font-weight: 500;
-  text-transform: capitalize;
-}
- industry pitches 
- */

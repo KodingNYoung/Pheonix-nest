@@ -37,7 +37,7 @@
 .profile-page .user-details {
   display: grid;
   grid-template-columns: 150px auto;
-  padding-left: 4rem;
+  padding-left: 3rem;
   transform: translateY(-40px);
 }
 .user-details .user-avatar {
@@ -96,7 +96,7 @@
   text-decoration: none;
   text-transform: capitalize;
   font-size: 1.25rem;
-  margin: 1rem;
+  margin-right: 1rem;
   padding: 0.65rem 2rem;
 }
 .share .left .transparent-btn {
@@ -124,10 +124,29 @@
   line-height: 1.6rem;
 }
 
+/* contact items */
+.profile-page .contacts .contact-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.contact-item .contact-icon {
+  font-size: 1.3rem;
+}
+.contact-item .contact-details {
+  display: grid;
+  padding-left: 1.5rem;
+  font-size: 1rem;
+}
+.contact-details .contact-value {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
 @media screen and (max-width: 700px) {
   .profile-page .user-details {
     grid-template-columns: 1fr;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
     justify-items: start;
     transform: translateY(-40px);
     position: relative;
@@ -139,7 +158,7 @@
   .user-details .user-info {
     padding-top: 10px;
   }
-  .user-details .user-info .details {
+  .profile-page .user-details .user-info .details {
     background-color: #fff;
   }
   .user-info .details .col1 .name {
@@ -149,11 +168,11 @@
     position: absolute;
     width: 100%;
     left: 0;
-    bottom: 0px;
-    padding: 0 3.1rem;
+    bottom: 0;
+    padding: 0 3rem;
   }
   .user-details .user-info .details {
-    padding: 0 4rem 0 1.5rem;
+    padding: 0 2.5rem 0 .5rem;
   }
   .user-details .details .red-bg-link {
     background-color: #fcd413;
@@ -161,17 +180,17 @@
   }
   /* the profile */
   .profile-page .profile {
-    padding: 1rem 4rem;
+    padding: 0rem 2.5rem;
     width: 100%;
     max-width: 500px;
     grid-template-columns: 1fr;
   }
   .profile-page .profile .title {
     font-size: 1.5rem;
-    padding-bottom: .7rem 0;
+    padding-bottom: 0;
   }
   .profile-page .profile .body {
     font-size: 1.1rem;
-    padding: 1.1rem 0;
+    padding: 1rem 0;
   }
 }

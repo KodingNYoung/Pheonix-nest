@@ -1,0 +1,49 @@
+.successful-signup .lg-screen-disp main,
+.successful-signup .sm-screen-disp {
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  padding: 3rem;
+  justify-items: center;
+  justify-content: center;
+}
+.successful-signup h2 {
+  color: #d63e39;
+}
+.successful-signup .svg-container {
+  max-width: 250px;
+  width: 80%;
+  margin: 1.5rem 0;
+}
+.successful-signup .svg-container svg {
+  width: 100%;
+  height: 80%;
+}
+.successful-signup .svg-container span {
+  height: 20%;
+}
+.successful-signup a.red-bg-link {
+  display: block;
+  width: 100%;
+  margin-top:1rem; 
+  padding: 1rem;
+  border-radius: 4px;
+  font-size: 1.3rem;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.successful-signup .sm-screen-disp {
+  display: none;
+}
+
+@media screen and (max-width: 700px) {
+  .successful-signup .lg-screen-disp {
+    display: none;
+  }
+  .successful-signup .sm-screen-disp {
+    display: grid;
+    text-align: center;
+    align-content: space-around;
+    height: 100vh;
+  }
+}

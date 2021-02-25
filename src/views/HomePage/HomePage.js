@@ -4,8 +4,14 @@ import React from "react";
 import { Burger } from "../../components/Burger/Burger";
 import { Brand } from "../../components/Logo/Logo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { Anchor } from "../../components/Buttons_Links/Links";
+import {
+  faChevronLeft,
+  faChevronRight,
+  faComments,
+  faSearch,
+  faThumbsUp,
+} from "@fortawesome/free-solid-svg-icons";
+import { Anchor } from "../../components/Navs/Links";
 
 // css
 import "./HomePage.css";
@@ -19,120 +25,127 @@ import { ReactComponent as Retail } from "../../assets/svg/retail.svg";
 import { ReactComponent as Technology } from "../../assets/svg/technology.svg";
 import { HomeNavbar } from "../../components/Navs/Navs";
 import { SearchField } from "../../components/FormView/Inputs";
+import { NavLink } from "../../components/Navs/NavLinks";
+import Footer from "../../components/Footer/Footer";
 
 const HomePage = () => {
   return (
     <div className='home'>
       <HomeNavbar />
-      <section className='hero'>
-        <SearchField />
-        <img src={hero} />
-        <h1>What's Holding You Back?</h1>
-
-        <Anchor to='/' className='primary-link'>
-          Pitch Your idea today
-        </Anchor>
-        <section className='industry-picthes'>
-          <h2>Explore Pitches in Various Inustries</h2>
-          <div className='industries-grid'>
-            <div className='industry'>
-              <div className='industry-img'>
-                <Agriculture />
+      <div className='hero'>
+        <div className='lg-screen-disp'>
+          <div className='container'>
+            <h1 className='heading'>
+              <span>Don't give up on your dreams.</span>
+              <span>Chase it till it happens.</span>
+            </h1>
+            <SearchField />
+            <div className='industry-slide'>
+              <div className='slide-show'>
+                <button className='left-control-btn control-btn'>
+                  <FontAwesomeIcon icon={faChevronLeft} />
+                </button>
+                <div className='slide-container'>
+                  <IndustryCard name='agriculture' icon={<Agriculture />} />
+                  <IndustryCard name='technology' icon={<Technology />} />
+                  <IndustryCard name='fashion' icon={<Fashion />} />
+                  <IndustryCard name='retail' icon={<Retail />} />
+                </div>
+                <button className='right-control-btn control-btn'>
+                  <FontAwesomeIcon icon={faChevronRight} />
+                </button>
               </div>
-              <span>Agriculture</span>
-            </div>
-            <div className='industry'>
-              <div className='industry-img'>
-                <Technology />
-              </div>
-              <span>Technology</span>
-            </div>
-            <div className='industry'>
-              <div className='industry-img'>
-                <Fashion />
-              </div>
-              <span>Fashion</span>
-            </div>
-            <div className='industry'>
-              <div className='industry-img'>
-                <Retail />
-              </div>
-              <span>Retail</span>
+              <NavLink>Explore more industries</NavLink>
             </div>
           </div>
-          <Anchor to='/' className='transparent-link'>
-            See all
-          </Anchor>
-        </section>
-      </section>
-
-      <section className='rated-pitches'>
-        <h2>Checkout the most rated pitches</h2>
-        <div className='pitches'>
-          <Anchor to="/pitch" className='pitch-card'>
-            <div className='card-img'>
-              <img src={image1} />
+          <NavLink to='/messages' className='message-icon'>
+            <FontAwesomeIcon icon={faComments} />
+            <span>messages</span>
+          </NavLink>
+        </div>
+        <div className='sm-screen-disp'>
+          <SearchField />
+          <div className='hero-carousel'>
+            <div className='carousel-slide'>
+              <div className='slide-item'>
+                <div className='img-container'>
+                  <img src={hero} />
+                </div>
+                <div className='carousel-text'>
+                  <h2>What's Holding You Back?</h2>
+                  <NavLink to='/' className='primary-link'>
+                    Pitch your idea today
+                  </NavLink>
+                </div>
+              </div>
             </div>
-            <div className='card-text'>
-              <span className='clap-count'>253</span>
-              <span className='pitch-topic'>
-                Vertical farming landscape to minimise land space use
-              </span>
-              <span className='pitch-owner'>-janet</span>
-            </div>
-          </Anchor>
-          <div className='pitch-card'>
-            <div className='card-img'>
-              <img src={image1} />
-            </div>
-            <div className='card-text'>
-              <span className='clap-count'>253</span>
-              <span className='pitch-topic'>
-                Vertical farming landscape to minimise land space use
-              </span>
-              <span className='pitch-owner'>-janet</span>
+            <div className='carousel-indicators'>
+              <span className='indicator'></span>
+              <span className='indicator'></span>
+              <span className='indicator'></span>
+              <span className='indicator active'></span>
+              <span className='indicator'></span>
             </div>
           </div>
-          <div className='pitch-card'>
-            <div className='card-img'>
-              <img src={image1} />
+          <div className='industry-pitches'>
+            <h2>Explore Pitches in Various Industries</h2>
+            <div className='pitches-grid'>
+              <IndustryCard icon={<Agriculture />} name='agriculture' />
+              <IndustryCard icon={<Technology />} name='technology' />
+              <IndustryCard icon={<Fashion />} name='fashion' />
+              <IndustryCard icon={<Retail />} name='retail' />
             </div>
-            <div className='card-text'>
-              <span className='clap-count'>253</span>
-              <span className='pitch-topic'>
-                Vertical farming landscape to minimise land space use
-              </span>
-              <span className='pitch-owner'>-janet</span>
-            </div>
-          </div>
-          <div className='pitch-card'>
-            <div className='card-img'>
-              <img src={image1} />
-            </div>
-            <div className='card-text'>
-              <span className='clap-count'>253</span>
-              <span className='pitch-topic'>
-                Vertical farming landscape to minimise land space use
-              </span>
-              <span className='pitch-owner'>-janet</span>
-            </div>
-          </div>
-          <div className='pitch-card'>
-            <div className='card-img'>
-              <img src={image1} />
-            </div>
-            <div className='card-text'>
-              <span className='clap-count'>253</span>
-              <span className='pitch-topic'>
-                Vertical farming landscape to minimise land space use
-              </span>
-              <span className='pitch-owner'>-janet</span>
-            </div>
+            <NavLink to='' className='transparent-link'>
+              see all
+            </NavLink>
           </div>
         </div>
-      </section>
+      </div>
+      <div className='rated-pitches'>
+        <h2>Check out the Most Rated Pitches</h2>
+        <div className='pitch-card-grid'>
+          <PitchCard />
+          <PitchCard />
+          <PitchCard />
+          <PitchCard />
+          <PitchCard />
+          <PitchCard />
+          <PitchCard />
+          <PitchCard />
+          <PitchCard />
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 };
-
+const IndustryCard = ({ name, icon }) => {
+  return (
+    <div className='industry-card'>
+      <div className='industry-icon'>{icon}</div>
+      <span className='industry-name'>{name}</span>
+    </div>
+  );
+};
+const PitchCard = ({}) => {
+  return (
+    <Anchor to="/pitch" className='pitch-card'>
+      <div className='img-container'>
+        <img src={image1} />
+      </div>
+      <div className='pitch-details'>
+        <div className='thumbs'>
+          <FontAwesomeIcon icon={faThumbsUp} />
+          <span>245</span>
+        </div>
+        <p className='pitch-title'>
+          Vertical farming landscape to minimise land space use
+        </p>
+        <span className='pitch-owner'>
+          - <span className='name'>janet</span>
+        </span>
+      </div>
+    </Anchor>
+  );
+};
 export default HomePage;

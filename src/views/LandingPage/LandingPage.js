@@ -21,6 +21,7 @@ import contact from "../../assets/img/Welcome/contact.png";
 import deal from "../../assets/img/Welcome/deal.png";
 import avatar1 from "../../assets/img/Welcome/avatar1.png";
 import avatar2 from "../../assets/img/Welcome/avatar2.png";
+import Footer from "../../components/Footer/Footer";
 
 const LandingPage = () => {
   return (
@@ -151,6 +152,7 @@ const LandingPage = () => {
           </div>
         </section>
       </main>
+      <Footer />
     </div>
   );
 };
