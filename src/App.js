@@ -8,9 +8,12 @@ import SignupPage from "./views/SignupPage/SignupPage";
 import HomePage from "./views/HomePage/HomePage";
 import PitchPage from "./views/PitchPage/PitchPage";
 import ProfilePage from "./views/ProfilePage/ProfilePage";
+import SuccessfulSignup from "./views/SuccessfulSignup/SuccessfulSignup";
 
 // css
 import "./App.css";
+import RecoverPassword from "./views/RecoverPassword/RecoverPassword";
+import ResetPassword from "./views/ResetPassword/ResetPassword";
 
 const App = () => {
   return (
@@ -18,8 +21,23 @@ const App = () => {
       <div className='App'>
         <Switch>
           <Route exact path='/' component={() => <LandingPage />} />
-          <Route path='/login' component={() => <LoginPage />} />
-          <Route path='/signup' component={() => <SignupPage />} />
+          <Route exact path='/login' component={() => <LoginPage />} />
+          <Route
+            exact
+            path='/recover-password'
+            component={() => <RecoverPassword />}
+          />
+          <Route
+            exact
+            path='/reset-password'
+            component={() => <ResetPassword />}
+          />
+          <Route exact path='/signup' component={() => <SignupPage />} />
+          <Route
+            exact
+            path='/signup/welcome'
+            component={() => <SuccessfulSignup />}
+          />
           <Route path='/home' component={() => <HomePage />} />
           <Route path='/pitch' component={() => <PitchPage />} />
           <Route path='/profile' component={() => <ProfilePage />} />

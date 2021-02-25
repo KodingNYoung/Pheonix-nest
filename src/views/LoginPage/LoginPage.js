@@ -37,7 +37,7 @@ const LoginPage = () => {
             required={true}
             placeholder='password'
           />
-          <Button type='submit'>Sign in</Button>
+          <Button type='submit'>login</Button>
         </form>
         <div className='remember-me'>
           <span>Remember me next time</span>
