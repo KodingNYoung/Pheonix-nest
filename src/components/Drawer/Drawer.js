@@ -11,7 +11,7 @@ import { LogoutBtn } from "../Buttons_Links/Buttons";
 
 const Drawer = ({ className, open, closeDrawer }) => {
   const drawerStyle = {
-    left: open ? "0" : "-100%",
+    left: open ? "0" : "-100vw",
   };
   return (
     <div className='drawer' style={drawerStyle}>

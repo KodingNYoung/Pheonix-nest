@@ -55,7 +55,7 @@ const HomePage = () => {
                   <FontAwesomeIcon icon={faChevronRight} />
                 </button>
               </div>
-              <NavLink>Explore more industries</NavLink>
+              <NavLink to="">Explore more industries</NavLink>
             </div>
           </div>
           <NavLink to='/messages' className='message-icon'>
