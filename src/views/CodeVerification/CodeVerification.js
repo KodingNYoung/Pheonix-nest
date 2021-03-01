@@ -1,37 +1,58 @@
-import React from "react";
-import FormView from "../../components/FormView/FormView";
-import { Input, Button } from "../../components/FormView/Inputs";
-import { Anchor } from "../../components/Navs/Links";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState } from "react";
+import { useAuthContext } from "../../context/AuthContext";
 
-import "./CodeVerification.css";
 import { useHistory } from "react-router-dom";
 
-const CodeVerification = () => {
-  const history = useHistory();
+//
+import FormView from "../../components/FormView/FormView";
+import { Input, Button } from "../../components/FormView/Inputs";
 
-  const handleCodeVerification = () => {
+import "./CodeVerification.css";
+
+const CodeVerification = ({ email }) => {
+  const [token, setToken] = useState("");
+
+  // other hooks
+  const history = useHistory();
+  const { verifyToken } = useAuthContext();
+
+  const handleTokenVerification = (e) => {
+    e.preventDefault();
     // validate then use history.psuh
-    history.push("/signup/welcome");
+    verifyToken(email, token);
+    history.push("/reset-password");
   };
 
+  const handleTextChange = (e) => {
+    const { value } = e.target;
+    const number = Number(value)
+    
+    if (Number.isInteger(number) ) {
+      setToken(value);
+    }else {
+      console.log(' not a number')
+    }
+  };
   return (
     <div className='code-verification'>
       <FormView>
         <div className='container'>
           <div className='heading'>
             <h2>Email verification</h2>
-            <span>please, enter the code we sent to your email.</span>
+            <span>please, enter the 4 digit code we sent to your email.</span>
           </div>
-          <form onSubmit={handleCodeVerification}>
+          <form onSubmit={handleTokenVerification}>
             <Input
               type='text'
-              name='verification-code'
-              id='verification-code'
+              name='token'
+              id='token'
               required={true}
-              placeholder='verification code'
-              inputFuncs={{ maxLength: "4" }}
+              placeholder='verification token'
+              inputFuncs={{
+                maxLength: "4",
+                onChange: handleTextChange,
+                value: token,
+              }}
             />
             <Button type='submit'>Verify code</Button>
           </form>

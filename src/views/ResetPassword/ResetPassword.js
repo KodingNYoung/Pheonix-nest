@@ -1,15 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
+import { useAuthContext } from "../../context/AuthContext";
+
 import { useHistory } from "react-router-dom";
 import FormView from "../../components/FormView/FormView";
 import { Input, Button } from "../../components/FormView/Inputs";
 
 import "./ResetPassword.css";
+
 const ResetPassword = () => {
+  // states
+  const [passwords, setPasswords] = useState({
+    password: "",
+    repassword: "",
+  });
+  const [error, setError] = useState(null);
+
+  // other hooks
   const history = useHistory();
 
-  const handlePasswordReset = () => {
-    // validate then use history.psuh
+  const handlePasswordReset = (e) => {
+    e.preventDefault();
+    const {password, repassword} = passwords;
+
+    // validate then use history.push
+    if (password !== repassword) {
+      setError("Passwords don't  match.");
+      return false;
+    }
+
     history.push("/login");
+  };
+
+  const handleTextChange = (e) => {
+    const { name, value } = e.target;
+
+    setPasswords({ ...passwords, [name]: value });
   };
 
   return (
@@ -24,16 +49,24 @@ const ResetPassword = () => {
             <Input
               type='password'
               name='password'
-              id='new-password'
+              id='password'
               required={true}
               placeholder='New password'
+              inputFuncs={{
+                onChange: handleTextChange,
+                value: passwords.password,
+              }}
             />
             <Input
               type='password'
-              name='password'
-              id='confirm-password'
+              name='repassword'
+              id='repassword'
               required={true}
               placeholder='confirm password'
+              inputFuncs={{
+                onChange: handleTextChange,
+                value: passwords.repassword,
+              }}
             />
             <Button type='submit'>Change password</Button>
           </form>

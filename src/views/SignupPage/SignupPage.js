@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useAuthcontext, useAuthContext } from "../../context/AuthContext";
+import { useAuthContext } from "../../context/AuthContext";
 
 // router
 import { useHistory } from "react-router-dom";
@@ -25,9 +25,7 @@ const SignupPage = () => {
 
   // other hooks
   const history = useHistory();
-  const { signup } = useAuthcontext();
-
-
+  const { signup } = useAuthContext();
 
   const handleUserSignup = (e) => {
     e.preventDefault();

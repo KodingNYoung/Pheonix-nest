@@ -15,7 +15,6 @@ import ResetPassword from "./views/ResetPassword/ResetPassword";
 import EmailConfirmation from "./views/EmailConfirmationPage/EmailConfirmation";
 import CodeVerification from "./views/CodeVerification/CodeVerification";
 
-
 // css
 import "./App.css";
 
@@ -45,7 +44,7 @@ const App = () => {
             />
             <Route
               exact
-              path='/signup/code-verification'
+              path='/code-verification'
               component={() => <CodeVerification />}
             />
             <Route
