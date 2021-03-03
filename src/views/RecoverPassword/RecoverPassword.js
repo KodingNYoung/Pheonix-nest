@@ -24,7 +24,12 @@ const RecoverPassword = () => {
     recoverPassword(email)
       .then((response) => {
         console.log(response);
-        history.push("/code-verification");
+        if (response.success) {
+          localStorage.setItem("recovery-email", email);
+          history.push("/code-verification");
+        } else {
+          throw new Error(response.message);
+        }
       })
       .catch((m) => {
         console.log(m);

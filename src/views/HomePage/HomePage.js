@@ -29,6 +29,7 @@ import { NavLink } from "../../components/Navs/NavLinks";
 import Footer from "../../components/Footer/Footer";
 
 const HomePage = () => {
+  
   return (
     <div className='home'>
       <HomeNavbar />

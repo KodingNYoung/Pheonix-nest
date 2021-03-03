@@ -13,22 +13,20 @@ const AuthProvider = ({ children }) => {
     const body = { email, password };
     const url = "https://phoenix-nest.herokuapp.com/api/v1/user/login";
 
-    requestFormat(body, url, "POST")
+    return requestFormat(body, url, "POST")
       .then((res) => {
-        console.log(res);
         if (res.success) {
           // save token to localstorage
-          // localStorage.setItem("authorizationToken", res.token)
+          localStorage.setItem("authToken", res.token);
           // save user id to state
-          // setCurrentUserId(res.userId)
-          // return res
-          // return res
+          setCurrentUserId(res.userId);
         } else {
           throw new Error(res.message);
         }
+        return res;
       })
       .catch((err) => {
-        console.log(err.message || err.Error);
+        return err;
       });
   };
   const signout = () => {};
@@ -45,14 +43,14 @@ const AuthProvider = ({ children }) => {
 
     return requestFormat(body, url, "POST");
   };
-  const verifyToken = (email, codeToken) => {
-    const body = {email, codeToken};
-    const url = "";
+  const verifyToken = (email, token) => {
+    const body = { email, token };
+    const url = "https://phoenix-nest.herokuapp.com/api/v1/user/verify-token";
 
     return requestFormat(body, url, "POST");
-  }
-  const resetPassword = (password) => {
-    const body = { password };
+  };
+  const resetPassword = (password, token) => {
+    const body = { password, token };
     const url = "https://phoenix-nest.herokuapp.com/api/v1/user/reset/";
 
     return requestFormat(body, url, "POST");
@@ -84,7 +82,7 @@ const AuthProvider = ({ children }) => {
     signup,
     resetPassword,
     recoverPassword,
-    verifyToken
+    verifyToken,
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

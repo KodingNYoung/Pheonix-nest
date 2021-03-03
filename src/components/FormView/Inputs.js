@@ -14,9 +14,9 @@ export const Input = ({ type, name, id, required, placeholder, inputFuncs }) => 
   );
 };
 
-export const Button = ({ type, children }) => {
+export const Button = ({ type, children, disabled }) => {
   return (
-    <button type={type} className='submit-btn'>
+    <button type={type} className='submit-btn' disabled={disabled}>
       {children}
     </button>
   );

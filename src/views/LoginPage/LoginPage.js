@@ -17,6 +17,8 @@ const LoginPage = () => {
     email: "",
     password: "",
   });
+  const [loading, setLoading] = useState(false);
+  const [error, SetError] = useState("");
 
   // other hooks
   const history = useHistory();
@@ -24,22 +26,26 @@ const LoginPage = () => {
 
   const handleUserLogin = (e) => {
     e.preventDefault();
+    setLoading(true);
 
     const { email, password } = userInputs;
     // validate then use history.push
-    signin(email, password);
-    // .then((res) => {
-    //   if (res.success) {
-    //     history.push("/home");
-    //   } else {
-    //     throw new Error(res.message);
-    //   }
-    // })
-    // .catch((err) => {
-    //   console.log(err.message || err.Error);
-    // });
+    signin(email, password)
+      .then((res) => {
+        setLoading(false);
+        if (res.success) {
+          history.push("/home");
+        } else {
+          throw new Error(res.message);
+        }
+      })
+      .catch((err) => {
+        setLoading(false);
+        SetError(err.message);
+      });
   };
   const handleTextChange = (e) => {
+    SetError(null);
     const { name, value } = e.target;
 
     setUserInputs({ ...userInputs, [name]: value });
@@ -49,6 +55,7 @@ const LoginPage = () => {
     <FormView>
       <div className='container'>
         <h2>Login</h2>
+        {error && <p> {error} </p>}
         <form className='login-form' onSubmit={handleUserLogin}>
           <Input
             type='email'
@@ -72,7 +79,9 @@ const LoginPage = () => {
               value: userInputs.password,
             }}
           />
-          <Button type='submit'>login</Button>
+          <Button type='submit' disabled={loading}>
+            {loading ? "loading..." : "login"}
+          </Button>
         </form>
         <div className='remember-me'>
           <span>Remember me next time</span>

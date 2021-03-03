@@ -28,10 +28,6 @@ const EmailConfirmation = () => {
             </span>
           </p>
           <button className='resend-mail'>Resend email</button>
-          <Anchor to='/signup/code-verification' className='next-page'>
-            <span>Next Page</span>
-            <FontAwesomeIcon icon={faChevronRight} />
-          </Anchor>
         </FormView>
       </div>
       <div className='sm-screen-disp'>

@@ -17,10 +17,11 @@ const ResetPassword = () => {
 
   // other hooks
   const history = useHistory();
+  const { resetPassword } = useAuthContext();
 
   const handlePasswordReset = (e) => {
     e.preventDefault();
-    const {password, repassword} = passwords;
+    const { password, repassword } = passwords;
 
     // validate then use history.push
     if (password !== repassword) {
@@ -28,7 +29,19 @@ const ResetPassword = () => {
       return false;
     }
 
-    history.push("/login");
+    resetPassword(password, localStorage.getItem("token"))
+      .then((res) => {
+        if (res.success) {
+          localStorage.removeItem("token");
+          history.push("/login");
+        } else {
+          throw new Error(res.message);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(err);
+      });
   };
 
   const handleTextChange = (e) => {
