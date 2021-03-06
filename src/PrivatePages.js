@@ -34,7 +34,6 @@ const PrivatePages = () => {
 
     return unsub;
   });
-  console.log(profile);
   return (
     <div className='user-pages'>
       {profile && !error && (

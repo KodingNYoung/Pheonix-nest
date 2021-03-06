@@ -13,7 +13,8 @@ const Drawer = ({ className, open, closeDrawer, payload }) => {
   const drawerStyle = {
     left: open ? "0" : "-100vw",
   };
-  const {avatar_url,fullname,email} =payload;
+  const { avatar_url, fullname, email } = payload;
+
   return (
     <div className='drawer' style={drawerStyle}>
       <header>
@@ -21,7 +22,7 @@ const Drawer = ({ className, open, closeDrawer, payload }) => {
         <Times onClick={closeDrawer} />
         <div className='user'>
           <div className='avatar'>
-            <img src={avatar_url}/>
+            <img src={avatar_url} />
           </div>
           <div className='user-details'>
             <span className='name'>{fullname}</span>
@@ -30,12 +31,24 @@ const Drawer = ({ className, open, closeDrawer, payload }) => {
         </div>
       </header>
       <nav>
-        <NavLink to='/profile'>my profile</NavLink>
-        <NavLink to='/pitches'>explore Pitches</NavLink>
-        <NavLink to=''>about pheonix nest</NavLink>
-        <NavLink to=''>check your investment</NavLink>
-        <NavLink to=''>contact us</NavLink>
-        <NavLink to=''>Terms and conditions</NavLink>
+        <NavLink to='/user/profile' onClick={closeDrawer}>
+          my profile
+        </NavLink>
+        <NavLink to='/user/pitches' onClick={closeDrawer}>
+          explore Pitches
+        </NavLink>
+        <NavLink to='' onClick={closeDrawer}>
+          about pheonix nest
+        </NavLink>
+        <NavLink to='' onClick={closeDrawer}>
+          check your investment
+        </NavLink>
+        <NavLink to='' onClick={closeDrawer}>
+          contact us
+        </NavLink>
+        <NavLink to='' onClick={closeDrawer}>
+          Terms and conditions
+        </NavLink>
 
         <LogoutBtn />
       </nav>

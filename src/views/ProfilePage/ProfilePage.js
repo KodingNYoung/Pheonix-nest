@@ -14,7 +14,9 @@ import {
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import Footer from "../../components/Footer/Footer";
 
-const ProfilePage = () => {
+const ProfilePage = ({ payload }) => {
+  const { email, fullname, avatar_url } = payload;
+
   return (
     <section className='profile-page'>
       <div className='profile-banner'>
@@ -26,12 +28,12 @@ const ProfilePage = () => {
       </div>
       <div className='user-details'>
         <div className='user-avatar'>
-          <img src={avatar} alt='' />
+          <img src={avatar_url} alt='' />
         </div>
         <div className='user-info'>
           <div className='details'>
             <div className='col1'>
-              <h3 className='name'>Akingbade janet</h3>
+              <h3 className='name'>{fullname}</h3>
               <span className='position'>
                 Farm manager at Agrocreate Farms, Nigeria
               </span>
@@ -45,7 +47,7 @@ const ProfilePage = () => {
               <Anchor to='/messages' className='primary-link'>
                 messages
               </Anchor>
-              <button className='transparent-btn'>more</button>
+              <button className='transparent-btn'>edit profile</button>
             </div>
           </div>
         </div>
@@ -98,7 +100,7 @@ const ProfilePage = () => {
               <div className='contact-details'>
                 <span className='contact-title'>Email</span>
                 <span className='contact-value'>
-                  janetakingbade2012@gmail.com
+                  {email}
                 </span>
               </div>
             </div>
