@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { HomeNavbar } from "../../components/Navs/Navs";
 import { Anchor } from "../../components/Navs/Links";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,13 +8,13 @@ import {
   faThumbsDown,
   faThumbsUp,
 } from "@fortawesome/free-solid-svg-icons";
-import Footer from "../../components/Footer/Footer"
+import Footer from "../../components/Footer/Footer";
 
 import banner_image from "../../assets/img/pitch-banner.png";
 import avatar from "../../assets/img/avatar2.png";
 
 import "./PitchPage.css";
-const PitchPage = () => {
+const PitchPage = ({payload}) => {
   const [like, setLike] = useState(false);
   const [dislike, setDislike] = useState(false);
 
@@ -28,10 +27,9 @@ const PitchPage = () => {
     setDislike(!dislike);
     setLike(false);
   };
-
+  const {fullname, avatar_url} = payload;
   return (
     <section className='pitch-page'>
-      <HomeNavbar />
       <div className='pitch-banner'>
         <div className='banner-image'>
           <img src={banner_image} alt='' />
@@ -41,19 +39,17 @@ const PitchPage = () => {
       </div>
       <div className='user-details'>
         <div className='user-avatar'>
-          <img src={avatar} alt='' />
+          <img src={avatar_url} alt='' />
         </div>
         <div className='user-info'>
-          <Anchor to='/profile' className='details'>
+          <Anchor to='/user/profile' className='details'>
             <div className='col1'>
-              <h3 className='name'>Akingbade janet</h3>
+              <h3 className='name'>{fullname}</h3>
               <span className='position'>
                 Farm manager at Agrocreate Farms, Nigeria
               </span>
             </div>
-            <Anchor to='/profile' className='red-bg-link sm-screen-dspr'>
-              View details
-            </Anchor>
+            <p>View details</p>
             <span className='ellipsis'>
               <FontAwesomeIcon icon={faEllipsisH} />
             </span>
@@ -108,7 +104,7 @@ const PitchPage = () => {
       </div>
       <div className='contact'>
         <span>Can you make this a reality?</span>
-        <Anchor to='/profile' className='primary-link'>
+        <Anchor to='/user/profile' className='primary-link'>
           Contact
         </Anchor>
       </div>
@@ -135,57 +131,14 @@ const PitchPage = () => {
       <div className='comments-section'>
         <h2>Comments</h2>
         <div className='comments'>
-          <div className='comment'>
-            <div className='commentor-avatar'>
-              <img src={avatar} />
-            </div>
-            <div className='comment-detail'>
-              <header>
-                <h4 className='name'>Michael James</h4>
-                <div className='time'>4 days ago</div>
-              </header>
-              <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Possimus dolor id mollitia cupiditate ducimus quidem dolorum?
-                Necessitatibus velit maxime repellendus.
-              </p>
-            </div>
-          </div>
-          <div className='comment'>
-            <div className='commentor-avatar'>
-              <img src={avatar} />
-            </div>
-            <div className='comment-detail'>
-              <header>
-                <h4 className='name'>Michael James</h4>
-                <div className='time'>4 days ago</div>
-              </header>
-              <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Possimus dolor id mollitia cupiditate ducimus quidem dolorum?
-                Necessitatibus velit maxime repellendus.
-              </p>
-            </div>
-          </div>
-          <div className='comment'>
-            <div className='commentor-avatar'>
-              <img src={avatar} />
-            </div>
-            <div className='comment-detail'>
-              <header>
-                <h4 className='name'>Michael James</h4>
-                <div className='time'>4 days ago</div>
-              </header>
-              <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Possimus dolor id mollitia cupiditate ducimus quidem dolorum?
-                Necessitatibus velit maxime repellendus.
-              </p>
-            </div>
-          </div>
+          <PitchComment />
+          <PitchComment />
+          <PitchComment />
         </div>
         <div className='see-comments'>
-          <Anchor className='transparent-link'>see more comments</Anchor>
+          <Anchor to='' className='transparent-link'>
+            see more comments
+          </Anchor>
         </div>
         <form className='post-comment'>
           <input type='text' name='comment' placeholder='type comment' />
@@ -196,5 +149,24 @@ const PitchPage = () => {
     </section>
   );
 };
-
+const PitchComment = () => {
+  return (
+    <div className='comment'>
+      <div className='commentor-avatar'>
+        <img src={avatar} />
+      </div>
+      <div className='comment-detail'>
+        <header>
+          <h4 className='name'>Michael James</h4>
+          <div className='time'>4 days ago</div>
+        </header>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus
+          dolor id mollitia cupiditate ducimus quidem dolorum? Necessitatibus
+          velit maxime repellendus.
+        </p>
+      </div>
+    </div>
+  );
+}
 export default PitchPage;

@@ -1,0 +1,60 @@
+.email-confirmation .lg-screen-disp main,
+.email-confirmation .sm-screen-disp {
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+  padding: 3rem;
+  justify-items: center;
+  justify-content: center;
+  color: #000;
+  position: relative;
+}
+
+.email-confirmation h1 {
+  color: #d63e39;
+}
+.email-confirmation .svg-container {
+  max-width: 250px;
+  width: 80%;
+  margin: 0.5rem auto;
+}
+.email-confirmation .svg-container svg {
+  width: 100%;
+  height: 100%;
+}
+.email-confirmation .email-text {
+  display: grid;
+  gap: 0.8rem;
+  width: 80%;
+}
+.email-confirmation .email-text .email {
+  font-weight: bold;
+}
+.email-confirmation .resend-mail {
+  background-color: #fff;
+  color: #d63e39;
+  text-transform: capitalize;
+  border: none;
+  outline: none;
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+.email-confirmation .sm-screen-disp {
+  display: none;
+}
+
+@media screen and (max-width: 700px) {
+  .email-confirmation .lg-screen-disp {
+    display: none;
+  }
+  .email-confirmation .sm-screen-disp {
+    display: grid;
+    text-align: center;
+    align-content: center;
+    height: 100vh;
+  }
+  .email-confirmation .svg-container {
+    margin: 1rem auto;
+  }
+}
