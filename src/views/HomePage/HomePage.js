@@ -1,14 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 // components
-import { Burger } from "../../components/Burger/Burger";
-import { Brand } from "../../components/Logo/Logo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
   faChevronRight,
   faComments,
-  faSearch,
   faThumbsUp,
 } from "@fortawesome/free-solid-svg-icons";
 import { Anchor } from "../../components/Navs/Links";
@@ -23,7 +20,6 @@ import { ReactComponent as Agriculture } from "../../assets/svg/agriculture.svg"
 import { ReactComponent as Fashion } from "../../assets/svg/fashion.svg";
 import { ReactComponent as Retail } from "../../assets/svg/retail.svg";
 import { ReactComponent as Technology } from "../../assets/svg/technology.svg";
-import { HomeNavbar } from "../../components/Navs/Navs";
 import { SearchField } from "../../components/FormView/Inputs";
 import { NavLink } from "../../components/Navs/NavLinks";
 import Footer from "../../components/Footer/Footer";
@@ -32,7 +28,6 @@ const HomePage = () => {
   
   return (
     <div className='home'>
-      <HomeNavbar />
       <div className='hero'>
         <div className='lg-screen-disp'>
           <div className='container'>
@@ -56,7 +51,7 @@ const HomePage = () => {
                   <FontAwesomeIcon icon={faChevronRight} />
                 </button>
               </div>
-              <NavLink to="">Explore more industries</NavLink>
+              <NavLink to=''>Explore more industries</NavLink>
             </div>
           </div>
           <NavLink to='/messages' className='message-icon'>
@@ -130,7 +125,7 @@ const IndustryCard = ({ name, icon }) => {
 };
 const PitchCard = ({}) => {
   return (
-    <Anchor to="/pitch" className='pitch-card'>
+    <Anchor to='/user/pitch' className='pitch-card'>
       <div className='img-container'>
         <img src={image1} />
       </div>

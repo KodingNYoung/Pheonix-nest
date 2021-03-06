@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { useAuthContext } from "../../context/AuthContext";
+import { useAuthContext } from "../../../context/AuthContext";
 
 import { useHistory } from "react-router-dom";
-import FormView from "../../components/FormView/FormView";
-import { Input, Button } from "../../components/FormView/Inputs";
+import FormView from "../../../components/FormView/FormView";
+import { Input, Button } from "../../../components/FormView/Inputs";
 
 import "./ResetPassword.css";
 
@@ -14,6 +14,7 @@ const ResetPassword = () => {
     repassword: "",
   });
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState();
 
   // other hooks
   const history = useHistory();
@@ -28,10 +29,12 @@ const ResetPassword = () => {
       setError("Passwords don't  match.");
       return false;
     }
+    setLoading(true);
 
     resetPassword(password, localStorage.getItem("token"))
       .then((res) => {
         if (res.success) {
+          setLoading(false);
           localStorage.removeItem("token");
           history.push("/login");
         } else {
@@ -40,6 +43,7 @@ const ResetPassword = () => {
       })
       .catch((err) => {
         console.log(err);
+        setLoading(false);
         setError(err);
       });
   };
@@ -58,6 +62,7 @@ const ResetPassword = () => {
             <h2>Reset Password</h2>
             <span>Enter a new password to continue</span>
           </div>
+          {error && <p> {error} </p>}
           <form onSubmit={handlePasswordReset}>
             <Input
               type='password'
@@ -68,6 +73,7 @@ const ResetPassword = () => {
               inputFuncs={{
                 onChange: handleTextChange,
                 value: passwords.password,
+                disabled: loading,
               }}
             />
             <Input
@@ -79,9 +85,12 @@ const ResetPassword = () => {
               inputFuncs={{
                 onChange: handleTextChange,
                 value: passwords.repassword,
+                disabled: loading,
               }}
             />
-            <Button type='submit'>Change password</Button>
+            <Button type='submit' disabled={loading}>
+              {loading ? "loading..." : "Changepassword"}
+            </Button>
           </form>
         </div>
       </FormView>

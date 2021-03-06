@@ -21,7 +21,7 @@ header nav a {
   color: #000;
   text-decoration: none;
 }
-a.red-bg-link{
+a.red-bg-link {
   background-color: #d63e39;
   color: #fff;
   text-decoration: none;
@@ -36,7 +36,6 @@ a.primary-link {
 a.transparent-link {
   background-color: transparent;
   text-decoration: none;
-  
 }
 /* home nav bar */
 .home-navbar {
@@ -62,7 +61,6 @@ a.transparent-link {
 .home-navbar .nav-links {
   display: none;
 }
-
 
 @media screen and (min-width: 700px) {
   header nav .links {
@@ -102,6 +100,6 @@ a.transparent-link {
     margin: 0 1rem;
   }
   .home-navbar .nav-links .logout-btn {
-      padding: 1rem;
+    padding: 1rem;
   }
 }

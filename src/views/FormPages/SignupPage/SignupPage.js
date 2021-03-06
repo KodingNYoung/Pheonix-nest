@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useAuthContext } from "../../context/AuthContext";
+import { useAuthContext } from "../../../context/AuthContext";
 
 // router
 import { useHistory } from "react-router-dom";
@@ -8,9 +8,9 @@ import { useHistory } from "react-router-dom";
 import "./SignupPage.css";
 
 // components
-import FormView from "../../components/FormView/FormView";
-import { Input, Button } from "../../components/FormView/Inputs";
-import { Anchor } from "../../components/Navs/Links";
+import FormView from "../../../components/FormView/FormView";
+import { Input, Button } from "../../../components/FormView/Inputs";
+import { Anchor } from "../../../components/Navs/Links";
 
 const SignupPage = () => {
   // states
@@ -22,6 +22,7 @@ const SignupPage = () => {
     repassword: "",
   });
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   // other hooks
   const history = useHistory();
@@ -39,19 +40,25 @@ const SignupPage = () => {
       setError("Phone number not valid");
       return false;
     }
+    setLoading(true);
 
     signup(fullname, email, password)
       .then((response) => {
+        setLoading(false);
         if (response.success === true) {
           history.push("/signup/email-confirmation");
-        } else throw new Error(response.message);
+        } else {
+          throw new Error(response.message);
+        }
       })
-      .catch((m) => {
-        console.log(m);
+      .catch((err) => {
+        setError(err.message || err.Error);
+        setLoading(false);
       });
   };
 
   const handleTextChange = (e) => {
+    setError(null);
     const { name, value } = e.target;
 
     setUserInputs({ ...userInputs, [name]: value });
@@ -65,6 +72,7 @@ const SignupPage = () => {
         autoComplete='false'
       >
         <p className='sub-heading'>Please fill in the details requested</p>
+        {error && <p> {error} </p>}
         <Input
           type='text'
           name='fullname'
@@ -74,6 +82,7 @@ const SignupPage = () => {
           inputFuncs={{
             onChange: handleTextChange,
             value: userInputs.fullname,
+            disabled: loading,
           }}
         />
         <Input
@@ -85,6 +94,7 @@ const SignupPage = () => {
           inputFuncs={{
             onChange: handleTextChange,
             value: userInputs.email,
+            disabled: loading,
           }}
         />
         <Input
@@ -96,6 +106,7 @@ const SignupPage = () => {
           inputFuncs={{
             onChange: handleTextChange,
             value: userInputs.phone,
+            disabled: loading,
           }}
         />
         <Input
@@ -107,6 +118,7 @@ const SignupPage = () => {
           inputFuncs={{
             onChange: handleTextChange,
             value: userInputs.password,
+            disabled: loading,
           }}
         />
         <Input
@@ -118,6 +130,7 @@ const SignupPage = () => {
           inputFuncs={{
             onChange: handleTextChange,
             value: userInputs.repassword,
+            disabled: loading,
           }}
         />
         <p className='warning'>
@@ -128,7 +141,10 @@ const SignupPage = () => {
           </Anchor>{" "}
           of the organisation
         </p>
-        <Button type='submit'> sign up</Button>
+        <Button type='submit' disabled={loading}>
+          {" "}
+          {loading ? "loading" : "sign up"}
+        </Button>
       </form>
     </FormView>
   );

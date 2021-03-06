@@ -4,19 +4,19 @@ import { AuthProvider } from "./context/AuthContext";
 
 // views
 import LandingPage from "./views/LandingPage/LandingPage";
-import LoginPage from "./views/LoginPage/LoginPage";
-import SignupPage from "./views/SignupPage/SignupPage";
-import HomePage from "./views/HomePage/HomePage";
-import PitchPage from "./views/PitchPage/PitchPage";
-import ProfilePage from "./views/ProfilePage/ProfilePage";
+import LoginPage from "./views/FormPages/LoginPage/LoginPage";
+import SignupPage from "./views/FormPages/SignupPage/SignupPage";
+
 import SuccessfulSignup from "./views/SuccessfulSignup/SuccessfulSignup";
-import RecoverPassword from "./views/RecoverPassword/RecoverPassword";
-import ResetPassword from "./views/ResetPassword/ResetPassword";
+import RecoverPassword from "./views/FormPages/RecoverPassword/RecoverPassword";
+import ResetPassword from "./views/FormPages/ResetPassword/ResetPassword";
 import EmailConfirmation from "./views/EmailConfirmationPage/EmailConfirmation";
-import CodeVerification from "./views/CodeVerification/CodeVerification";
+import CodeVerification from "./views/FormPages/CodeVerification/CodeVerification";
 
 // css
 import "./App.css";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import PrivatePages from "./PrivatePages";
 
 const App = () => {
   return (
@@ -25,6 +25,7 @@ const App = () => {
         <div className='App'>
           <Switch>
             <Route exact path='/' component={() => <LandingPage />} />
+            {/* formpages */}
             <Route exact path='/login' component={() => <LoginPage />} />
             <Route
               exact
@@ -52,9 +53,7 @@ const App = () => {
               path='/signup/welcome'
               component={() => <SuccessfulSignup />}
             />
-            <Route path='/home' component={() => <HomePage />} />
-            <Route path='/pitch' component={() => <PitchPage />} />
-            <Route path='/profile' component={() => <ProfilePage />} />
+            <PrivateRoute path='/user' component={PrivatePages} />
           </Switch>
         </div>
       </Router>

@@ -9,10 +9,11 @@ import avatar from "../../assets/img/avatar.png";
 import { Logo } from "../Logo/Logo";
 import { LogoutBtn } from "../Buttons_Links/Buttons";
 
-const Drawer = ({ className, open, closeDrawer }) => {
+const Drawer = ({ className, open, closeDrawer, payload }) => {
   const drawerStyle = {
     left: open ? "0" : "-100vw",
   };
+  const {avatar_url,fullname,email} =payload;
   return (
     <div className='drawer' style={drawerStyle}>
       <header>
@@ -20,11 +21,11 @@ const Drawer = ({ className, open, closeDrawer }) => {
         <Times onClick={closeDrawer} />
         <div className='user'>
           <div className='avatar'>
-            <img src={avatar} />
+            <img src={avatar_url}/>
           </div>
           <div className='user-details'>
-            <span className='name'>Akingbade Janet</span>
-            <span>janetakingbade@gmail.com</span>
+            <span className='name'>{fullname}</span>
+            <span>{email}</span>
           </div>
         </div>
       </header>

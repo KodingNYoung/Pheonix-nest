@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-import { useAuthContext } from "../../context/AuthContext";
+import { useAuthContext } from "../../../context/AuthContext";
 
 import { useHistory } from "react-router-dom";
 
 //
-import FormView from "../../components/FormView/FormView";
-import { Input, Button } from "../../components/FormView/Inputs";
+import FormView from "../../../components/FormView/FormView";
+import { Input, Button } from "../../../components/FormView/Inputs";
 
 import "./CodeVerification.css";
 
 const CodeVerification = () => {
   const [token, setToken] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   // other hooks
   const history = useHistory();
@@ -19,9 +21,11 @@ const CodeVerification = () => {
   const handleTokenVerification = (e) => {
     e.preventDefault();
     // validate then use history.psuh
+
+    setLoading(true);
     verifyToken(localStorage.getItem("recovery-email"), token)
       .then((res) => {
-        console.log(res);
+        setLoading(false);
         if (res.success) {
           localStorage.removeItem("recovery-email");
           localStorage.setItem("token", token);
@@ -31,18 +35,20 @@ const CodeVerification = () => {
         }
       })
       .catch((err) => {
-        console.log(err);
+        setError(err.message || err.Error || err);
+        setLoading(false);
       });
   };
 
   const handleTextChange = (e) => {
+    setError(null);
     const { value } = e.target;
     const number = Number(value);
 
     if (Number.isInteger(number)) {
       setToken(value);
     } else {
-      console.log(" not a number");
+      setError("Input is not a number");
     }
   };
   return (
@@ -53,6 +59,7 @@ const CodeVerification = () => {
             <h2>Email verification</h2>
             <span>please, enter the 4 digit code we sent to your email.</span>
           </div>
+          {error && <p>{error}</p>}
           <form onSubmit={handleTokenVerification}>
             <Input
               type='text'
@@ -64,9 +71,12 @@ const CodeVerification = () => {
                 maxLength: "4",
                 onChange: handleTextChange,
                 value: token,
+                disabled: loading,
               }}
             />
-            <Button type='submit'>Verify code</Button>
+            <Button type='submit' disabled={loading}>
+              {loading ? "loading..." : "Verify code"}
+            </Button>
           </form>
           <button className='resend-btn'>resend code</button>
         </div>

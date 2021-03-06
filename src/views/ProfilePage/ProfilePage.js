@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { HomeNavbar } from "../../components/Navs/Navs";
 import { Anchor } from "../../components/Navs/Links";
 import banner_image from "../../assets/img/pitch-banner.png";
 
@@ -18,7 +17,6 @@ import Footer from "../../components/Footer/Footer";
 const ProfilePage = () => {
   return (
     <section className='profile-page'>
-      <HomeNavbar />
       <div className='profile-banner'>
         <div className='banner-image'>
           <img src={banner_image} alt='' />
@@ -38,7 +36,7 @@ const ProfilePage = () => {
                 Farm manager at Agrocreate Farms, Nigeria
               </span>
             </div>
-            <Anchor to='/pitch' className='red-bg-link sm-screen-dspr'>
+            <Anchor to='/user/pitch' className='red-bg-link sm-screen-dspr'>
               View pitch
             </Anchor>
           </div>

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { useAuthContext } from "../../context/AuthContext";
+import { useAuthContext } from "../../../context/AuthContext";
 
 // router
 import { useHistory } from "react-router-dom";
 
 // component
-import FormView from "../../components/FormView/FormView";
-import { Input, Button } from "../../components/FormView/Inputs";
-import { Anchor } from "../../components/Navs/Links";
+import FormView from "../../../components/FormView/FormView";
+import { Input, Button } from "../../../components/FormView/Inputs";
+import { Anchor } from "../../../components/Navs/Links";
 
 // css
 import "./LoginPage.css";
@@ -18,7 +18,7 @@ const LoginPage = () => {
     password: "",
   });
   const [loading, setLoading] = useState(false);
-  const [error, SetError] = useState("");
+  const [error, setError] = useState("");
 
   // other hooks
   const history = useHistory();
@@ -34,18 +34,18 @@ const LoginPage = () => {
       .then((res) => {
         setLoading(false);
         if (res.success) {
-          history.push("/home");
+          history.push("/user");
         } else {
           throw new Error(res.message);
         }
       })
       .catch((err) => {
         setLoading(false);
-        SetError(err.message);
+        setError(err.message);
       });
   };
   const handleTextChange = (e) => {
-    SetError(null);
+    setError(null);
     const { name, value } = e.target;
 
     setUserInputs({ ...userInputs, [name]: value });
@@ -66,6 +66,7 @@ const LoginPage = () => {
             inputFuncs={{
               onChange: handleTextChange,
               value: userInputs.email,
+              disabled: loading,
             }}
           />
           <Input
@@ -77,6 +78,7 @@ const LoginPage = () => {
             inputFuncs={{
               onChange: handleTextChange,
               value: userInputs.password,
+              disabled: loading,
             }}
           />
           <Button type='submit' disabled={loading}>

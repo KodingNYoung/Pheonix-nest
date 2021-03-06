@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { HomeNavbar } from "../../components/Navs/Navs";
 import { Anchor } from "../../components/Navs/Links";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,7 +8,7 @@ import {
   faThumbsDown,
   faThumbsUp,
 } from "@fortawesome/free-solid-svg-icons";
-import Footer from "../../components/Footer/Footer"
+import Footer from "../../components/Footer/Footer";
 
 import banner_image from "../../assets/img/pitch-banner.png";
 import avatar from "../../assets/img/avatar2.png";
@@ -31,7 +30,6 @@ const PitchPage = () => {
 
   return (
     <section className='pitch-page'>
-      <HomeNavbar />
       <div className='pitch-banner'>
         <div className='banner-image'>
           <img src={banner_image} alt='' />
@@ -44,16 +42,16 @@ const PitchPage = () => {
           <img src={avatar} alt='' />
         </div>
         <div className='user-info'>
-          <Anchor to='/profile' className='details'>
+          <Anchor to='/user/profile' className='details'>
             <div className='col1'>
               <h3 className='name'>Akingbade janet</h3>
               <span className='position'>
                 Farm manager at Agrocreate Farms, Nigeria
               </span>
             </div>
-            <Anchor to='/profile' className='red-bg-link sm-screen-dspr'>
+            <p>
               View details
-            </Anchor>
+            </p>
             <span className='ellipsis'>
               <FontAwesomeIcon icon={faEllipsisH} />
             </span>
@@ -108,7 +106,7 @@ const PitchPage = () => {
       </div>
       <div className='contact'>
         <span>Can you make this a reality?</span>
-        <Anchor to='/profile' className='primary-link'>
+        <Anchor to='/user/profile' className='primary-link'>
           Contact
         </Anchor>
       </div>
@@ -185,7 +183,9 @@ const PitchPage = () => {
           </div>
         </div>
         <div className='see-comments'>
-          <Anchor className='transparent-link'>see more comments</Anchor>
+          <Anchor to='' className='transparent-link'>
+            see more comments
+          </Anchor>
         </div>
         <form className='post-comment'>
           <input type='text' name='comment' placeholder='type comment' />
