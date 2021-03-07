@@ -17,6 +17,7 @@ import CodeVerification from "./views/FormPages/CodeVerification/CodeVerificatio
 import "./App.css";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import PrivatePages from "./PrivatePages";
+import EditDetails from "./views/FormPages/ProfileSetupPages/EditDetails";
 
 const App = () => {
   return (
@@ -52,6 +53,11 @@ const App = () => {
               exact
               path='/signup/welcome'
               component={() => <SuccessfulSignup />}
+            />
+            <PrivateRoute
+              exact
+              path='/user/profile/edit-user-details'
+              component={EditDetails}
             />
             <PrivateRoute path='/user' component={PrivatePages} />
           </Switch>

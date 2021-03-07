@@ -12,7 +12,7 @@ const AuthProvider = ({ children }) => {
     const body = { email, password };
     const url = "https://phoenix-nest.herokuapp.com/api/v1/user/login";
 
-    return postRequestFormat(body, url, "POST")
+    return postRequestFormat(body, url)
       .then((res) => {
         if (res.success) {
           // save token to localstorage
@@ -44,25 +44,25 @@ const AuthProvider = ({ children }) => {
     const body = { fullname, email, password };
     const url = "https://phoenix-nest.herokuapp.com/api/v1/user/signup";
 
-    return postRequestFormat(body, url, "POST");
+    return postRequestFormat(body, url);
   };
   const recoverPassword = (email) => {
     const body = { email };
     const url = "https://phoenix-nest.herokuapp.com/api/v1/user/recover";
 
-    return postRequestFormat(body, url, "POST");
+    return postRequestFormat(body, url);
   };
   const verifyToken = (email, token) => {
     const body = { email, token };
     const url = "https://phoenix-nest.herokuapp.com/api/v1/user/verify-token";
 
-    return postRequestFormat(body, url, "POST");
+    return postRequestFormat(body, url);
   };
   const resetPassword = (password, token) => {
     const body = { password, token };
     const url = "https://phoenix-nest.herokuapp.com/api/v1/user/reset/";
 
-    return postRequestFormat(body, url, "POST");
+    return postRequestFormat(body, url);
   };
 
   const getUserProfile = () => {
@@ -71,10 +71,15 @@ const AuthProvider = ({ children }) => {
 
     return getRequestFormat(url);
   };
+  const updateUserProfile = (body) => {
+    const userId = localStorage.getItem("currentUserId");
+    const url = `https://phoenix-nest.herokuapp.com/api/v1/user/me`;
 
-  const postRequestFormat = async (body, url, method) => {
+    return patchRequestFormat(body, url);
+  };
+  const postRequestFormat = async (body, url) => {
     const option = {
-      method: method,
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
@@ -106,6 +111,25 @@ const AuthProvider = ({ children }) => {
       return err;
     }
   };
+  const patchRequestFormat = async (body, url) => {
+    const authToken = localStorage.getItem("authToken");
+
+    const option = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${authToken}`,
+      },
+      body: JSON.stringify(body),
+    };
+    try {
+      const response = await fetch(url, option);
+      const data = await response.json();
+      return data;
+    } catch (err) {
+      return err;
+    }
+  };
   const value = {
     currentUserId,
     signin,
@@ -115,6 +139,7 @@ const AuthProvider = ({ children }) => {
     recoverPassword,
     verifyToken,
     getUserProfile,
+    updateUserProfile,
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

@@ -3,10 +3,33 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import "./FormView.css";
 
-export const Input = ({ type, name, id, required, placeholder, inputFuncs }) => {
+export const Input = ({
+  type,
+  name,
+  id,
+  required,
+  placeholder,
+  inputFuncs,
+}) => {
   return (
     <div className='input-field'>
-      <input type={type} name={name} id={id} required={required} {...inputFuncs}/>
+      {type === "textarea" ? (
+        <textarea
+          name={name}
+          id={id}
+          required={required}
+          {...inputFuncs}
+          rows= "5"
+        ></textarea>
+      ) : (
+        <input
+          type={type}
+          name={name}
+          id={id}
+          required={required}
+          {...inputFuncs}
+        />
+      )}
       <label htmlFor={id} className='label'>
         {placeholder}
       </label>

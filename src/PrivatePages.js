@@ -31,12 +31,14 @@ const PrivatePages = () => {
         setLoading(false);
         setError(err.message || err.Error || err);
       });
-
     return unsub;
-  });
+  }, [getUserProfile]);
+
   return (
     <div className='user-pages'>
-      {profile && !error && (
+      {loading && <p>loading...</p>}
+      {error && <p>Page couldn't load because it {error.toLowerCase()}</p>}
+      {profile && (
         <>
           <HomeNavbar payload={profile} />
           <main>
