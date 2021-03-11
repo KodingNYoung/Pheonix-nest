@@ -1,3 +1,92 @@
 .cards {
   border-radius: 4px;
 }
+
+/* style for the industry cards */
+.industry-card {
+  background-color: #fcd413;
+  margin: 0.5rem;
+  padding: 2rem;
+  text-align: center;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 2px;
+}
+.industry-card .industry-icon {
+  width: 20px;
+  height: 20px;
+  margin: 0.5rem auto;
+}
+.industry-card .industry-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.industry-card .industry-name {
+  color: #000;
+  text-transform: capitalize;
+}
+/* end of style for the industry card */
+
+/* pitch card */
+.pitch-card {
+  background-color: #fcd413;
+  display: flex;
+  padding: 0.4rem;
+  border-radius: 4px;
+  max-width: 400px;
+  color: #000;
+  text-decoration: none;
+}
+.pitch-card .img-container {
+  width: 90px;
+  height: 70px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.pitch-card .img-container img {
+  width: 100%;
+  height: 100%;
+}
+.pitch-card .pitch-details {
+  display: grid;
+  padding: 0 1rem;
+  gap: 0.3rem;
+  width: 100%;
+}
+.pitch-card .pitch-details .thumbs {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.pitch-details .thumbs svg {
+  color: #d63e39;
+  font-size: 1.2rem;
+}
+.pitch-details .thumbs span {
+  padding-left: 0.3rem;
+}
+.pitch-details .pitch-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+.pitch-details .pitch-owner {
+  justify-self: end;
+  text-transform: capitalize;
+}
+/* end of style for the industry pitch */
+
+@media screen and (max-width: 700px) {
+  .industry-pitches .pitches-grid .industry-card {
+    width: 100%;
+    height: 130px;
+    margin: 0;
+  }
+  .industry-card .industry-icon {
+    width: 30px;
+    height: 30px;
+  }
+}

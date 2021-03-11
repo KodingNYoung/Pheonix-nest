@@ -5,7 +5,11 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   const currentUserId = localStorage.getItem("currentUserId");
 
   const render = (props) => {
-    return currentUserId ? <Component {...props} /> : <Redirect to='/login' />;
+    return currentUserId ? (
+      <Component {...props} {...rest} />
+    ) : (
+      <Redirect to='/login' />
+    );
   };
   return <Route {...rest} render={render} />;
 };

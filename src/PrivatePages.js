@@ -31,12 +31,14 @@ const PrivatePages = () => {
         setLoading(false);
         setError(err.message || err.Error || err);
       });
-
     return unsub;
-  });
+  }, [getUserProfile]);
+
   return (
     <div className='user-pages'>
-      {profile && !error && (
+      {loading && <p>loading...</p>}
+      {error && <p>Page couldn't load because it {error.toLowerCase()}</p>}
+      {profile && (
         <>
           <HomeNavbar payload={profile} />
           <main>
@@ -46,10 +48,7 @@ const PrivatePages = () => {
                 path='/user'
                 component={() => <HomePage payload={profile} />}
               />
-              <PrivateRoute
-                path='/user/pitch'
-                component={() => <PitchPage payload={profile} />}
-              />
+              <PrivateRoute path='/user/pitch/:pitchId' component={PitchPage} />
               <PrivateRoute
                 path='/user/profile'
                 component={() => <ProfilePage payload={profile} />}

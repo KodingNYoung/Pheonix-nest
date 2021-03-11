@@ -9,7 +9,7 @@ import avatar from "../../assets/img/avatar.png";
 import { Logo } from "../Logo/Logo";
 import { LogoutBtn } from "../Buttons_Links/Buttons";
 
-const Drawer = ({ className, open, closeDrawer, payload }) => {
+const Drawer = ({ open, closeDrawer, payload, handleLogout }) => {
   const drawerStyle = {
     left: open ? "0" : "-100vw",
   };
@@ -50,7 +50,7 @@ const Drawer = ({ className, open, closeDrawer, payload }) => {
           Terms and conditions
         </NavLink>
 
-        <LogoutBtn />
+        <LogoutBtn onClick={handleLogout} />
       </nav>
     </div>
   );

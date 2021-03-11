@@ -1,0 +1,62 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: all;
+}
+.modal.open {
+  opacity: 1;
+  transition: opacity 0s ease;
+}
+.modal.close {
+  opacity: 0;
+  transition: opacity 0s ease 0.3s;
+  pointer-events: none;
+}
+.modal .modal-scrim {
+  width: 100%;
+  height: 100%;
+  background-color: #00000080;
+  position: absolute;
+}
+.modal .modal-content {
+  background-color: #fff;
+  padding: 1rem;
+  position: relative;
+  border-radius: 4px;
+  width: 350px;
+  max-width: 85%;
+  transform: scale(0);
+}
+.modal.open .modal-content {
+  animation: openUp 0.3s ease 0.1s forwards;
+}
+.modal.close .modal-content {
+  animation: closeDown 0.3s ease forwards;
+}
+.modal-content .nav-links {
+  display: grid;
+  gap: 0.7rem;
+}
+
+@keyframes openUp {
+  from{
+    transform: scale(0)
+  }
+  to {
+    transform: scale(1)
+  }
+}
+@keyframes closeDown {
+  from{
+    transform: scale(1)
+  }
+  to {
+    transform: scale(0)
+  }
+}

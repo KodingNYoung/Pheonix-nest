@@ -49,7 +49,8 @@
   border-radius: 4px;
   margin: 1.8rem 0;
 }
-.input-field input {
+.input-field input,
+.input-field textarea {
   width: 100%;
   padding: 1.5rem 1.5rem;
   border: none;
@@ -58,6 +59,36 @@
   background-color: transparent;
   font-size: 0.7rem;
   font-size: 1.3rem;
+}
+.input-field input[type="file"] {
+  position: relative;
+  cursor: pointer;
+  color: transparent;
+}
+.input-field input[type="file"]::before {
+  content: "Select file";
+  position: absolute;
+  right: .5rem;
+  background-color: #d63e39;
+  color: #fff;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 25%;
+  height: 80%;
+  min-width: 90px;
+  max-width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+}
+.input-field input[type="file"]:valid::before {
+  background-color: #fcd413;
+  color: #000;
+}
+.input-field input[type="file"]::-webkit-file-upload-button {
+  visibility: hidden;
+  position: absolute;
 }
 .input-field .label {
   position: absolute;

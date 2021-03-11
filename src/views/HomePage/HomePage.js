@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useAuthContext } from "../../context/AuthContext";
 
 // components
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,16 +7,13 @@ import {
   faChevronLeft,
   faChevronRight,
   faComments,
-  faThumbsUp,
 } from "@fortawesome/free-solid-svg-icons";
-import { Anchor } from "../../components/Navs/Links";
 
 // css
 import "./HomePage.css";
 
 // images and svgs
 import hero from "../../assets/img/home-hero.png";
-import image1 from "../../assets/img/image1.png";
 import { ReactComponent as Agriculture } from "../../assets/svg/agriculture.svg";
 import { ReactComponent as Fashion } from "../../assets/svg/fashion.svg";
 import { ReactComponent as Retail } from "../../assets/svg/retail.svg";
@@ -23,11 +21,50 @@ import { ReactComponent as Technology } from "../../assets/svg/technology.svg";
 import { SearchField } from "../../components/FormView/Inputs";
 import { NavLink } from "../../components/Navs/NavLinks";
 import Footer from "../../components/Footer/Footer";
+import { IndustryCard, PitchCard } from "../../components/Cards/Cards";
+import Error from "../../components/Toasts/Error";
 
 const HomePage = () => {
-  
+  const [pitches, setPitches] = useState([]);
+  const [error, setError] = useState(null);
+  const { getTopPitches, getUserProfile } = useAuthContext();
+
+  useEffect(() => {
+    const unsub = getTopPitches()
+      .then((res) => res.payload)
+      .then((data) => {
+        // getthe data for the pitches
+        const pitchItems = data.map((pitch) => {
+          // spread the important data
+          const { author, like_count, title, _id } = pitch;
+          // get the users profile, (use the return word to return a value of the request to the maplist)
+          return getUserProfile(author).then((response) => {
+            // if successful
+            if (response.success) {
+              // spread out the important data
+              const { avatar_url, fullname } = response.payload;
+              // return the card useful data
+              return { like_count, title, _id, fullname, avatar_url };
+            } else {
+              // else return false
+              return false;
+            }
+          });
+        });
+        // get the result of the promises
+        Promise.all(pitchItems).then((pitchData) => {
+          // filter out the responses with false
+          const pitchList = pitchData.filter((pitch) => pitch !== false);
+          // set the new list as the pitches to be displayed
+          setPitches(pitchList);
+        });
+      });
+    return unsub;
+  }, [getTopPitches, getUserProfile]);
+
   return (
     <div className='home'>
+      {error && <Error>{error}</Error>}
       <div className='hero'>
         <div className='lg-screen-disp'>
           <div className='container'>
@@ -97,51 +134,18 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className='rated-pitches'>
-        <h2>Check out the Most Rated Pitches</h2>
-        <div className='pitch-card-grid'>
-          <PitchCard />
-          <PitchCard />
-          <PitchCard />
-          <PitchCard />
-          <PitchCard />
-          <PitchCard />
-          <PitchCard />
-          <PitchCard />
-          <PitchCard />
+      {pitches && (
+        <div className='rated-pitches'>
+          <h2>Check out the Most Rated Pitches</h2>
+          <div className='pitch-card-grid'>
+            {pitches.map((pitch) => {
+              return <PitchCard pitchData={pitch} key={pitch._id} />;
+            })}
+          </div>
         </div>
-      </div>
+      )}
       <Footer />
     </div>
-  );
-};
-const IndustryCard = ({ name, icon }) => {
-  return (
-    <div className='industry-card'>
-      <div className='industry-icon'>{icon}</div>
-      <span className='industry-name'>{name}</span>
-    </div>
-  );
-};
-const PitchCard = ({}) => {
-  return (
-    <Anchor to='/user/pitch' className='pitch-card'>
-      <div className='img-container'>
-        <img src={image1} />
-      </div>
-      <div className='pitch-details'>
-        <div className='thumbs'>
-          <FontAwesomeIcon icon={faThumbsUp} />
-          <span>245</span>
-        </div>
-        <p className='pitch-title'>
-          Vertical farming landscape to minimise land space use
-        </p>
-        <span className='pitch-owner'>
-          - <span className='name'>janet</span>
-        </span>
-      </div>
-    </Anchor>
   );
 };
 export default HomePage;
