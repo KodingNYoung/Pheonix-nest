@@ -12,9 +12,6 @@ import { LogoutBtn } from "../Buttons_Links/Buttons";
 
 import "./Navs.css";
 
-// images and svgs
-// import avatar from "../../assets/img/avatar.png";
-
 export const Navbar = () => {
   return (
     <header className='navbar'>

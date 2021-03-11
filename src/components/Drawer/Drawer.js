@@ -5,7 +5,6 @@ import { Times } from "../Burger/Burger";
 import { NavLink } from "../Navs/NavLinks";
 
 // images and svgs
-import avatar from "../../assets/img/avatar.png";
 import { Logo } from "../Logo/Logo";
 import { LogoutBtn } from "../Buttons_Links/Buttons";
 
