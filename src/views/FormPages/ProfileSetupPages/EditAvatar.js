@@ -4,6 +4,7 @@ import { useHistory } from "react-router";
 
 import { Button, Input } from "../../../components/FormView/Inputs";
 import { Logo } from "../../../components/Logo/Logo";
+import Error from "../../../components/Toasts/Error";
 
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -30,10 +31,15 @@ const UploadAvatar = () => {
       .then((response) => {
         setLoading(false);
         console.log(response);
+        if (response.success) {
+          history.push("/user/profile");
+        } else {
+          throw new Error(response.message);
+        }
       })
       .catch((err) => {
         setLoading(false);
-        console.log(err);
+        console.log(err.message || err.Error || err);
       });
   };
   const handleFileChange = (e) => {
@@ -59,7 +65,7 @@ const UploadAvatar = () => {
         <Logo />
       </nav>
       <h2>Setup profile</h2>
-      {error && <p> {error.toLowerCase()}</p>}
+      {error && <Error> {error.toLowerCase()}</Error>}
       <form onSubmit={handleProfileUpdate}>
         <p className='form-desc'>Upload your avatar</p>
         <Input

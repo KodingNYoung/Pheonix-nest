@@ -13,7 +13,7 @@ import {
 import "./HomePage.css";
 
 // images and svgs
-import hero from "../../assets/img/home-hero.png";
+import hero from "../../assets/img/home-hero.webp";
 import { ReactComponent as Agriculture } from "../../assets/svg/agriculture.svg";
 import { ReactComponent as Fashion } from "../../assets/svg/fashion.svg";
 import { ReactComponent as Retail } from "../../assets/svg/retail.svg";

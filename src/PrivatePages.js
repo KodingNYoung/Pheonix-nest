@@ -7,6 +7,7 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import HomePage from "./views/HomePage/HomePage";
 import PitchPage from "./views/PitchPage/PitchPage";
 import ProfilePage from "./views/ProfilePage/ProfilePage";
+import Preloader from "./components/PreLoader/Preloader";
 
 const PrivatePages = () => {
   // states
@@ -36,7 +37,8 @@ const PrivatePages = () => {
 
   return (
     <div className='user-pages'>
-      {loading && <p>loading...</p>}
+      {loading && <Preloader />}
+
       {error && <p>Page couldn't load because it {error.toLowerCase()}</p>}
       {profile && (
         <>

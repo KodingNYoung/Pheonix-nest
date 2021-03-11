@@ -60,7 +60,7 @@
 }
 @media screen and (min-width: 560px) {
   .landing-page .hero {
-    background: url("../../assets/img/landing-hero.png");
+    background: url("../../assets/img/landing-hero.webp");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -136,7 +136,7 @@
   display: grid;
   grid-template-columns: 40% 60%;
   align-items: center;
-  margin: 1rem  0;
+  margin: 1rem 0;
   width: 100%;
   max-width: 240px;
   border-radius: 4px;
@@ -198,7 +198,7 @@
     margin: 1rem 0;
     margin-right: 2rem;
     position: relative;
-  margin-right: 2rem;
+    margin-right: 2rem;
   }
   .card-grid .card::before {
     content: "";

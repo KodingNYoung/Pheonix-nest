@@ -12,10 +12,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../../components/Footer/Footer";
 import Error from "../../components/Toasts/Error";
-import banner_image from "../../assets/img/pitch-banner.png";
-import avatar from "../../assets/img/avatar2.png";
 
 import "./PitchPage.css";
+import Preloader from "../../components/PreLoader/Preloader";
 
 const PitchPage = ({
   match: {
@@ -79,6 +78,7 @@ const PitchPage = ({
   return (
     <>
       {error && <Error>{error}</Error>}
+      {loading && <Preloader />}
       {pitchDetails.title && !loading && (
         <section className='pitch-page'>
           <div className='pitch-banner'>

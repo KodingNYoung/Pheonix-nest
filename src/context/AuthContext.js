@@ -66,10 +66,10 @@ const AuthProvider = ({ children }) => {
   };
   const uploadAvatar = (file) => {
     const body = new FormData();
-    body.append("avatar", file, "default_avatar.png");
+    body.append("avatar", file);
     const url = "https://phoenix-nest.herokuapp.com/api/v1/user/me/avatar";
 
-    return postRequestFormat(body, url, true);
+    return postImageFormat(body, url, true);
   };
   const getUserProfile = (userId = localStorage.getItem("currentUserId")) => {
     // const userId = localStorage.getItem("currentUserId");
@@ -113,6 +113,24 @@ const AuthProvider = ({ children }) => {
         Authorization: auth ? `Bearer ${authToken}` : "",
       },
       body: JSON.stringify(body),
+    };
+    try {
+      const response = await fetch(url, option);
+      const data = await response.json();
+      return data;
+    } catch (err) {
+      return err;
+    }
+  };
+  const postImageFormat = async (body, url, auth = false) => {
+    const authToken = localStorage.getItem("authToken");
+
+    const option = {
+      method: "POST",
+      headers: {
+        Authorization: auth ? `Bearer ${authToken}` : "",
+      },
+      body: body,
     };
     try {
       const response = await fetch(url, option);
