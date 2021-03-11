@@ -48,10 +48,7 @@ const PrivatePages = () => {
                 path='/user'
                 component={() => <HomePage payload={profile} />}
               />
-              <PrivateRoute
-                path='/user/pitch'
-                component={() => <PitchPage payload={profile} />}
-              />
+              <PrivateRoute path='/user/pitch/:pitchId' component={PitchPage} />
               <PrivateRoute
                 path='/user/profile'
                 component={() => <ProfilePage payload={profile} />}

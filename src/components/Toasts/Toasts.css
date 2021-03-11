@@ -1,0 +1,29 @@
+.toast {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  animation: fade 5s forwards ;
+}
+.toast span {
+  padding: .5rem;
+  border-radius: 4px;
+  display: block;
+  width: fit-content;
+  margin: 1rem auto;
+  font-size: 1.2rem;
+}
+.toast.error-toast span {
+  background-color: red;
+}
+
+@keyframes fade {
+  0%{
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}

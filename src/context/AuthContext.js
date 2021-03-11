@@ -64,24 +64,53 @@ const AuthProvider = ({ children }) => {
 
     return postRequestFormat(body, url);
   };
+  const uploadAvatar = (file) => {
+    const body = new FormData();
+    body.append("avatar", file, "default_avatar.png");
+    const url = "https://phoenix-nest.herokuapp.com/api/v1/user/me/avatar";
 
-  const getUserProfile = () => {
-    const userId = localStorage.getItem("currentUserId");
+    return postRequestFormat(body, url, true);
+  };
+  const getUserProfile = (userId = localStorage.getItem("currentUserId")) => {
+    // const userId = localStorage.getItem("currentUserId");
     const url = `https://phoenix-nest.herokuapp.com/api/v1/user/${userId}`;
 
     return getRequestFormat(url);
   };
+  const getPitchById = (pitchId) => {
+    const url = `https://phoenix-nest.herokuapp.com/api/v1/pitch/${pitchId}`;
+
+    return getRequestFormat(url);
+  };
   const updateUserProfile = (body) => {
-    const userId = localStorage.getItem("currentUserId");
     const url = `https://phoenix-nest.herokuapp.com/api/v1/user/me`;
 
     return patchRequestFormat(body, url);
   };
-  const postRequestFormat = async (body, url) => {
+  const createPitch = (body) => {
+    const url = "https://phoenix-nest.herokuapp.com/api/v1/pitch";
+
+    return postRequestFormat(body, url, true);
+  };
+  const getTopPitches = () => {
+    const url = `https://phoenix-nest.herokuapp.com/api/v1/pitch/get/recent`;
+
+    return getRequestFormat(url);
+  };
+  const commentOnPitch = (comment, pitchId) => {
+    const body = { comment };
+    const url = `https://phoenix-nest.herokuapp.com/api/v1/pitch/${pitchId}/comments`;
+
+    return postRequestFormat(body, url, true);
+  };
+  const postRequestFormat = async (body, url, auth = false) => {
+    const authToken = localStorage.getItem("authToken");
+
     const option = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: auth ? `Bearer ${authToken}` : "",
       },
       body: JSON.stringify(body),
     };
@@ -140,6 +169,11 @@ const AuthProvider = ({ children }) => {
     verifyToken,
     getUserProfile,
     updateUserProfile,
+    uploadAvatar,
+    createPitch,
+    getTopPitches,
+    getPitchById,
+    commentOnPitch,
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

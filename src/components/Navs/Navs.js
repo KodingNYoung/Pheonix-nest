@@ -34,7 +34,7 @@ export const Navbar = () => {
   );
 };
 
-export const HomeNavbar = ({payload}) => {
+export const HomeNavbar = ({ payload }) => {
   // states
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -42,9 +42,8 @@ export const HomeNavbar = ({payload}) => {
   const history = useHistory();
   const { signout } = useAuthContext();
 
-
   // spliting the payload
-  const {avatar_url} = payload;
+  const { avatar_url } = payload;
   const handleLogout = (e) => {
     e.preventDefault();
 
@@ -94,6 +93,7 @@ export const HomeNavbar = ({payload}) => {
         open={drawerOpen}
         closeDrawer={closeDrawer}
         payload={payload}
+        handleLogout={handleLogout}
       />
     </header>
   );

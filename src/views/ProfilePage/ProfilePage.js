@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { Anchor } from "../../components/Navs/Links";
-import banner_image from "../../assets/img/pitch-banner.png";
 
 import "./ProfilePage.css";
 
-import avatar from "../../assets/img/avatar2.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEnvelope,
@@ -23,6 +21,9 @@ const ProfilePage = ({ payload }) => {
     linkedin,
     location,
     phoneNumber,
+    description,
+    positionAtWork,
+    workPlace,
   } = payload;
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -38,9 +39,8 @@ const ProfilePage = ({ payload }) => {
       <div className='profile-page-content'>
         <div className='profile-banner'>
           <div className='banner-image'>
-            <img src={banner_image} alt='' />
-            <h1>Agrocreate</h1>
-            <span>www.agrocreatefarms.com</span>
+            {/* <img src={banner_image} alt='' /> */}
+            <h1>Company name</h1>
           </div>
         </div>
         <div className='user-details'>
@@ -52,10 +52,10 @@ const ProfilePage = ({ payload }) => {
               <div className='col1'>
                 <h3 className='name'>{fullname}</h3>
                 <span className='position'>
-                  Farm manager at Agrocreate Farms, Nigeria
+                  {positionAtWork} at {workPlace}
                 </span>
               </div>
-              <Anchor to='/user/pitch' className='red-bg-link sm-screen-dspr'>
+              <Anchor to='/user/pitches' className='red-bg-link sm-screen-dspr'>
                 View pitch
               </Anchor>
             </div>
@@ -74,22 +74,7 @@ const ProfilePage = ({ payload }) => {
         <div className='profile'>
           <div className='description'>
             <h2 className='title'>Description</h2>
-            <p className='body'>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi at
-              placeat quibusdam nihil voluptatibus temporibus in pariatur
-              debitis ducimus excepturi eaque saepe cupiditate expedita rerum ad
-              sit quo sequi officiis, hic voluptates? Sapiente neque asperiores
-              saepe alias perferendis? Aliquid, ipsum! Debitis voluptas
-              dignissimos ducimus! Velit, impedit similique! Quidem beatae nobis
-              iusto vitae voluptatum impedit vel suscipit, incidunt adipisci
-              eveniet earum labore dignissimos assumenda dolorum id dolore?
-              Alias accusamus molestiae quibusdam blanditiis laboriosam at?
-              Necessitatibus omnis reprehenderit minima animi temporibus culpa
-              quis itaque corporis eaque quidem soluta natus perspiciatis,
-              mollitia molestiae, consequatur similique accusantium quibusdam
-              numquam ipsum explicabo amet. Hic, rerum! Lorem ipsum dolor sit
-              amet consectetur adipisicing elit.
-            </p>
+            <p className='body'>{description}</p>
           </div>
           <div className='contacts'>
             <h2 className='title'>User info</h2>

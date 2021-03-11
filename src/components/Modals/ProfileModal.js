@@ -17,11 +17,11 @@ const ProfileModal = ({ modalOpen, closeModal }) => {
       <div className='modal-content'>
         <h2>Select an action</h2>
         <div className='nav-links'>
-          <Anchor to=''>Change profile image</Anchor>
+          <Anchor to='/user/profile/upload-avatar'>Change profile image</Anchor>
           <Anchor to='/user/profile/edit-user-details'>
-            Edit user details
+            update user details
           </Anchor>
-          <Anchor to=''>Edit pitch</Anchor>
+          <Anchor to='/user/profile/create-pitch'>create pitch</Anchor>
         </div>
       </div>
     </div>

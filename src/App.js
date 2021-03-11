@@ -12,12 +12,14 @@ import RecoverPassword from "./views/FormPages/RecoverPassword/RecoverPassword";
 import ResetPassword from "./views/FormPages/ResetPassword/ResetPassword";
 import EmailConfirmation from "./views/EmailConfirmationPage/EmailConfirmation";
 import CodeVerification from "./views/FormPages/CodeVerification/CodeVerification";
-
-// css
-import "./App.css";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import PrivatePages from "./PrivatePages";
 import EditDetails from "./views/FormPages/ProfileSetupPages/EditDetails";
+import UploadAvatar from "./views/FormPages/ProfileSetupPages/EditAvatar";
+import CreatePitch from "./views/FormPages/ProfileSetupPages/CreatePitch";
+
+// css
+import "./App.css";
 
 const App = () => {
   return (
@@ -58,6 +60,16 @@ const App = () => {
               exact
               path='/user/profile/edit-user-details'
               component={EditDetails}
+            />
+            <PrivateRoute
+              exact
+              path='/user/profile/upload-avatar'
+              component={UploadAvatar}
+            />
+            <PrivateRoute
+              exact
+              path='/user/profile/create-pitch'
+              component={CreatePitch}
             />
             <PrivateRoute path='/user' component={PrivatePages} />
           </Switch>
