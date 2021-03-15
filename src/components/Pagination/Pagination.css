@@ -1,0 +1,32 @@
+.pagination {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.pagination button {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  outline: none;
+  background-color: transparent;
+  padding: 0.4rem 1rem;
+  margin: 0.5rem;
+  border-radius: 3px;
+}
+.pagination button.prev-page,
+.pagination button.next-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+  color: #d63e39;
+}
+.pagination .next-page span,
+.pagination .prev-page span {
+  margin: 0 0.4rem;
+  color: #000;
+}
+.pagination .active {
+  background-color: #d63e39;
+  color: #fff;
+  border-color: #d63e39;
+}

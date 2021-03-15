@@ -22,10 +22,12 @@ import { SearchField } from "../../components/FormView/Inputs";
 import { NavLink } from "../../components/Navs/NavLinks";
 import Footer from "../../components/Footer/Footer";
 import { IndustryCard, PitchCard } from "../../components/Cards/Cards";
-import Error from "../../components/Toasts/Error";
+import { ErrorToast } from "../../components/Errors/Error";
+import Preloader from "../../components/PreLoader/Preloader";
 
 const HomePage = () => {
   const [pitches, setPitches] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { getTopPitches, getUserProfile } = useAuthContext();
 
@@ -52,19 +54,24 @@ const HomePage = () => {
           });
         });
         // get the result of the promises
-        Promise.all(pitchItems).then((pitchData) => {
-          // filter out the responses with false
-          const pitchList = pitchData.filter((pitch) => pitch !== false);
-          // set the new list as the pitches to be displayed
-          setPitches(pitchList);
-        });
+        Promise.all(pitchItems)
+          .then((pitchData) => {
+            setLoading(false);
+            // filter out the responses with false
+            const pitchList = pitchData.filter((pitch) => pitch !== false);
+            // set the new list as the pitches to be displayed
+            setPitches(pitchList);
+          })
+          .catch((err) => {
+            setError(err);
+          });
       });
     return unsub;
   }, [getTopPitches, getUserProfile]);
 
   return (
     <div className='home'>
-      {error && <Error>{error}</Error>}
+      {error && <ErrorToast>{error}</ErrorToast>}
       <div className='hero'>
         <div className='lg-screen-disp'>
           <div className='container'>
@@ -134,16 +141,16 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      {pitches && (
-        <div className='rated-pitches'>
-          <h2>Check out the Most Rated Pitches</h2>
-          <div className='pitch-card-grid'>
-            {pitches.map((pitch) => {
+      <div className='rated-pitches'>
+        <h2>Check out the Most Rated Pitches</h2>
+        <div className='pitch-card-grid'>
+          {loading && <Preloader size={50} border={5} color='#d63e39' />}
+          {pitches &&
+            pitches.map((pitch) => {
               return <PitchCard pitchData={pitch} key={pitch._id} />;
             })}
-          </div>
         </div>
-      )}
+      </div>
       <Footer />
     </div>
   );

@@ -21,7 +21,7 @@ export const Navbar = () => {
           <NavLink to='/login'>sign in</NavLink>
           <NavLink to=''> about</NavLink>
           <NavLink to='/pitches'> explore pitches</NavLink>
-          <NavLink to='/sign'>contact us</NavLink>
+          <a href="#contact-us">contact us</a>
         </div>
         <Link to='/signup' className='primary-link'>
           Join
@@ -72,11 +72,11 @@ export const HomeNavbar = ({ payload }) => {
         <NavLink to='/user' active={true}>
           home
         </NavLink>
-        <NavLink to='/user/profile'>profile</NavLink>
+        <NavLink to={`/user/profile/${localStorage.getItem("currentUserId")}`}>
+          profile
+        </NavLink>
         <NavLink to='/user/pitches'>Pitches</NavLink>
-        <NavLink to=''>about</NavLink>
-        <NavLink to=''>contact us</NavLink>
-        <NavLink to=''>Terms and conditions</NavLink>
+        <a href="#contact-us">contact us</a>
         <div className='avatar'>
           <img src={avatar_url} alt='' />
         </div>

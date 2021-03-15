@@ -19,7 +19,7 @@ export const Input = ({
           id={id}
           required={required}
           {...inputFuncs}
-          rows= "5"
+          rows='5'
         ></textarea>
       ) : (
         <input

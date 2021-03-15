@@ -1,7 +1,7 @@
 import React from "react";
-import "./Toasts.css";
+import "./Errors.css";
 
-const Error = ({ children }) => {
+export const ErrorToast = ({ children }) => {
   return (
     <div className='toast error-toast'>
       <span>{children}</span>
@@ -9,4 +9,3 @@ const Error = ({ children }) => {
   );
 };
 
-export default Error;
