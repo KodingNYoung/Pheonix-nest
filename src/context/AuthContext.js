@@ -97,6 +97,16 @@ const AuthProvider = ({ children }) => {
 
     return getRequestFormat(url);
   };
+  const getAllPitches = () => {
+    const url = `https://phoenix-nest.herokuapp.com/api/v1/pitch`;
+
+    return getRequestFormat(url);
+  }
+  const getCommentsOnPitch = (pitchId) => {
+    const url = `https://phoenix-nest.herokuapp.com/api/v1/pitch/${pitchId}/comments`;
+
+    return getRequestFormat(url);
+  };
   const commentOnPitch = (comment, pitchId) => {
     const body = { comment };
     const url = `https://phoenix-nest.herokuapp.com/api/v1/pitch/${pitchId}/comments`;
@@ -192,6 +202,8 @@ const AuthProvider = ({ children }) => {
     getTopPitches,
     getPitchById,
     commentOnPitch,
+    getCommentsOnPitch,
+    getAllPitches,
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

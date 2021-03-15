@@ -1,0 +1,14 @@
+.pitches-page .pitches {
+  padding: 2.5rem 3rem;
+  padding-bottom: 7rem;
+}
+.pitches-page .pitches h2 {
+  font-size: 2.3rem;
+}
+.pitches .pitch-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  column-gap: 1.5rem;
+  row-gap: 1.5rem;
+  margin: 3rem 0;
+}

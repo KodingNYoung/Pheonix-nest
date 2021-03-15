@@ -17,7 +17,7 @@ const SignupPage = () => {
   const [userInputs, setUserInputs] = useState({
     fullname: "",
     email: "",
-    phone: "",
+    // phone: "",
     password: "",
     repassword: "",
   });
@@ -36,10 +36,11 @@ const SignupPage = () => {
     if (password !== repassword) {
       setError("Passwords don't  match.");
       return false;
-    } else if (!phone.match(/^\d{11}$/)) {
-      setError("Phone number not valid");
-      return false;
     }
+    //  else if (!phone.match(/^\d{11}$/)) {
+    //   setError("Phone number not valid");
+    //   return false;
+    // }
     setLoading(true);
 
     signup(fullname, email, password)
@@ -97,7 +98,7 @@ const SignupPage = () => {
             disabled: loading,
           }}
         />
-        <Input
+        {/* <Input
           type='tel'
           name='phone'
           id='phone'
@@ -108,7 +109,7 @@ const SignupPage = () => {
             value: userInputs.phone,
             disabled: loading,
           }}
-        />
+        /> */}
         <Input
           type='password'
           name='password'
@@ -145,6 +146,12 @@ const SignupPage = () => {
           {" "}
           {loading ? "loading" : "sign up"}
         </Button>
+        <span>
+          Already have an account?{" "}
+          <Anchor className='transparent-link' to='/login'>
+            log In
+          </Anchor>
+        </span>
       </form>
     </FormView>
   );

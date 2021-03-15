@@ -30,14 +30,14 @@ const Drawer = ({ open, closeDrawer, payload, handleLogout }) => {
         </div>
       </header>
       <nav>
-        <NavLink to='/user/profile' onClick={closeDrawer}>
+        <NavLink to={`/user/profile/${localStorage.getItem('currentUserId')}`} onClick={closeDrawer}>
           my profile
         </NavLink>
         <NavLink to='/user/pitches' onClick={closeDrawer}>
           explore Pitches
         </NavLink>
         <NavLink to='' onClick={closeDrawer}>
-          about pheonix nest
+          about phoenix nest
         </NavLink>
         <NavLink to='' onClick={closeDrawer}>
           check your investment

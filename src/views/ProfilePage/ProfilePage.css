@@ -7,6 +7,7 @@
   flex-direction: column;
   align-items: center;
   background-color: #333;
+  background: #333 url('../../assets/img/header-bg.png');
 }
 .profile-banner .banner-image img {
   width: 100%;
@@ -23,9 +24,9 @@
   top: 0;
 }
 .profile-banner .banner-image h1 {
-  font-size: 7rem;
+  font-size: 5rem;
   font-family: "Atomic Age", cursive;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 .profile-banner .banner-image span {
   font-size: 1.9em;
@@ -44,10 +45,12 @@
 .user-details .user-avatar {
   width: 150px;
   height: 150px;
+  background-color: #fff;
 }
 .user-avatar img {
   width: 100%;
   height: 100%;
+  padding: .23rem;
 }
 .user-details .user-info {
   width: 100%;
@@ -98,6 +101,7 @@
   text-transform: capitalize;
   font-size: 1.25rem;
   margin-right: 1rem;
+  margin-left: 1rem;
   padding: 0.65rem 2rem;
 }
 .share .left .transparent-btn {
@@ -172,6 +176,9 @@
     bottom: 0;
     padding: 0 3rem;
   }
+  .share .left .primary-link {
+  margin-left: 0rem;
+}
   .user-details .user-info .details {
     padding: 0 2.5rem 0 .5rem;
   }

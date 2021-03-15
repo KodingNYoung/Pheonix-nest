@@ -88,7 +88,7 @@ const EditDetails = () => {
         if (response.success) {
           console.log(response);
           setLoading(false);
-          history.push("/user/profile");
+          history.push(`/user/profile/${localStorage.getItem('currentUserId')}`);
         } else {
           throw new Error(response.message);
         }

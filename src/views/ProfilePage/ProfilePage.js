@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useAuthContext } from "../../context/AuthContext";
 import { Anchor } from "../../components/Navs/Links";
 
 import "./ProfilePage.css";
@@ -12,19 +13,41 @@ import {
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import Footer from "../../components/Footer/Footer";
 import ProfileModal from "../../components/Modals/ProfileModal";
+import { ErrorToast } from "../../components/Errors/Error";
+import Preloader from "../../components/PreLoader/Preloader";
+import { Brand } from "../../components/Logo/Logo";
 
-const ProfilePage = ({ payload }) => {
-  const {
-    email,
-    fullname,
-    avatar_url,
-    linkedin,
-    location,
-    phoneNumber,
-    description,
-    positionAtWork,
-    workPlace,
-  } = payload;
+const ProfilePage = ({ match }) => {
+  // states
+  const [profile, setProfile] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [isUserValid, setIsUserValid] = useState(false);
+
+  // other hooks
+  const { getUserProfile } = useAuthContext();
+
+  useEffect(() => {
+    const unsub = getUserProfile(match.params.userId)
+      .then((res) => {
+        setLoading(false);
+        if (res.success) {
+          console.log(res);
+          setProfile(res.payload);
+        } else {
+          throw new Error(res.message);
+        }
+      })
+      .catch((err) => {
+        setLoading(false);
+        setError(err.message || err.Error || err);
+      });
+    setIsUserValid(
+      match.params.userId === localStorage.getItem("currentUserId")
+    );
+    return unsub;
+  }, [getUserProfile]);
+
   const [modalOpen, setModalOpen] = useState(false);
 
   const openModal = () => {
@@ -36,94 +59,110 @@ const ProfilePage = ({ payload }) => {
 
   return (
     <section className='profile-page'>
-      <div className='profile-page-content'>
-        <div className='profile-banner'>
-          <div className='banner-image'>
-            {/* <img src={banner_image} alt='' /> */}
-            <h1>Company name</h1>
-          </div>
-        </div>
-        <div className='user-details'>
-          <div className='user-avatar'>
-            <img src={avatar_url} alt='' />
-          </div>
-          <div className='user-info'>
-            <div className='details'>
-              <div className='col1'>
-                <h3 className='name'>{fullname}</h3>
-                <span className='position'>
-                  {positionAtWork} at {workPlace}
-                </span>
-              </div>
-              <Anchor to='/user/pitches' className='red-bg-link sm-screen-dspr'>
-                View pitch
-              </Anchor>
-            </div>
-            <div className='share'>
-              <div className='left'>
-                <Anchor to='/messages' className='primary-link'>
-                  messages
-                </Anchor>
-                <button className='transparent-btn' onClick={openModal}>
-                  edit profile
-                </button>
+      {error && <ErrorToast>{error}</ErrorToast>}
+      {loading && <Preloader size={70} border={10} color='#d63e39' />}
+      {profile && (
+        <>
+          <div className='profile-page-content'>
+            <div className='profile-banner'>
+              <div className='banner-image'>
+                {/* <img src={banner_image} alt='' /> */}
+                <h1>
+                  <Brand />
+                </h1>
               </div>
             </div>
-          </div>
-        </div>
-        <div className='profile'>
-          <div className='description'>
-            <h2 className='title'>Description</h2>
-            <p className='body'>{description}</p>
-          </div>
-          <div className='contacts'>
-            <h2 className='title'>User info</h2>
-            <div className='body'>
-              <div className='contact-item'>
-                <div className='contact-icon'>
-                  <FontAwesomeIcon icon={faMapMarkerAlt} />
-                </div>
-                <div className='contact-details'>
-                  <span className='contact-title'>Location</span>
-                  <span className='contact-value'>{location}</span>
-                </div>
+            <div className='user-details'>
+              <div className='user-avatar'>
+                <img src={profile.avatar_url} alt='' />
               </div>
-              <div className='contact-item'>
-                <div className='contact-icon'>
-                  <FontAwesomeIcon icon={faPhoneAlt} />
+              <div className='user-info'>
+                <div className='details'>
+                  <div className='col1'>
+                    <h3 className='name'>{profile.fullname}</h3>
+                    <span className='position'>
+                      {profile.positionAtWork} at {profile.workPlace}
+                    </span>
+                  </div>
+                  <Anchor
+                    to='/user/pitches'
+                    className='red-bg-link sm-screen-dspr'
+                  >
+                    View pitch
+                  </Anchor>
                 </div>
-                <div className='contact-details'>
-                  <span className='contact-title'>Phone</span>
-                  <span className='contact-value'>0{phoneNumber}</span>
-                </div>
-              </div>
-              <div className='contact-item'>
-                <div className='contact-icon'>
-                  <FontAwesomeIcon icon={faEnvelope} />
-                </div>
-                <div className='contact-details'>
-                  <span className='contact-title'>Email</span>
-                  <span className='contact-value'>{email}</span>
-                </div>
-              </div>
-              <div className='contact-item'>
-                <div className='contact-icon'>
-                  <FontAwesomeIcon icon={faLinkedinIn} />
-                </div>
-                <div className='contact-details'>
-                  <span className='contact-title'>Linkedin Profile</span>
-
-                  <span className='contact-value'>{linkedin}</span>
+                <div className='share'>
+                  <div className='left'>
+                    <a
+                      target='_blank'
+                      href={`https://wa.me/+234${profile.phoneNumber}`}
+                      className='primary-link'
+                    >
+                      messages
+                    </a>
+                    {isUserValid && (
+                      <button className='transparent-btn' onClick={openModal}>
+                        edit profile
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
+            <div className='profile'>
+              <div className='description'>
+                <h2 className='title'>Description</h2>
+                <p className='body'>{profile.description}</p>
+              </div>
+              <div className='contacts'>
+                <h2 className='title'>User info</h2>
+                <div className='body'>
+                  <ContactInfo
+                    icon={faMapMarkerAlt}
+                    name='Location'
+                    value={profile.location}
+                  />
+                  <ContactInfo
+                    icon={faPhoneAlt}
+                    name='Phone'
+                    value={`0${profile.phoneNumber}`}
+                  />
+                  <ContactInfo
+                    icon={faEnvelope}
+                    name='Email'
+                    value={profile.email}
+                  />
+                  <ContactInfo
+                    icon={faLinkedinIn}
+                    name='Linkedin Profile'
+                    value={profile.linkedin}
+                  />
+                </div>
+              </div>
+            </div>
+            <Footer />
           </div>
-        </div>
-        <Footer />
-      </div>
-      <ProfileModal modalOpen={modalOpen} closeModal={closeModal} />
+          <ProfileModal modalOpen={modalOpen} closeModal={closeModal} />
+        </>
+      )}
     </section>
   );
 };
-
+const ContactInfo = ({ icon, name, value }) => {
+  return (
+    <>
+      {value ? (
+        <div className='contact-item'>
+          <div className='contact-icon'>
+            <FontAwesomeIcon icon={icon} />
+          </div>
+          <div className='contact-details'>
+            <span className='contact-title'>{name}</span>
+            <span className='contact-value'>{value}</span>
+          </div>
+        </div>
+      ) : null}
+    </>
+  );
+};
 export default ProfilePage;

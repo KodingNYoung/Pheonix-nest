@@ -11,7 +11,7 @@ import {
   faThumbsUp,
 } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../../components/Footer/Footer";
-import Error from "../../components/Toasts/Error";
+import {ErrorToast} from "../../components/Errors/Error";
 
 import "./PitchPage.css";
 import Preloader from "../../components/PreLoader/Preloader";
@@ -24,21 +24,21 @@ const PitchPage = ({
   // states
   const [like, setLike] = useState(false);
   const [dislike, setDislike] = useState(false);
-  const [comment, setComment] = useState("");
-  const [pitchDetails, setPitchDetails] = useState({
-    coomments: [],
-  });
+  const [commentInput, setCommentInput] = useState("");
+  const [pitchDetails, setPitchDetails] = useState({});
+  const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
   // other hooks
-  const { getPitchById, commentOnPitch } = useAuthContext();
+  const { getPitchById, commentOnPitch, getCommentsOnPitch } = useAuthContext();
 
   useEffect(() => {
     const unsub = getPitchById(pitchId)
       .then((response) => {
         if (response.success) {
-          console.log(response);
           setPitchDetails({ ...response.payload, ...response.payload.author });
+          setComments(response.payload.comments);
           setTimeout(() => setLoading(false, 200));
         } else {
           throw new Error(response.message);
@@ -60,24 +60,39 @@ const PitchPage = ({
     setDislike(!dislike);
     setLike(false);
   };
+  const getComments = () => {
+    getCommentsOnPitch(pitchId)
+      .then((res) => {
+        if (res.success) {
+          setComments(res.payload);
+        } else {
+          throw new Error(res.message);
+        }
+      })
+      .catch((err) => {
+        setError(err.message || err.Error || err);
+      });
+  };
   const handleCommentSubmit = (e) => {
     e.preventDefault();
-    commentOnPitch(comment, pitchId)
-      .then((response) => {
-        console.log(response);
-        setComment("");
+    commentOnPitch(commentInput, pitchId)
+      .then(() => {
+        getComments();
+        setCommentInput("");
       })
-      .catch((err) => {});
+      .catch((err) => {
+        setError(err);
+      });
   };
   const handleTextChange = (e) => {
     const { value } = e.target;
 
-    setComment(value);
+    setCommentInput(value);
   };
 
   return (
     <>
-      {error && <Error>{error}</Error>}
+      {error && <ErrorToast>{error}</ErrorToast>}
       {loading && <Preloader />}
       {pitchDetails.title && !loading && (
         <section className='pitch-page'>
@@ -92,7 +107,7 @@ const PitchPage = ({
               <img src={pitchDetails.avatar_url} alt='' />
             </div>
             <div className='user-info'>
-              <Anchor to='/user/profile' className='details'>
+              <Anchor to={`/user/profile/${pitchDetails.author._id}`} className='details'>
                 <div className='col1'>
                   <h3 className='name'>{pitchDetails.fullname}</h3>
                   <span className='position'>{pitchDetails.email}</span>
@@ -154,21 +169,21 @@ const PitchPage = ({
           <div className='comments-section'>
             <h2>Comments</h2>
             <div className='comments'>
-              {pitchDetails.comments.map((comment) => {
+              {comments.map((comment) => {
                 return <PitchComment key={comment._id} comment={comment} />;
               })}
             </div>
-            <div className='see-comments'>
+            {/* <div className='see-comments'>
               <Anchor to='#' className='transparent-link'>
                 see more comments
               </Anchor>
-            </div>
+            </div> */}
             <form className='post-comment' onSubmit={handleCommentSubmit}>
               <input
                 type='text'
                 name='comment'
                 placeholder='type comment'
-                value={comment}
+                value={commentInput}
                 onChange={handleTextChange}
               />
               <button type='submit'>Post comment</button>
@@ -181,9 +196,8 @@ const PitchPage = ({
   );
 };
 const PitchComment = ({ comment }) => {
-  console.log(comment);
   const {
-    author: { avatar_url, email, fullname, _id },
+    author: { avatar_url, fullname },
     timeAgo,
   } = comment;
   return (
