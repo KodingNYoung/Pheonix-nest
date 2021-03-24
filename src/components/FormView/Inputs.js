@@ -9,17 +9,19 @@ export const Input = ({
   id,
   required,
   placeholder,
+  preInput,
   inputFuncs,
 }) => {
   return (
-    <div className='input-field'>
+    <div className="input-field">
+      {preInput ? <span className="leading-text">{preInput}</span> : null}
       {type === "textarea" ? (
         <textarea
           name={name}
           id={id}
           required={required}
           {...inputFuncs}
-          rows='5'
+          rows="5"
         ></textarea>
       ) : (
         <input
@@ -30,7 +32,7 @@ export const Input = ({
           {...inputFuncs}
         />
       )}
-      <label htmlFor={id} className='label'>
+      <label htmlFor={id} className="label">
         {placeholder}
       </label>
     </div>
@@ -39,7 +41,7 @@ export const Input = ({
 
 export const Button = ({ type, children, disabled }) => {
   return (
-    <button type={type} className='submit-btn' disabled={disabled}>
+    <button type={type} className="submit-btn" disabled={disabled}>
       {children}
     </button>
   );
@@ -47,12 +49,12 @@ export const Button = ({ type, children, disabled }) => {
 
 export const SearchField = () => {
   return (
-    <form className='search-field'>
+    <form className="search-field">
       <input
-        type='text'
-        name='search'
-        placeholder='Search for a Pitch'
-        id='search'
+        type="text"
+        name="search"
+        placeholder="Search for a Pitch"
+        id="search"
       />
       <button>
         <FontAwesomeIcon icon={faSearch} />

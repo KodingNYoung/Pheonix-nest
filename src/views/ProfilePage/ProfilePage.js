@@ -32,7 +32,6 @@ const ProfilePage = ({ match }) => {
       .then((res) => {
         setLoading(false);
         if (res.success) {
-          console.log(res);
           setProfile(res.payload);
         } else {
           throw new Error(res.message);

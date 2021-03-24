@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // css
 import "./ProfileSetupPages.css";
 import { useAuthContext } from "../../../context/AuthContext";
+import Preloader from "../../../components/PreLoader/Preloader";
 
 const EditDetails = () => {
   // states
@@ -25,7 +26,8 @@ const EditDetails = () => {
     fullname: "",
   });
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
   const [details, setDetails] = useState(null);
 
   // other hooks
@@ -65,7 +67,7 @@ const EditDetails = () => {
     setUserInputs({
       workPlace,
       positionAtWork,
-      phoneNumber: "0" + phoneNumber,
+      phoneNumber: phoneNumber,
       location,
       industry,
       linkedin,
@@ -77,18 +79,20 @@ const EditDetails = () => {
     e.preventDefault();
     const { phoneNumber } = userInputs;
     // check if phone is
-    if (!phoneNumber.match(/^\d{11}$/)) {
+    if (!phoneNumber.toString().match(/^\d{10}$/)) {
       setError("Phone number not valid");
       return false;
     }
-    setLoading(true);
+    setSubmitting(true);
 
     updateUserProfile(userInputs)
       .then((response) => {
         if (response.success) {
           console.log(response);
-          setLoading(false);
-          history.push(`/user/profile/${localStorage.getItem('currentUserId')}`);
+          setSubmitting(false);
+          history.push(
+            `/user/profile/${localStorage.getItem("currentUserId")}`
+          );
         } else {
           throw new Error(response.message);
         }
@@ -96,7 +100,7 @@ const EditDetails = () => {
       .catch((err) => {
         setError(err.message || err.Error);
         console.log(err.message || err.Error || err);
-        setLoading(false);
+        setSubmitting(false);
       });
   };
 
@@ -111,7 +115,7 @@ const EditDetails = () => {
   };
 
   return (
-    <div className='edit-user-form'>
+    <div className="edit-user-form">
       <nav>
         <button onClick={onArrowClick}>
           <FontAwesomeIcon icon={faArrowLeft} />
@@ -119,108 +123,110 @@ const EditDetails = () => {
         <Logo />
       </nav>
       <h2>Setup profile</h2>
-      {error && <p>Page couldn't load because it {error.toLowerCase()}</p>}
+      {error && <p>{error.toLowerCase()}</p>}
+      {loading && <Preloader size={70} border={10} color="#d63e39" />}
       {details && (
         <form onSubmit={handleProfileUpdate}>
-          <p className='form-desc'>Update your profile</p>
+          <p className="form-desc">Update your profile</p>
           <Input
-            type='text'
-            name='fullname'
-            id='fullname'
+            type="text"
+            name="fullname"
+            id="fullname"
             required={false}
-            placeholder='full name'
+            placeholder="full name"
             inputFuncs={{
               onChange: handleTextChange,
               value: userInputs.fullname,
-              disabled: loading,
+              disabled: submitting,
             }}
           />
           <Input
-            type='text'
-            name='workPlace'
-            id='workPlace'
+            type="text"
+            name="workPlace"
+            id="workPlace"
             required={false}
-            placeholder='Work place'
+            placeholder="Work place"
             inputFuncs={{
               onChange: handleTextChange,
               value: userInputs.workPlace,
-              disabled: loading,
+              disabled: submitting,
             }}
           />
           <Input
-            type='text'
-            name='positionAtWork'
-            id='positionAtWork'
+            type="text"
+            name="positionAtWork"
+            id="positionAtWork"
             required={false}
-            placeholder='position at work'
+            placeholder="position at work"
             inputFuncs={{
               onChange: handleTextChange,
               value: userInputs.positionAtWork,
-              disabled: loading,
+              disabled: submitting,
             }}
           />
           <Input
-            type='text'
-            name='location'
-            id='location'
+            type="text"
+            name="location"
+            id="location"
             required={false}
-            placeholder='location'
+            placeholder="location"
             inputFuncs={{
               onChange: handleTextChange,
               value: userInputs.location,
-              disabled: loading,
+              disabled: submitting,
             }}
           />
           <Input
-            type='text'
-            name='industry'
-            id='industry'
+            type="text"
+            name="industry"
+            id="industry"
             required={false}
-            placeholder='industry'
+            placeholder="industry"
             inputFuncs={{
               onChange: handleTextChange,
               value: userInputs.industry,
-              disabled: loading,
+              disabled: submitting,
             }}
           />
           <Input
-            type='url'
-            name='linkedin'
-            id='linkedin'
+            type="url"
+            name="linkedin"
+            id="linkedin"
             required={false}
-            placeholder='linkedin profile link'
+            placeholder="linkedin profile link"
             inputFuncs={{
               onChange: handleTextChange,
               value: userInputs.linkedin,
-              disabled: loading,
+              disabled: submitting,
             }}
           />
           <Input
-            type='tel'
-            name='phoneNumber'
-            id='phoneNumber'
+            type="tel"
+            name="phoneNumber"
+            id="phoneNumber"
             required={true}
-            placeholder='phone number'
+            placeholder="phone number"
+            preInput="+234"
             inputFuncs={{
               onChange: handleTextChange,
               value: userInputs.phoneNumber,
-              disabled: loading,
+              disabled: submitting,
             }}
           />
           <Input
-            type='textarea'
-            name='description'
-            id='description'
+            type="textarea"
+            name="description"
+            id="description"
             required={false}
-            placeholder='description'
+            placeholder="description"
             inputFuncs={{
               onChange: handleTextChange,
               value: userInputs.description,
-              disabled: loading,
+              disabled: submitting,
             }}
           />
-          <Button type='submit' disabled={loading}>
-            {loading ? "loading..." : "Submit"}
+          <Button type="submit" disabled={submitting}>
+            {submitting ? "submitting..." : "Submit"}
           </Button>
         </form>
       )}
