@@ -95,7 +95,7 @@ const HomePage = () => {
                   <FontAwesomeIcon icon={faChevronRight} />
                 </button>
               </div>
-              <NavLink to=''>Explore more industries</NavLink>
+              <NavLink to='/user/pitches'>Explore more industries</NavLink>
             </div>
           </div>
           <NavLink to='/messages' className='message-icon'>
@@ -135,7 +135,7 @@ const HomePage = () => {
               <IndustryCard icon={<Fashion />} name='fashion' />
               <IndustryCard icon={<Retail />} name='retail' />
             </div>
-            <NavLink to='' className='transparent-link'>
+            <NavLink to='/user/pitches' className='transparent-link'>
               see all
             </NavLink>
           </div>

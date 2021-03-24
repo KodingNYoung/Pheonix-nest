@@ -49,15 +49,19 @@
   border-radius: 4px;
   margin: 1.8rem 0;
 }
+.input-field span.leading-text {
+  font-size: 1.3rem;
+  padding: 1.5rem;
+  padding-right: 0;
+}
 .input-field input,
 .input-field textarea {
   width: 100%;
-  padding: 1.5rem 1.5rem;
+  padding: 1.5rem;
   border: none;
   outline: none;
   border-radius: 4px;
   background-color: transparent;
-  font-size: 0.7rem;
   font-size: 1.3rem;
 }
 .input-field input[type="file"] {
@@ -68,7 +72,7 @@
 .input-field input[type="file"]::before {
   content: "Select file";
   position: absolute;
-  right: .5rem;
+  right: 0.5rem;
   background-color: #d63e39;
   color: #fff;
   top: 50%;
@@ -162,6 +166,9 @@
     display: grid;
     grid-template-columns: 30% 70%;
     background: url("../../assets/img/header-bg.png"), #d63e39;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     align-content: center;
     align-items: start;
     justify-items: center;

@@ -7,7 +7,10 @@
   flex-direction: column;
   align-items: center;
   background-color: #333;
-  background: #333 url('../../assets/img/header-bg.png');
+  background: #333 url("../../assets/img/header-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .profile-banner .banner-image img {
   width: 100%;
@@ -50,7 +53,7 @@
 .user-avatar img {
   width: 100%;
   height: 100%;
-  padding: .23rem;
+  padding: 0.23rem;
 }
 .user-details .user-info {
   width: 100%;
@@ -177,10 +180,10 @@
     padding: 0 3rem;
   }
   .share .left .primary-link {
-  margin-left: 0rem;
-}
+    margin-left: 0rem;
+  }
   .user-details .user-info .details {
-    padding: 0 2.5rem 0 .5rem;
+    padding: 0 2.5rem 0 0.5rem;
   }
   .user-details .details .red-bg-link {
     background-color: #fcd413;

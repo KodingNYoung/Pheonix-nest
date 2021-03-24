@@ -44,7 +44,7 @@ const App = () => {
             <Route
               exact
               path='/signup/email-confirmation'
-              component={() => <EmailConfirmation />}
+              component={EmailConfirmation}
             />
             <Route
               exact
