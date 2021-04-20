@@ -19,7 +19,7 @@ import { ReactComponent as Fashion } from "../../assets/svg/fashion.svg";
 import { ReactComponent as Retail } from "../../assets/svg/retail.svg";
 import { ReactComponent as Technology } from "../../assets/svg/technology.svg";
 import { SearchField } from "../../components/FormView/Inputs";
-import { NavLink } from "../../components/Navs/NavLinks";
+import { NavLink } from "../../components/Navs/Links";
 import Footer from "../../components/Footer/Footer";
 import { IndustryCard, PitchCard } from "../../components/Cards/Cards";
 import { ErrorToast } from "../../components/Errors/Error";

@@ -7,7 +7,7 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Brand } from "../Logo/Logo";
-import { NavLink } from "../Navs/NavLinks";
+import { NavLink } from "../Navs/Links";
 
 import "./Footer.css";
 const Footer = () => {
@@ -42,12 +42,6 @@ const Footer = () => {
               >
                 <FontAwesomeIcon icon={faInstagramSquare} />
               </a>
-              {/* <a
-                target='_blank'
-                href='mailto:phoenixnestng@gmail.com'
-              >
-                <FontAwesomeIcon icon={faEnvelope} />
-              </a> */}
             </div>
             <span>phoenixnestng@gmail.com</span>
           </div>
@@ -57,9 +51,6 @@ const Footer = () => {
             </NavLink>
             <NavLink to='/pitches' className='transparent-link'>
               Explore Pitches
-            </NavLink>
-            <NavLink to='/contact' className='transparent-link'>
-              Contact
             </NavLink>
             <NavLink to='/terms' className='transparent-link'>
               Terms and Conditions

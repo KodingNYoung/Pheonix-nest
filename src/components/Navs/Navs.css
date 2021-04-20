@@ -17,17 +17,18 @@ header nav .links {
 header nav a {
   text-transform: capitalize;
   padding: 0 0.6rem;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 400;
   color: #000;
   text-decoration: none;
 }
 a.red-bg-link {
-  background-color: #d63e39;
-  color: #fff;
+  background-color: var(--primary-yellow);
+  color: var(--white);
   text-decoration: none;
 }
 a.primary-link {
-  background-color: #fcd413;
+  background-color: var(--primary-yellow);
   border-radius: 4px;
   font-weight: bold;
   padding: 0.5rem 1.8rem;

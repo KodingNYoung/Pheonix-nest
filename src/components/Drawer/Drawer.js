@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Drawer.css";
 
 import { Times } from "../Burger/Burger";
-import { NavLink } from "../Navs/NavLinks";
+import { NavLink } from "../Navs/Links";
 
 // images and svgs
 import { Logo } from "../Logo/Logo";
