@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
 // css
-import "./Navs.css";
+import "./Links.css";
 
 export const Anchor = ({ to, className, children }) => {
   return (
-    <Link className={className} to={to}>
+    <Link className={`link ${className}`} to={to}>
       {children}
     </Link>
   );
@@ -24,7 +24,7 @@ export const NavLink = ({ children, to, className, onClick }) => {
 };
 export const Hashlink = ({ children, to, className }) => {
   return (
-    <HashLink to={to} className={className}>
+    <HashLink to={to} className={`hash-link ${className}`}>
       {children}
     </HashLink>
   );

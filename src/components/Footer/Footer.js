@@ -7,7 +7,7 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Brand } from "../Logo/Logo";
-import { NavLink } from "../Navs/Links";
+import { NavLink } from "../Links/Links";
 
 import "./Footer.css";
 const Footer = () => {

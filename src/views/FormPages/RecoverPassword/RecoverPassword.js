@@ -4,7 +4,7 @@ import { useAuthContext } from "../../../context/AuthContext";
 
 import FormView from "../../../components/FormView/FormView";
 import { Input, Button } from "../../../components/FormView/Inputs";
-import { Anchor } from "../../../components/Navs/Links";
+import { Anchor } from "../../../components/Links/Links";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

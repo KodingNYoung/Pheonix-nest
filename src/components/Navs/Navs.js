@@ -1,29 +1,30 @@
 import React, { useState } from "react";
 import { useAuthContext } from "../../context/AuthContext";
-
-import { Brand } from "../../components/Logo/Logo";
 import { useHistory } from "react-router-dom";
-import { NavLink, Hashlink } from "./Links";
+
+// components
+import { Brand } from "../../components/Logo/Logo";
+import { NavLink, Hashlink, Anchor } from "../Links/Links";
 import { Burger } from "../Burger/Burger";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComments, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import Drawer from "../Drawer/Drawer";
 import { LogoutBtn } from "../Buttons_Links/Buttons";
 
+// css and images
 import "./Navs.css";
-import { Anchor } from "./Links";
 
 export const Navbar = () => {
   return (
-    <header className='navbar'>
+    <header className="navbar">
       <Brand />
       <nav>
-        <div className='links'>
-          <NavLink to='/login'>sign in</NavLink>
-          <NavLink to=''> about</NavLink>
+        <div className="link-group">
+          <NavLink to="/login">sign in</NavLink>
+          <NavLink to=""> about</NavLink>
           <Hashlink to="./#contact-us">contact us</Hashlink>
         </div>
-        <Anchor to='/signup' className='primary-link'>
+        <Anchor to="/signup" className="primary-link">
           Join
         </Anchor>
       </nav>

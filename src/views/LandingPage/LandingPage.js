@@ -2,13 +2,13 @@ import React from "react";
 
 // components
 import { Navbar } from "../../components/Navs/Navs";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLongArrowAltRight,
   faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
-import { Anchor } from "../../components/Navs/Links";
+import { Anchor } from "../../components/Links/Links";
 import {TestimonialCard, StepCard } from "../../components/Cards/Cards";
 // css
 import "./LandingPage.css";
@@ -44,10 +44,10 @@ const LandingPage = () => {
               future possibilities like your idea and work with you to make it
               come to life.
             </p>
-            <Link to="/login">
+            <Anchor className="transparent-link" to="/login">
               <span>Let's Get You Started</span>
               <FontAwesomeIcon icon={faArrowRight} />
-            </Link>
+            </Anchor>
           </div>
         </section>
         <section className="about">
@@ -95,7 +95,7 @@ const LandingPage = () => {
                 stepNo="4"
               />
             </div>
-            <Anchor className="get-started-link primary-link yellow-link" to="/login">
+            <Anchor className="get-started-link primary-link" to="/login">
               get started now
             </Anchor>
           </div>

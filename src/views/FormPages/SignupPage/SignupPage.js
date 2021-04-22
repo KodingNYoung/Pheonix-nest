@@ -10,7 +10,7 @@ import "./SignupPage.css";
 // components
 import FormView from "../../../components/FormView/FormView";
 import { Input, Button } from "../../../components/FormView/Inputs";
-import { Anchor } from "../../../components/Navs/Links";
+import { Anchor } from "../../../components/Links/Links";
 
 const SignupPage = () => {
   // states

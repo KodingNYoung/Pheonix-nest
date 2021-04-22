@@ -156,14 +156,11 @@
 }
 
 .investment-steps .get-started-link {
-  color: var(--black);
-  font-weight: bold;
-  font-size: 1.1rem;
   padding: 1.2rem;
-  text-transform: capitalize;
   display: block;
   text-align: center;
   max-width: 270px;
+  width: 75%;
   margin: 0 auto;
 }
 
@@ -181,7 +178,6 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    /* margin: 0 auto; */
   }
   .about .counts .count-item {
     padding: 2.5rem 3rem;
@@ -214,6 +210,7 @@
 .testimonials h2 {
   font-size: 3rem;
   text-align: center;
+  font-size: lighter;
 }
 .testimonials h2 span {
   font-weight: bolder;
@@ -223,7 +220,4 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
-@media screen and (min-width: 560px) {
-  
 }
