@@ -15,7 +15,7 @@
   height: 30vh;
   min-height: 200px;
 }
-.form-page header h1 {
+/* .form-page header h1 {
   color: #fff;
   font-family: "Barlow", sans-serif;
 }
@@ -24,7 +24,7 @@
   position: absolute;
   top: 20px;
   right: 20px;
-}
+} */
 /* login form area */
 .form-page .form-main {
   border-radius: 3rem 0 0 0;
