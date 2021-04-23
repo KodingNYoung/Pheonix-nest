@@ -2,7 +2,7 @@
   background-color: var(--primary-red);
   color: var(--white);
 }
-.footer .main{
+.footer .main {
   padding: 2.5rem 6rem;
 }
 .footer .main {
@@ -10,8 +10,11 @@
   grid-template-columns: 40% 60%;
   border-bottom: 1px solid #ffffff26;
 }
-.footer .main .left .brand {
+.footer .main .left .footer-brand {
   padding-bottom: 2rem;
+}
+.footer .main .footer-brand .brand-text {
+  color: var(--white);
 }
 .footer .main p {
   font-size: 1.1rem;

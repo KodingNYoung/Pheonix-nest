@@ -12,7 +12,7 @@
   background-position: center;
   background-repeat: no-repeat;
 }
-.profile-banner .banner-image img {
+/* .profile-banner .banner-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -20,7 +20,7 @@
   top: 0;
   left: 0;
   bottom: 0;
-}
+} */
 .profile-banner .banner-image span,
 .profile-banner .banner-image h1 {
   position: relative;
@@ -32,10 +32,11 @@
   margin-top: 50px;
 }
 .profile-banner .banner-image span {
-  font-size: 1.9em;
+  font-size: calc(1.5em + 4vw);
   font-family: "Monserrat", sans-serif;
   font-weight: 100;
   letter-spacing: 0.3rem;
+  color: var(--white);
 }
 
 /* user details */
@@ -130,6 +131,10 @@
 .profile-page .profile .body {
   font-size: 1.2rem;
   line-height: 1.6rem;
+}
+.profile-page .profile .body.empty-desc {
+  font-size: 1.5rem;
+  color: #707070;
 }
 
 /* contact items */

@@ -1,7 +1,7 @@
 import React from "react";
 
 // components
-import { Anchor } from "./../Navs/Links";
+import { Anchor } from "./../Links/Links";
 
 // css and images
 import "./Logo.css";
@@ -9,9 +9,9 @@ import logo from "../../assets/img/Welcome/logo.png";
 
 export const Logo = ({ className }) => {
   return (
-    <Anchor to="/" className={`logo ${className}`}>
+    <span className={`logo ${className}`}>
       <img src={logo} />
-    </Anchor>
+    </span>
   );
 };
 export const Brand = ({ className }) => {
