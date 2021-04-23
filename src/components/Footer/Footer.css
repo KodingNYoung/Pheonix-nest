@@ -1,10 +1,9 @@
 .footer {
-  background-color: #d63e39;
-  color: #fff;
+  background-color: var(--primary-red);
+  color: var(--white);
 }
-.footer .main,
-.footer .bottom {
-  padding: 2.5rem 5.5rem;
+.footer .main{
+  padding: 2.5rem 6rem;
 }
 .footer .main {
   display: grid;
@@ -13,6 +12,9 @@
 }
 .footer .main .left .brand {
   padding-bottom: 2rem;
+}
+.footer .main p {
+  font-size: 1.1rem;
 }
 .footer .main .right {
   display: grid;
@@ -23,7 +25,7 @@
   display: flex;
   align-items: flex-end;
   flex-direction: column;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 .footer .social-media p {
   font-weight: bold;
@@ -34,20 +36,24 @@
   font-size: 2rem;
 }
 .footer .social-media .icons a {
-  color: #fff;
+  color: var(--white);
   margin-left: 0.7rem;
   border-radius: 4px;
   padding: 0.3rem;
+  font-size: 2.5rem;
 }
 .footer .main .right .nav-links {
   align-self: end;
+  padding-top: 2rem;
 }
 .footer .nav-links .nav-link {
-  color: #fff;
+  color: var(--white);
   margin: 1rem 0 1rem 1.8rem;
+  font-size: 1.3rem;
 }
 .footer .bottom {
   text-align: right;
+  padding: 1.5rem 6rem;
 }
 @media screen and (max-width: 650px) {
   .footer .main,

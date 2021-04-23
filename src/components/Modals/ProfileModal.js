@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Anchor } from "../Navs/Links";
+import { Anchor } from "../Links/Links";
 import "./Modals.css";
 
 const ProfileModal = ({ modalOpen, closeModal }) => {
