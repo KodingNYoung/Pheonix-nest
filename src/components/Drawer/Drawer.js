@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
-import "./Drawer.css";
+import React from "react";
 
+// components
 import { Times } from "../Burger/Burger";
-import { NavLink } from "../Navs/NavLinks";
+import { NavLink } from "../Links/Links";
 
 // images and svgs
 import { Logo } from "../Logo/Logo";
 import { LogoutBtn } from "../Buttons_Links/Buttons";
+
+// css
+import "./Drawer.css";
 
 const Drawer = ({ open, closeDrawer, payload, handleLogout }) => {
   const drawerStyle = {

@@ -1,6 +1,96 @@
 .cards {
   border-radius: 4px;
 }
+/* investment steps */
+.step-card {
+  background-color: var(--white);
+  color: #404040;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  align-items: center;
+  margin: 1rem;
+  width: 100%;
+  max-width: 270px;
+  border-radius: 4px;
+  height: 100px;
+  position: relative;
+}
+.step-card .card-illustration {
+  padding: 0.2rem;
+  height: 100%;
+}
+.step-card .card-illustration img {
+  width: 100%;
+  height: 100%;
+}
+.step-card .card-text {
+  font-weight: bold;
+  font-size: 1.3rem;
+  padding: 0 0.8rem;
+  text-transform: capitalize;
+}
+.step-card::before {
+  content: attr(data-step-no);
+  position: absolute;
+  top: -10%;
+  left: -2%;
+  width: 30px;
+  height: 30px;
+  background-color: var(--primary-yellow);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-red);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+/* investments steps ends */
+/* testimonial cards */
+.testimonial-card {
+  background-color: var(--white);
+  color: #404040;
+  margin: 2.5rem 0;
+  min-width: 250px;
+  max-width: 300px;
+  border-radius: 4px;
+  margin-right: 2rem;
+  box-shadow: 0px 2px 4px #0000000a;
+  padding: 7rem 1.5rem 2rem;
+  position: relative;
+  margin-top: 1rem;
+}
+.testimonial-card .card-img {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  top: -2rem;
+}
+.testimonial-card .card-img img {
+  width: 100%;
+  height: 100%;
+}
+.testimonial-card::after {
+  content:"”";
+  color: var(--primary-red);
+  font-size: 7rem;
+  font-family: "Pacifico", cursive;
+  position: absolute;
+  top: 0;
+  right: 2rem;
+}
+.testimonial-card .card-title {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+.testimonial-card .card-title .name {
+  font-weight: bold;
+}
+.testimonial-card .card-text {
+  font-size: 1.1rem;
+}
+/* end of style for the testimonial cards */
 
 /* style for the industry cards */
 .industry-card {

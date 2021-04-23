@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useAuthContext } from "../../context/AuthContext";
 
-import { Anchor } from "../../components/Navs/Links";
+import { Anchor } from "../../components/Links/Links";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEllipsisH,
