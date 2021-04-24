@@ -4,15 +4,14 @@ a {
   text-transform: capitalize;
 }
 a.nav-link,
-a.hash-link
- {
+a.hash-link {
   padding: 0 0.6rem;
   font-size: 1.4rem;
   font-weight: 400;
   color: var(--black);
 }
 a.red-bg-link {
-  background-color: var(--primary-yellow);
+  background-color: var(--primary-red);
   color: var(--white);
 }
 a.primary-link {
@@ -20,7 +19,7 @@ a.primary-link {
   border-radius: 4px;
   font-weight: bold;
   padding: 0.5rem 1.8rem;
-  color:var(--black)
+  color: var(--black);
 }
 a.transparent-link {
   background-color: transparent;

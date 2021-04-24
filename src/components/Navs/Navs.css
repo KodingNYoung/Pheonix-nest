@@ -49,7 +49,7 @@ header nav .link-group {
     min-width: 170px;
   }
   .home-navbar .burger,
-  .home-navbar .sm-screen a {
+  .home-navbar .sm-screen a.message-icon {
     display: none;
   }
   .home-navbar .nav-links {
@@ -68,7 +68,6 @@ header nav .link-group {
     padding: 2rem 1rem 2rem 3rem;
   }
   .home-navbar .nav-links .nav-link {
-    font-size: 1.1rem;
     padding: 0.3rem 0.5rem;
     margin: 0.2rem;
   }

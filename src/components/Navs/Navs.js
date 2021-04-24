@@ -21,6 +21,7 @@ export const Navbar = () => {
       <nav>
         <div className="link-group">
           <NavLink to="/login">sign in</NavLink>
+          <NavLink to="/pitches"> explore pitches</NavLink>
           <NavLink to=""> about</NavLink>
           <Hashlink to="./#contact-us">contact us</Hashlink>
         </div>
@@ -65,7 +66,7 @@ export const HomeNavbar = ({ payload }) => {
       <div className="sm-screen">
         <Burger onClick={openDrawer} />
         <Brand />
-        <NavLink to="/user/messages">
+        <NavLink className="message-icon" to="/user/messages">
           <FontAwesomeIcon icon={faComments} />
         </NavLink>
       </div>
@@ -77,7 +78,8 @@ export const HomeNavbar = ({ payload }) => {
           profile
         </NavLink>
         <NavLink to="/user/pitches">Pitches</NavLink>
-        <Hashlink to="./#contact-us">contact us</Hashlink>
+        <Hashlink to="#contact-us">About us</Hashlink>
+        <Hashlink to="#contact-us">contact us</Hashlink>
         <div className="avatar">
           <img src={avatar_url} />
         </div>

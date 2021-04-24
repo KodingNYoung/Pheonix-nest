@@ -17,7 +17,6 @@ import PrivatePages from "./PrivatePages";
 import EditDetails from "./views/FormPages/ProfileSetupPages/EditDetails";
 import UploadAvatar from "./views/FormPages/ProfileSetupPages/EditAvatar";
 import CreatePitch from "./views/FormPages/ProfileSetupPages/CreatePitch";
-
 // css
 import "./App.css";
 
@@ -25,53 +24,54 @@ const App = () => {
   return (
     <AuthProvider>
       <Router>
-        <div className='App'>
+        <div className="App">
           <Switch>
-            <Route exact path='/' component={() => <LandingPage />} />
+            <Route exact path="/" component={() => <LandingPage />} />
             {/* formpages */}
-            <Route exact path='/login' component={() => <LoginPage />} />
+            <Route exact path="/login" component={() => <LoginPage />} />
             <Route
               exact
-              path='/recover-password'
+              path="/recover-password"
               component={() => <RecoverPassword />}
             />
             <Route
               exact
-              path='/reset-password'
+              path="/reset-password"
               component={() => <ResetPassword />}
             />
-            <Route exact path='/signup' component={() => <SignupPage />} />
+            <Route exact path="/signup" component={() => <SignupPage />} />
             <Route
               exact
-              path='/signup/email-confirmation'
+              path="/signup/email-confirmation"
               component={EmailConfirmation}
             />
             <Route
               exact
-              path='/code-verification'
+              path="/code-verification"
               component={() => <CodeVerification />}
             />
             <Route
               exact
-              path='/signup/welcome'
+              path="/signup/welcome"
               component={() => <SuccessfulSignup />}
             />
             <PrivateRoute
               exact
-              path='/user/profile/edit-user-details'
+              path="/user/profile/edit-user-details"
               component={EditDetails}
             />
             <PrivateRoute
               exact
-              path='/user/profile/upload-avatar'
+              path="/user/profile/upload-avatar"
               component={UploadAvatar}
             />
             <PrivateRoute
               exact
-              path='/user/profile/create-pitch'
+              path="/user/profile/create-pitch"
               component={CreatePitch}
             />
-            <PrivateRoute path='/user' component={PrivatePages} />
+
+            <PrivateRoute path="/user" component={PrivatePages} />
           </Switch>
         </div>
       </Router>

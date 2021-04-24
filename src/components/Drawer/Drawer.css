@@ -27,7 +27,7 @@
   top: 20px;
   right: 20px;
 }
-.drawer header .user{
+.drawer header .user {
   display: flex;
   font-size: 1.3rem;
   margin: 1.5rem 2rem;
@@ -54,7 +54,8 @@
   align-items: flex-start;
   padding: 4rem 2rem;
 }
-.drawer nav .nav-link {
+.drawer nav .nav-link,
+.drawer nav .hash-link {
   margin: 1rem 0;
   font-size: 1.4rem;
 }

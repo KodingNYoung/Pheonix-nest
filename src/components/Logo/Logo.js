@@ -1,4 +1,9 @@
 import React from "react";
+
+// components
+import { Anchor } from "./../Links/Links";
+
+// css and images
 import "./Logo.css";
 import logo from "../../assets/img/Welcome/logo.png";
 
@@ -11,9 +16,9 @@ export const Logo = ({ className }) => {
 };
 export const Brand = ({ className }) => {
   return (
-    <div className={`brand ${className}`}>
-      <Logo className='brand-logo' />
-      <span className='brand-text'>Phoenix Nest</span>
-    </div>
+    <Anchor to="/" className={`brand ${className}`}>
+      <Logo className="brand-logo" />
+      <span className="brand-text">Phoenix Nest</span>
+    </Anchor>
   );
 };
