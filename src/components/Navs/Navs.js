@@ -21,6 +21,7 @@ export const Navbar = () => {
       <nav>
         <div className="link-group">
           <NavLink to="/login">sign in</NavLink>
+          <NavLink to="/pitches"> explore pitches</NavLink>
           <NavLink to=""> about</NavLink>
           <Hashlink to="./#contact-us">contact us</Hashlink>
         </div>

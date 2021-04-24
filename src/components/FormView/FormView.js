@@ -10,7 +10,7 @@ const FormView = ({ children }) => {
       <header>
         {/* <Logo className="form-logo" />
         <h1>Phoenix Nest</h1> */}
-        <Brand />
+        <Brand className="form-brand" />
       </header>
       <main className="form-main">{children}</main>
     </div>

@@ -15,11 +15,10 @@
   height: 30vh;
   min-height: 200px;
 }
-/* .form-page header h1 {
-  color: #fff;
-  font-family: "Barlow", sans-serif;
+.form-page .form-brand .brand-text {
+  color: var(--white);
 }
-.form-page header .form-logo {
+/*.form-page header .form-logo {
   align-self: flex-end;
   position: absolute;
   top: 20px;

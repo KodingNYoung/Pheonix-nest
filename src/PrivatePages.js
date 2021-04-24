@@ -37,8 +37,8 @@ const PrivatePages = () => {
   }, [getUserProfile]);
 
   return (
-    <div className='user-pages'>
-      {loading && <Preloader size={50} border={5} color='#d63e39' />}
+    <div className="user-pages">
+      {loading && <Preloader size={50} border={5} color="#d63e39" />}
 
       {error && <p>Page couldn't load because it {error.toLowerCase()}</p>}
       {profile && (
@@ -48,14 +48,14 @@ const PrivatePages = () => {
             <Switch>
               <PrivateRoute
                 exact
-                path='/user'
+                path="/user"
                 component={() => <HomePage payload={profile} />}
               />
-              <PrivateRoute exact path='/user/pitches' component={Pitches} />
+              <PrivateRoute exact path="/user/pitches" component={Pitches} />
 
-              <PrivateRoute path='/user/pitch/:pitchId' component={PitchPage} />
+              <PrivateRoute path="/user/pitch/:pitchId" component={PitchPage} />
               <PrivateRoute
-                path='/user/profile/:userId'
+                path="/user/profile/:userId"
                 component={ProfilePage}
               />
             </Switch>
