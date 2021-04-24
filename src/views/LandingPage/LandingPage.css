@@ -4,25 +4,24 @@
 }
 .landing-page .hero .hero-text-one {
   padding: 0 0 0 4rem;
-  max-width: 250px;
+  max-width: 300px;
   width: 80%;
 }
 .landing-page .hero h1 {
-  font-size: 2.8rem;
+  font-size: 3.2rem;
   font-weight: 1000;
 }
 .landing-page .hero a {
   padding-bottom: 1.5rem;
   font-family: "Montserrat", sans-serif;
-  font-size: 0.7rem;
-  word-spacing: 0.1rem;
-  color: #000;
+  font-size: 1rem;
+  color: var(--black);
   text-decoration: none;
   display: flex;
   align-items: center;
 }
 .landing-page .hero a svg {
-  color: #d63e39;
+  color: var(--primary-red);
   margin: 0.3rem;
 }
 .landing-page .hero-text-two {
@@ -30,7 +29,7 @@
   background-position: center, center;
   background-repeat: no-repeat, no-repeat;
   background-size: cover, cover;
-  color: white;
+  color: var(--white);
   padding: 4rem;
 }
 .hero .hero-text-two a,
@@ -40,18 +39,19 @@
   width: 80%;
 }
 .hero .hero-text-two h2 {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   padding-bottom: 1rem;
 }
 .hero .hero-text-two p {
-  font-size: 0.8rem;
+  font-size: 1.1rem;
   padding-bottom: 2.7rem;
 }
-.hero .hero-text-two p span {
+.hero .hero-text-two p::after {
+  content: " Pitch your idea now.";
   font-weight: bold;
 }
 .hero .hero-text-two a {
-  color: #fff;
+  color: var(--white);
   font-size: 1.2rem;
   text-decoration: none;
 }
@@ -60,41 +60,63 @@
 }
 @media screen and (min-width: 560px) {
   .landing-page .hero {
-    background: url("../../assets/img/landing-hero.webp");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url("../../assets/img/landing-hero.webp");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    color: #fff;
-    padding: 4rem 5rem 2rem;
+    color: var(--white);
+    padding: 4rem 5rem 10rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
   .landing-page .hero .hero-text-one {
-    max-width: 240px;
+    max-width: 300px;
     padding: 0;
+  }
+  .landing-page .hero h1 {
+    font-size: 3.7rem;
+    font-weight: 1000;
   }
   .landing-page .hero-text-two {
     background: none;
-    max-width: 240px;
-    padding: 0 2rem 0 0;
+    max-width: 300px;
+    padding: 0;
   }
-
   .hero .hero-text-two p {
-    font-size: 1rem;
     width: 100%;
+    margin: 0;
+    font-size: 1.3rem;
+    max-width: 300px;
+    font-weight: 400;
   }
-  .hero .hero-text-two p span {
-    font-weight: bold;
+  .hero .hero-text-two p::after {
+    content: "";
+  }
+  .hero .hero-text-two a {
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero .hero-text-two a svg {
+    color: var(--primary-yellow);
   }
 }
 
 /* counts plus investor section */
 .about {
-  background-color: #d63e39;
+  background-color: var(--primary-red);
 }
 .about .counts {
   display: flex;
   padding: 3rem 4rem;
   justify-content: space-between;
-  background-color: #fff;
+  background-color: var(--white);
 }
 .about .counts .count-item {
   display: flex;
@@ -102,82 +124,65 @@
   align-items: flex-start;
 }
 .counts .count-item .value {
-  color: #d63e39;
+  color: var(--primary-red);
   font-size: 1.2rem;
   font-weight: bold;
 }
 .counts .count-item .item {
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 /* investors section */
-.landing-page .investors {
+.landing-page .investment-steps {
   padding: 4rem;
-  color: #fff;
+  color: var(--white);
+  text-align: center;
 }
-.investors h2 {
-  font-size: 2.3rem;
+.investment-steps h2 {
+  font-size: 3rem;
 }
-.investors h2 span {
+.investment-steps h2 span {
   font-weight: lighter;
 }
-.investors .subheading {
+.investment-steps .subheading {
   font-size: 1.2rem;
 }
-.investors .card-grid {
-  margin: 1rem 0;
+.investment-steps .card-grid {
+  margin: 1rem auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
+  max-width: 80%;
 }
-.card-grid .card {
-  background-color: #fff;
-  color: #404040;
-  display: grid;
-  grid-template-columns: 40% 60%;
-  align-items: center;
-  margin: 1rem 0;
-  width: 100%;
-  max-width: 240px;
-  border-radius: 4px;
-  height: 100px;
-}
-.card .card-illustration {
-  padding: 0.2rem;
-  height: 100%;
-}
-.card .card-illustration img {
-  width: 100%;
-  height: 100%;
-}
-.card .card-text {
-  font-weight: bold;
-  font-size: 1.3rem;
-  padding: 0 1rem;
-}
-.investors .get-started-link {
-  color: #000;
-  background-color: #fcd413;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1rem;
+
+.investment-steps .get-started-link {
   padding: 1.2rem;
-  border-radius: 4px;
-  text-transform: capitalize;
   display: block;
   text-align: center;
-  max-width: 240px;
+  max-width: 270px;
+  width: 75%;
+  margin: 0 auto;
 }
 
 @media screen and (min-width: 560px) {
+  .about{
+    position: relative;
+    padding: 5rem 0;
+  }
   .about .counts {
     justify-content: center;
     background-color: unset;
+    position: absolute;
+    left: 0;
+    top: -70px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
   .about .counts .count-item {
-    padding: 2rem 4rem;
+    padding: 2.5rem 3rem;
     align-items: center;
-    background-color: #fcd413;
+    background-color: var(--primary-yellow);
     border-radius: 4px;
     box-shadow: 0px 2px 4px #0000001c;
   }
@@ -189,83 +194,30 @@
   }
   .counts .count-item .item {
     font-size: 1rem;
+    font-weight: 600;
   }
   /* investors section */
   .landing-page .investors {
     padding: 4rem 5rem;
   }
-  .card-grid .card {
-    margin: 1rem 0;
-    margin-right: 2rem;
-    position: relative;
-    margin-right: 2rem;
-  }
-  .card-grid .card::before {
-    content: "";
-    position: absolute;
-    top: -10%;
-    left: -2%;
-    width: 30px;
-    height: 30px;
-    background-color: #fcd413;
-    border-radius: 50%;
-  }
 }
+
 /* testimonials */
 .testimonials {
   background-color: #fffdfc;
   padding: 4rem;
 }
 .testimonials h2 {
-  font-size: 1.4rem;
+  font-size: 3rem;
+  text-align: center;
+  font-size: lighter;
 }
 .testimonials h2 span {
-  font-weight: lighter;
+  font-weight: bolder;
 }
 .testimonials .card-grid {
-  margin: 1rem 0;
+  margin: 3rem 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-}
-.card-grid .testimonial-card {
-  background-color: #fff;
-  color: #404040;
-  margin: 2.5rem 0;
-  min-width: 250px;
-  max-width: 300px;
-  border-radius: 4px;
-  margin-right: 2rem;
-  box-shadow: 0px 2px 4px #0000000a;
-  padding: 7rem 1.5rem 2rem;
-  position: relative;
-}
-.testimonial-card .card-img {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  overflow: hidden;
-  top: -2rem;
-}
-.card-img img {
-  width: 100%;
-  height: 100%;
-}
-.testimonial-card .quotes {
-  position: absolute;
-  color: #d63e39;
-  font-size: 4rem;
-  font-family: "Pacifico", cursive;
-  right: 2rem;
-  top: -0.2rem;
-}
-.testimonial-card .card-title {
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
-.card-title .name {
-  font-weight: bold;
-}
-.testimonial-card .card-text {
-  font-size: 0.7rem;
+  justify-content: center;
 }

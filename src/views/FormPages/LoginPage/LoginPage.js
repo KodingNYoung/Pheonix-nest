@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 // component
 import FormView from "../../../components/FormView/FormView";
 import { Input, Button } from "../../../components/FormView/Inputs";
-import { Anchor } from "../../../components/Navs/Links";
+import { Anchor } from "../../../components/Links/Links";
 
 // css
 import "./LoginPage.css";
@@ -85,17 +85,14 @@ const LoginPage = () => {
             {loading ? "loading..." : "login"}
           </Button>
         </form>
-        <div className='remember-me'>
-          <span>Remember me next time</span>
-          <input type='checkbox' name='remember-me' id='remember-me' />
-        </div>
+        
         <footer>
           <div className='signup-text'>
             <span>
-              Don't have an account? <Anchor to='/signup'>sign up</Anchor>
+              Don't have an account? <Anchor className="form-link" to='/signup'>sign up</Anchor>
             </span>
           </div>
-          <Anchor to='../recover-password'>forgot password?</Anchor>
+          <Anchor className="form-link" to='../recover-password'>forgot password?</Anchor>
         </footer>
       </div>
     </FormView>

@@ -1,7 +1,7 @@
 import React from "react";
 import FormView from "../../components/FormView/FormView";
 import { ReactComponent as WelcomeSVG } from "../../assets/svg/welcome.svg";
-import { Anchor } from "../../components/Navs/Links";
+import { Anchor } from "../../components/Links/Links";
 
 import "./SuccessfulSignup.css";
 

@@ -1,0 +1,29 @@
+a {
+  text-decoration: none;
+  font-size: 1.4rem;
+  text-transform: capitalize;
+}
+a.nav-link,
+a.hash-link {
+  padding: 0 0.6rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--black);
+}
+a.red-bg-link {
+  background-color: var(--primary-red);
+  color: var(--white);
+}
+a.primary-link {
+  background-color: var(--primary-yellow);
+  border-radius: 4px;
+  font-weight: bold;
+  padding: 0.5rem 1.8rem;
+  color: var(--black);
+}
+a.transparent-link {
+  background-color: transparent;
+}
+a.form-link {
+  font-size: inherit;
+}

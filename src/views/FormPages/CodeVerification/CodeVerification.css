@@ -7,17 +7,6 @@
 .code-verification form {
   margin-bottom: 1.5rem;
 }
-.code-verification form .input-field {
-  margin: 1rem 0;
-  text-align: center;
-}
-.code-verification form input {
-  text-align: center;
-  font-size: 2rem;
-  letter-spacing: 3rem;
-  font-family: monospace;
-}
-
 .code-verification form button {
   margin: 0;
 }

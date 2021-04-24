@@ -1,31 +1,33 @@
 import React, { useState } from "react";
 import { useAuthContext } from "../../context/AuthContext";
+import { useHistory } from "react-router-dom";
 
+// components
 import { Brand } from "../../components/Logo/Logo";
-import { Link, useHistory } from "react-router-dom";
-import { NavLink } from "./NavLinks";
+import { NavLink, Hashlink, Anchor } from "../Links/Links";
 import { Burger } from "../Burger/Burger";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComments, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import Drawer from "../Drawer/Drawer";
 import { LogoutBtn } from "../Buttons_Links/Buttons";
 
+// css and images
 import "./Navs.css";
 
 export const Navbar = () => {
   return (
-    <header className='navbar'>
+    <header className="navbar">
       <Brand />
       <nav>
-        <div className='links'>
-          <NavLink to='/login'>sign in</NavLink>
-          <NavLink to=''> about</NavLink>
-          <NavLink to='/pitches'> explore pitches</NavLink>
-          <a href="#contact-us">contact us</a>
+        <div className="link-group">
+          <NavLink to="/login">sign in</NavLink>
+          <NavLink to="/pitches"> explore pitches</NavLink>
+          <NavLink to=""> about</NavLink>
+          <Hashlink to="./#contact-us">contact us</Hashlink>
         </div>
-        <Link to='/signup' className='primary-link'>
+        <Anchor to="/signup" className="primary-link">
           Join
-        </Link>
+        </Anchor>
       </nav>
     </header>
   );
@@ -60,25 +62,26 @@ export const HomeNavbar = ({ payload }) => {
     setDrawerOpen(false);
   };
   return (
-    <header className='home-navbar navbar'>
-      <div className='sm-screen'>
+    <header className="home-navbar navbar">
+      <div className="sm-screen">
         <Burger onClick={openDrawer} />
         <Brand />
-        <NavLink to='/user/messages'>
+        <NavLink className="message-icon" to="/user/messages">
           <FontAwesomeIcon icon={faComments} />
         </NavLink>
       </div>
-      <nav className='nav-links'>
-        <NavLink to='/user' active={true}>
+      <nav className="nav-links">
+        <NavLink to="/user" active={true}>
           home
         </NavLink>
         <NavLink to={`/user/profile/${localStorage.getItem("currentUserId")}`}>
           profile
         </NavLink>
-        <NavLink to='/user/pitches'>Pitches</NavLink>
-        <a href="#contact-us">contact us</a>
-        <div className='avatar'>
-          <img src={avatar_url} alt='' />
+        <NavLink to="/user/pitches">Pitches</NavLink>
+        <Hashlink to="#contact-us">About us</Hashlink>
+        <Hashlink to="#contact-us">contact us</Hashlink>
+        <div className="avatar">
+          <img src={avatar_url} />
         </div>
         <LogoutBtn onClick={handleLogout}>
           <FontAwesomeIcon icon={faSignOutAlt} />
@@ -86,7 +89,7 @@ export const HomeNavbar = ({ payload }) => {
         </LogoutBtn>
       </nav>
       <Drawer
-        className='side-drawer'
+        className="side-drawer"
         open={drawerOpen}
         closeDrawer={closeDrawer}
         payload={payload}

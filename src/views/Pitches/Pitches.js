@@ -16,8 +16,6 @@ const Pitches = () => {
   const [pitches, setPitches] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(2);
-  const [pagedPitches, setPagedPitches] = useState(null);
 
   // other hooks
   const { getAllPitches } = useAuthContext();
@@ -39,15 +37,15 @@ const Pitches = () => {
   }, [getAllPitches]);
 
   return (
-    <div className='pitches-page'>
+    <div className="pitches-page">
       <SearchField />
-      <div className='pitches'>
+      <div className="pitches">
         <h2>Explore pitches</h2>
         {error && <ErrorToast>{error}</ErrorToast>}
-        {loading && <Preloader size={50} border={5} color='#d63e39' />}
+        {loading && <Preloader size={50} border={5} color="#d63e39" />}
         {pitches && (
           <>
-            <div className='pitch-card-grid'>
+            <div className="pitch-card-grid">
               {pitches.map((pitch) => {
                 const {
                   author: { avatar_url, fullname },

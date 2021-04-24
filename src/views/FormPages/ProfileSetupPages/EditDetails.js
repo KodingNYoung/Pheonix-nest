@@ -1,17 +1,17 @@
 // react and hooks
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
+import { useAuthContext } from "../../../context/AuthContext";
 
+// components
 import { Button, Input } from "../../../components/FormView/Inputs";
 import { Logo } from "../../../components/Logo/Logo";
-
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import Preloader from "../../../components/PreLoader/Preloader";
+import { ErrorToast } from "../../../components/Errors/Error";
 // css
 import "./ProfileSetupPages.css";
-import { useAuthContext } from "../../../context/AuthContext";
-import Preloader from "../../../components/PreLoader/Preloader";
 
 const EditDetails = () => {
   // states
@@ -79,7 +79,7 @@ const EditDetails = () => {
     e.preventDefault();
     const { phoneNumber } = userInputs;
     // check if phone is
-    if (!phoneNumber.toString().match(/^\d{10}$/)) {
+    if (phoneNumber && !phoneNumber.toString().match(/^\d{10}$/)) {
       setError("Phone number not valid");
       return false;
     }
@@ -123,7 +123,7 @@ const EditDetails = () => {
         <Logo />
       </nav>
       <h2>Setup profile</h2>
-      {error && <p>{error.toLowerCase()}</p>}
+      {error && <ErrorToast>{error.toLowerCase()}</ErrorToast>}
       {loading && <Preloader size={70} border={10} color="#d63e39" />}
       {details && (
         <form onSubmit={handleProfileUpdate}>
@@ -133,7 +133,7 @@ const EditDetails = () => {
             name="fullname"
             id="fullname"
             required={false}
-            placeholder="full name"
+            placeholder="company name"
             inputFuncs={{
               onChange: handleTextChange,
               value: userInputs.fullname,
@@ -204,7 +204,7 @@ const EditDetails = () => {
             type="tel"
             name="phoneNumber"
             id="phoneNumber"
-            required={true}
+            // required={true}
             placeholder="phone number"
             preInput="+234"
             inputFuncs={{

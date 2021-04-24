@@ -15,16 +15,15 @@
   height: 30vh;
   min-height: 200px;
 }
-.form-page header h1 {
-  color: #fff;
-  font-family: "Barlow", sans-serif;
+.form-page .form-brand .brand-text {
+  color: var(--white);
 }
-.form-page header .form-logo {
+/*.form-page header .form-logo {
   align-self: flex-end;
   position: absolute;
   top: 20px;
   right: 20px;
-}
+} */
 /* login form area */
 .form-page .form-main {
   border-radius: 3rem 0 0 0;
@@ -39,8 +38,29 @@
   font-weight: 700;
   text-transform: capitalize;
 }
-
-/* for the inputs */
+/* for pin inputs */
+.pin-input-field {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+  height: 5rem;
+}
+.pin-input-field input {
+  width: 5rem;
+  border: 1px solid #707070;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 3rem;
+  caret-color: transparent;
+  appearance: textfield;
+}
+.pin-input-field input::-webkit-inner-spin-button,
+.pin-input-field input::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}
+/* end of style for pin inputs */
+/* for the othe inputs */
 .input-field {
   width: 100%;
   display: flex;
