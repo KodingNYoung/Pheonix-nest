@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from "react";
+
+import {
+  faInfo,
+  faLightbulb,
+  faUserTie,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Anchor } from "../Links/Links";
+
 import "./Modals.css";
 
 const ProfileModal = ({ modalOpen, closeModal }) => {
@@ -13,15 +21,28 @@ const ProfileModal = ({ modalOpen, closeModal }) => {
   }, [modalOpen]);
   return (
     <div className={`modal profile-modal ${modalClass}`}>
-      <div className='modal-scrim' onClick={closeModal}></div>
-      <div className='modal-content'>
+      <div className="modal-scrim" onClick={closeModal}></div>
+      <div className="modal-content">
         <h2>Select an action</h2>
-        <div className='nav-links'>
-          <Anchor to='/user/profile/upload-avatar'>Change profile image</Anchor>
-          <Anchor to='/user/profile/edit-user-details'>
-            update user details
+        <div className="nav-links">
+          <Anchor className="modal-link" to="/user/profile/upload-avatar">
+            <span className="modal-link-icon">
+              <FontAwesomeIcon icon={faUserTie} />
+            </span>
+            <span>Change profile image</span>
           </Anchor>
-          <Anchor to='/user/profile/create-pitch'>create pitch</Anchor>
+          <Anchor className="modal-link" to="/user/profile/edit-user-details">
+            <span className="modal-link-icon">
+              <FontAwesomeIcon icon={faInfo} />
+            </span>
+            <span>update user details</span>
+          </Anchor>
+          <Anchor className="modal-link" to="/user/profile/create-pitch">
+            <span className="modal-link-icon">
+              <FontAwesomeIcon icon={faLightbulb} />
+            </span>
+            <span>create pitch</span>
+          </Anchor>
         </div>
       </div>
     </div>
