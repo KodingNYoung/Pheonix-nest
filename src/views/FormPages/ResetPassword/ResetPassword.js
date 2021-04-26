@@ -3,7 +3,8 @@ import { useAuthContext } from "../../../context/AuthContext";
 
 import { useHistory } from "react-router-dom";
 import FormView from "../../../components/FormView/FormView";
-import { Input, Button } from "../../../components/FormView/Inputs";
+import { Input } from "../../../components/FormView/Inputs";
+import { Button } from "../../../components/Buttons/Buttons";
 
 import "./ResetPassword.css";
 
@@ -55,21 +56,21 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className='reset-password'>
+    <div className="reset-password">
       <FormView>
-        <div className='container'>
-          <div className='heading'>
+        <div className="container">
+          <div className="heading">
             <h2>Reset Password</h2>
             <span>Enter a new password to continue</span>
           </div>
           {error && <p> {error} </p>}
           <form onSubmit={handlePasswordReset}>
             <Input
-              type='password'
-              name='password'
-              id='password'
+              type="password"
+              name="password"
+              id="password"
               required={true}
-              placeholder='New password'
+              placeholder="New password"
               inputFuncs={{
                 onChange: handleTextChange,
                 value: passwords.password,
@@ -77,18 +78,18 @@ const ResetPassword = () => {
               }}
             />
             <Input
-              type='password'
-              name='repassword'
-              id='repassword'
+              type="password"
+              name="repassword"
+              id="repassword"
               required={true}
-              placeholder='confirm password'
+              placeholder="confirm password"
               inputFuncs={{
                 onChange: handleTextChange,
                 value: passwords.repassword,
                 disabled: loading,
               }}
             />
-            <Button type='submit' disabled={loading}>
+            <Button type="submit" disabled={loading}>
               {loading ? "loading..." : "Changepassword"}
             </Button>
           </form>

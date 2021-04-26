@@ -2,9 +2,10 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 
-import { Button, Input } from "../../../components/FormView/Inputs";
+import { Input } from "../../../components/FormView/Inputs";
+import { Button } from "../../../components/Buttons/Buttons";
 import { Logo } from "../../../components/Logo/Logo";
-import {ErrorToast} from "../../../components/Errors/Error";
+import { ErrorToast } from "../../../components/Errors/Error";
 
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -32,7 +33,9 @@ const UploadAvatar = () => {
         setLoading(false);
         console.log(response);
         if (response.success) {
-          history.push(`/user/profile/${localStorage.getItem('currentUserId')}`);
+          history.push(
+            `/user/profile/${localStorage.getItem("currentUserId")}`
+          );
         } else {
           throw new Error(response.message);
         }
@@ -57,7 +60,7 @@ const UploadAvatar = () => {
   };
 
   return (
-    <div className='edit-user-form'>
+    <div className="edit-user-form">
       <nav>
         <button onClick={onArrowClick}>
           <FontAwesomeIcon icon={faArrowLeft} />
@@ -67,13 +70,13 @@ const UploadAvatar = () => {
       <h2>Setup profile</h2>
       {error && <ErrorToast> {error.toLowerCase()}</ErrorToast>}
       <form onSubmit={handleProfileUpdate}>
-        <p className='form-desc'>Upload your avatar</p>
+        <p className="form-desc">Upload your avatar</p>
         <Input
-          type='file'
-          name='avatar'
-          id='avatar'
+          type="file"
+          name="avatar"
+          id="avatar"
           required={false}
-          placeholder='Upload avatar'
+          placeholder="Upload avatar"
           inputFuncs={{
             onChange: handleFileChange,
             disabled: loading,
@@ -82,7 +85,7 @@ const UploadAvatar = () => {
           }}
         />
 
-        <Button type='submit' disabled={loading}>
+        <Button type="submit" disabled={loading}>
           {loading ? "loading..." : "Upload avatar"}
         </Button>
       </form>

@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 
-import { Button, Input } from "../../../components/FormView/Inputs";
+import { Input } from "../../../components/FormView/Inputs";
+import { Button } from "../../../components/Buttons/Buttons";
 import { Logo } from "../../../components/Logo/Logo";
 
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
