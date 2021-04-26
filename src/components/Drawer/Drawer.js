@@ -105,14 +105,9 @@ export const HomeNavDrawer = ({ open, closeDrawer, payload, handleLogout }) => {
         <NavLink to="" onClick={closeDrawer}>
           about phoenix nest
         </NavLink>
-        <NavLink to="" onClick={closeDrawer}>
-          check your investment
-        </NavLink>
+
         <NavLink to="" onClick={closeDrawer}>
           contact us
-        </NavLink>
-        <NavLink to="" onClick={closeDrawer}>
-          Terms and conditions
         </NavLink>
 
         <LogoutBtn onClick={handleLogout} />

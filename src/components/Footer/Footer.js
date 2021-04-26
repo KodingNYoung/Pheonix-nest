@@ -7,7 +7,7 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Brand } from "../Logo/Logo";
-import { NavLink } from "../Links/Links";
+import { Hashlink, NavLink } from "../Links/Links";
 
 import "./Footer.css";
 const Footer = () => {
@@ -46,12 +46,10 @@ const Footer = () => {
             <span>phoenixnestng@gmail.com</span>
           </div>
           <div className="nav-links">
-            <NavLink to="/about" className="transparent-link">
+            <Hashlink to="#contact-us" className="transparent-link">
               About
-            </NavLink>
-            <NavLink to="/pitches" className="transparent-link">
-              Explore Pitches
-            </NavLink>
+            </Hashlink>
+
             <NavLink to="/terms" className="transparent-link">
               Terms and Conditions
             </NavLink>
