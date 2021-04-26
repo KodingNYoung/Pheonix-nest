@@ -32,7 +32,6 @@
 }
 .submit-btn:disabled {
   background-color: #ccc;
-  color: black;
 }
 
 /* end of style for forms submit button */

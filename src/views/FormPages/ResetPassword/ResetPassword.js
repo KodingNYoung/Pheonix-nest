@@ -72,6 +72,7 @@ const ResetPassword = () => {
               required={true}
               placeholder="New password"
               inputFuncs={{
+                autoComplete: "new-password",
                 onChange: handleTextChange,
                 value: passwords.password,
                 disabled: loading,
@@ -84,13 +85,14 @@ const ResetPassword = () => {
               required={true}
               placeholder="confirm password"
               inputFuncs={{
+                autoComplete: "new-password",
                 onChange: handleTextChange,
                 value: passwords.repassword,
                 disabled: loading,
               }}
             />
-            <Button type="submit" disabled={loading}>
-              {loading ? "loading..." : "Changepassword"}
+            <Button type="submit" loading={loading}>
+              Change password
             </Button>
           </form>
         </div>

@@ -82,8 +82,8 @@ const LoginPage = () => {
               disabled: loading,
             }}
           />
-          <Button type="submit" disabled={loading}>
-            {loading ? "loading..." : "login"}
+          <Button type="submit" loading={loading}>
+            login
           </Button>
         </form>
 

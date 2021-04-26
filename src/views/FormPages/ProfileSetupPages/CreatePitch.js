@@ -110,8 +110,8 @@ const CreatePitch = () => {
             disabled: loading,
           }}
         />
-        <Button type="submit" disabled={loading}>
-          {loading ? "loading..." : "create pitch"}
+        <Button type="submit" loading={loading}>
+          create pitch
         </Button>
       </form>
     </div>
