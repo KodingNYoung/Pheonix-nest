@@ -9,7 +9,7 @@ import {
   faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { Anchor } from "../../components/Links/Links";
-import {TestimonialCard, StepCard } from "../../components/Cards/Cards";
+import { TestimonialCard, StepCard } from "../../components/Cards/Cards";
 // css
 import "./LandingPage.css";
 
@@ -24,17 +24,21 @@ import avatar2 from "../../assets/img/Welcome/avatar2.png";
 import Footer from "../../components/Footer/Footer";
 
 const LandingPage = () => {
+  // check if the user is logged in
+  const currentUserId = localStorage.getItem("currentUserId");
   return (
     <div className="landing-page">
-      <Navbar />
+      <Navbar currentUserId={currentUserId} />
       <main className="landingPage-main">
         <section className="hero">
           <div className="hero-text-one">
             <h1>Pitch it Here. The World will be Glad You Did</h1>
-            <Anchor to="/login" className="dspr-lg">
-              <span>We Connect Investors to your Idea. Start now</span>
-              <FontAwesomeIcon icon={faLongArrowAltRight} />
-            </Anchor>
+            {!currentUserId ? (
+              <Anchor to="/login" className="dspr-lg">
+                <span>We Connect Investors to your Idea. Start now</span>
+                <FontAwesomeIcon icon={faLongArrowAltRight} />
+              </Anchor>
+            ) : null}
           </div>
           <div className="hero-text-two">
             <h2 className="dspr-lg">You can Change the World with Your Idea</h2>
@@ -44,10 +48,12 @@ const LandingPage = () => {
               future possibilities like your idea and work with you to make it
               come to life.
             </p>
-            <Anchor className="transparent-link" to="/login">
-              <span>Let's Get You Started</span>
-              <FontAwesomeIcon icon={faArrowRight} />
-            </Anchor>
+            {!currentUserId ? (
+              <Anchor className="transparent-link" to="/login">
+                <span>Let's Get You Started</span>
+                <FontAwesomeIcon icon={faArrowRight} />
+              </Anchor>
+            ) : null}
           </div>
         </section>
         <section className="about">
@@ -84,20 +90,18 @@ const LandingPage = () => {
                 step="Choose your favourite idea"
                 stepNo="2"
               />
-              <StepCard
-                image={contact}
-                step="contact the pitcher"
-                stepNo="3"
-              />
+              <StepCard image={contact} step="contact the pitcher" stepNo="3" />
               <StepCard
                 image={deal}
                 step="make the world grateful for your investment"
                 stepNo="4"
               />
             </div>
-            <Anchor className="get-started-link primary-link" to="/login">
-              get started now
-            </Anchor>
+            {!currentUserId ? (
+              <Anchor className="get-started-link primary-link" to="/login">
+                get started now
+              </Anchor>
+            ) : null}
           </div>
         </section>
         <section className="testimonials">

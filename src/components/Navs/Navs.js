@@ -8,27 +8,70 @@ import { NavLink, Hashlink, Anchor } from "../Links/Links";
 import { Burger } from "../Burger/Burger";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComments, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
-import Drawer from "../Drawer/Drawer";
-import { LogoutBtn } from "../Buttons_Links/Buttons";
+import { HomeNavDrawer, LandingNavDrawer } from "../Drawer/Drawer";
+import { LogoutBtn } from "../Buttons/Buttons";
 
 // css and images
 import "./Navs.css";
 
-export const Navbar = () => {
+export const Navbar = ({ currentUserId }) => {
+  // states
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  // to slide drawer in and out
+  const openDrawer = () => {
+    setDrawerOpen(true);
+  };
+  const closeDrawer = () => {
+    setDrawerOpen(false);
+  };
+
   return (
     <header className="navbar">
+      <Burger classsName="navbar-burger" onClick={openDrawer} />
       <Brand />
       <nav>
         <div className="link-group">
-          <NavLink to="/login">sign in</NavLink>
-          <NavLink to="/pitches"> explore pitches</NavLink>
-          <NavLink to=""> about</NavLink>
-          <Hashlink to="./#contact-us">contact us</Hashlink>
+          {!currentUserId ? (
+            <NavLink to="/login" className="transparent-link">
+              sign in
+            </NavLink>
+          ) : (
+            <>
+              <NavLink to="/user" className="transparent-link">
+                Home
+              </NavLink>
+              <NavLink
+                to={`/user/profile/${currentUserId}`}
+                className="transparent-link"
+              >
+                profile
+              </NavLink>
+            </>
+          )}
+          <NavLink to="/pitches" className="transparent-link">
+            {" "}
+            explore pitches
+          </NavLink>
+          <Hashlink to="#contact-us" className="transparent-link">
+            {" "}
+            about
+          </Hashlink>
+          <Hashlink to="#contact-us" className="transparent-link">
+            contact us
+          </Hashlink>
         </div>
-        <Anchor to="/signup" className="primary-link">
-          Join
-        </Anchor>
+        {!currentUserId ? (
+          <Anchor to="/signup" className="primary-link">
+            Join
+          </Anchor>
+        ) : null}
       </nav>
+      <LandingNavDrawer
+        currentUserId={currentUserId}
+        open={drawerOpen}
+        closeDrawer={closeDrawer}
+      />
     </header>
   );
 };
@@ -88,7 +131,7 @@ export const HomeNavbar = ({ payload }) => {
           <span>Logout</span>
         </LogoutBtn>
       </nav>
-      <Drawer
+      <HomeNavDrawer
         className="side-drawer"
         open={drawerOpen}
         closeDrawer={closeDrawer}

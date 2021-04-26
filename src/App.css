@@ -5,6 +5,7 @@
   --primary-red-light: #d63e3948;
   --primary-yellow: #fcd413;
   --black: #000;
+  --black-translucent: #00000033;
   --white: #fff;
 }
 * {

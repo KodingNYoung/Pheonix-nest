@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useAuthContext } from "../../../context/AuthContext";
 
 // router
@@ -9,7 +9,8 @@ import "./SignupPage.css";
 
 // components
 import FormView from "../../../components/FormView/FormView";
-import { Input, Button } from "../../../components/FormView/Inputs";
+import { Input } from "../../../components/FormView/Inputs";
+import { Button } from "../../../components/Buttons/Buttons";
 import { Anchor } from "../../../components/Links/Links";
 
 const SignupPage = () => {
