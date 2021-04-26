@@ -2,9 +2,10 @@
 :root {
   /* colors */
   --primary-red: #d63e39;
+  --primary-red-light: #d63e3948;
   --primary-yellow: #fcd413;
   --black: #000;
-  --white: #FFF;
+  --white: #fff;
 }
 * {
   box-sizing: border-box;
