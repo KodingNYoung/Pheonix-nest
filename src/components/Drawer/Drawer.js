@@ -2,7 +2,7 @@ import React from "react";
 
 // components
 import { Times } from "../Burger/Burger";
-import { NavLink } from "../Links/Links";
+import { Hashlink, NavLink } from "../Links/Links";
 
 // images and svgs
 import { Logo } from "../Logo/Logo";

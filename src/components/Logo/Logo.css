@@ -5,8 +5,9 @@
 .brand .brand-text {
   font-family: "Barlow", sans-serif;
   margin-left: 0.5rem;
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: 500;
+  color: var(--black);
 }
 .logo {
   width: 33px;
@@ -16,4 +17,5 @@
 .logo img {
   width: 100%;
   height: auto;
+  padding: 0;
 }
