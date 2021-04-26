@@ -78,7 +78,7 @@ const CreatePitch = () => {
           type="text"
           name="title"
           id="title"
-          required={false}
+          required={true}
           placeholder="title"
           inputFuncs={{
             onChange: handleTextChange,
@@ -90,7 +90,7 @@ const CreatePitch = () => {
           type="text"
           name="industry"
           id="industry"
-          required={false}
+          required={true}
           placeholder="industry"
           inputFuncs={{
             onChange: handleTextChange,
@@ -102,7 +102,7 @@ const CreatePitch = () => {
           type="textarea"
           name="details"
           id="details"
-          required={false}
+          required={true}
           placeholder="details"
           inputFuncs={{
             onChange: handleTextChange,
@@ -110,8 +110,8 @@ const CreatePitch = () => {
             disabled: loading,
           }}
         />
-        <Button type="submit" disabled={loading}>
-          {loading ? "loading..." : "create pitch"}
+        <Button type="submit" loading={loading}>
+          create pitch
         </Button>
       </form>
     </div>

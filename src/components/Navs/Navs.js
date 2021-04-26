@@ -49,10 +49,7 @@ export const Navbar = ({ currentUserId }) => {
               </NavLink>
             </>
           )}
-          <NavLink to="/pitches" className="transparent-link">
-            {" "}
-            explore pitches
-          </NavLink>
+
           <Hashlink to="#contact-us" className="transparent-link">
             {" "}
             about

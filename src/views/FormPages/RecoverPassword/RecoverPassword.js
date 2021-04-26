@@ -70,8 +70,8 @@ const RecoverPassword = () => {
                 disabled: loading,
               }}
             />
-            <Button type="submit" disabled={loading}>
-              {loading ? "loading" : "Reset password"}
+            <Button type="submit" loading={loading}>
+              Reset password
             </Button>
           </form>
           <Anchor className="transparent-link" to="/login">

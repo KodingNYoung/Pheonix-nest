@@ -1,5 +1,6 @@
 .pitch-banner .banner-image {
   height: 50vh;
+  max-height: 300px;
   width: 100%;
   position: relative;
   color: white;

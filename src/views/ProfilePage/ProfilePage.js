@@ -99,7 +99,7 @@ const ProfilePage = ({ match }) => {
                       href={`https://wa.me/+234${profile.phoneNumber}`}
                       className="primary-link"
                     >
-                      messages
+                      message
                     </a>
                     {isUserValid && (
                       <button className="transparent-btn" onClick={openModal}>
