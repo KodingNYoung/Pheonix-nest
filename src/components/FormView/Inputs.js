@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button } from "../Buttons/Buttons";
 
 import "./FormView.css";
 
@@ -81,14 +82,6 @@ export const PinInput = ({
   );
 };
 
-export const Button = ({ type, children, disabled }) => {
-  return (
-    <button type={type} className="submit-btn" disabled={disabled}>
-      {children}
-    </button>
-  );
-};
-
 export const SearchField = () => {
   return (
     <form className="search-field">
@@ -98,9 +91,9 @@ export const SearchField = () => {
         placeholder="Search for a Pitch"
         id="search"
       />
-      <button>
+      <Button>
         <FontAwesomeIcon icon={faSearch} />
-      </button>
+      </Button>
     </form>
   );
 };

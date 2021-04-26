@@ -6,19 +6,76 @@ import { Hashlink, NavLink } from "../Links/Links";
 
 // images and svgs
 import { Logo } from "../Logo/Logo";
-import { LogoutBtn } from "../Buttons_Links/Buttons";
+import { LogoutBtn } from "../Buttons/Buttons";
 
 // css
 import "./Drawer.css";
 
-const Drawer = ({ open, closeDrawer, payload, handleLogout }) => {
+export const LandingNavDrawer = ({ currentUserId, open, closeDrawer }) => {
+  const drawerStyle = {
+    left: open ? "0" : "-100vw",
+  };
+  return (
+    <div
+      className={`drawer landing-nav-drawer ${open ? "open" : ""}`}
+      style={drawerStyle}
+    >
+      <div className="overlay" onClick={closeDrawer}></div>
+      <div className="drawer-content" style={drawerStyle}>
+        <Times onClick={closeDrawer} />
+
+        <nav className="navlink-group">
+          {currentUserId ? (
+            <>
+              <NavLink to="/user" className="transparent-link">
+                Home
+              </NavLink>
+              <NavLink
+                to={`/user/profile/${currentUserId}`}
+                className="transparent-link"
+              >
+                profile
+              </NavLink>
+            </>
+          ) : (
+            <>
+              <NavLink to="/signup" className="primary-link">
+                join phoenix nest
+              </NavLink>
+              <NavLink to="/login" className="transparent-link">
+                sign in/profile
+              </NavLink>
+            </>
+          )}
+
+          <Hashlink
+            to="#contact-us"
+            className="transparent-link"
+            onClick={closeDrawer}
+          >
+            about phoenix nest
+          </Hashlink>
+
+          <Hashlink
+            to="#contact-us"
+            className="transparent-link"
+            onClick={closeDrawer}
+          >
+            contact us
+          </Hashlink>
+        </nav>
+      </div>
+    </div>
+  );
+};
+export const HomeNavDrawer = ({ open, closeDrawer, payload, handleLogout }) => {
   const drawerStyle = {
     left: open ? "0" : "-100vw",
   };
   const { avatar_url, fullname, email } = payload;
 
   return (
-    <div className="drawer" style={drawerStyle}>
+    <div className="drawer home-nav-drawer" style={drawerStyle}>
       <header>
         <Logo />
         <Times onClick={closeDrawer} />
@@ -42,17 +99,21 @@ const Drawer = ({ open, closeDrawer, payload, handleLogout }) => {
         <NavLink to="/user/pitches" onClick={closeDrawer}>
           explore Pitches
         </NavLink>
-        <Hashlink to="#contact-us" onClick={closeDrawer}>
+        <NavLink to="" onClick={closeDrawer}>
           about phoenix nest
-        </Hashlink>
-        <Hashlink to="#contact-us" onClick={closeDrawer}>
+        </NavLink>
+        <NavLink to="" onClick={closeDrawer}>
+          check your investment
+        </NavLink>
+        <NavLink to="" onClick={closeDrawer}>
           contact us
-        </Hashlink>
+        </NavLink>
+        <NavLink to="" onClick={closeDrawer}>
+          Terms and conditions
+        </NavLink>
 
         <LogoutBtn onClick={handleLogout} />
       </nav>
     </div>
   );
 };
-
-export default Drawer;

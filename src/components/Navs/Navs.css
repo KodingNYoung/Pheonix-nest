@@ -48,7 +48,7 @@ header nav .link-group {
     width: 30%;
     min-width: 170px;
   }
-  .home-navbar .burger,
+  .navbar .burger,
   .home-navbar .sm-screen a.message-icon {
     display: none;
   }

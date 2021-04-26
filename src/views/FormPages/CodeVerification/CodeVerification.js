@@ -5,8 +5,8 @@ import { useHistory } from "react-router-dom";
 
 //
 import FormView from "../../../components/FormView/FormView";
-import { Button, PinInput } from "../../../components/FormView/Inputs";
-
+import { PinInput } from "../../../components/FormView/Inputs";
+import { Button } from "../../../components/Buttons/Buttons";
 import "./CodeVerification.css";
 
 const CodeVerification = () => {

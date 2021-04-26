@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 
-import { Button, Input } from "../../../components/FormView/Inputs";
+import { Input } from "../../../components/FormView/Inputs";
+import { Button } from "../../../components/Buttons/Buttons";
 import { Logo } from "../../../components/Logo/Logo";
 
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -36,7 +37,9 @@ const CreatePitch = () => {
         if (response.success) {
           console.log(response);
           setLoading(false);
-          history.push(`/user/profile/${localStorage.getItem('currentUserId')}`);
+          history.push(
+            `/user/profile/${localStorage.getItem("currentUserId")}`
+          );
         } else {
           throw new Error(response.message);
         }
@@ -59,7 +62,7 @@ const CreatePitch = () => {
   };
 
   return (
-    <div className='edit-user-form'>
+    <div className="edit-user-form">
       <nav>
         <button onClick={onArrowClick}>
           <FontAwesomeIcon icon={faArrowLeft} />
@@ -70,13 +73,13 @@ const CreatePitch = () => {
       {error && <p>Page couldn't load because it {error.toLowerCase()}</p>}
 
       <form onSubmit={handlePitchUpdate}>
-        <p className='form-desc'>pitch your idea</p>
+        <p className="form-desc">pitch your idea</p>
         <Input
-          type='text'
-          name='title'
-          id='title'
+          type="text"
+          name="title"
+          id="title"
           required={false}
-          placeholder='title'
+          placeholder="title"
           inputFuncs={{
             onChange: handleTextChange,
             value: userInputs.title,
@@ -84,11 +87,11 @@ const CreatePitch = () => {
           }}
         />
         <Input
-          type='text'
-          name='industry'
-          id='industry'
+          type="text"
+          name="industry"
+          id="industry"
           required={false}
-          placeholder='industry'
+          placeholder="industry"
           inputFuncs={{
             onChange: handleTextChange,
             value: userInputs.industry,
@@ -96,18 +99,18 @@ const CreatePitch = () => {
           }}
         />
         <Input
-          type='textarea'
-          name='details'
-          id='details'
+          type="textarea"
+          name="details"
+          id="details"
           required={false}
-          placeholder='details'
+          placeholder="details"
           inputFuncs={{
             onChange: handleTextChange,
             value: userInputs.details,
             disabled: loading,
           }}
         />
-        <Button type='submit' disabled={loading}>
+        <Button type="submit" disabled={loading}>
           {loading ? "loading..." : "create pitch"}
         </Button>
       </form>

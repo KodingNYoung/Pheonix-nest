@@ -4,9 +4,10 @@ import { useAuthContext } from "../../../context/AuthContext";
 // router
 import { useHistory } from "react-router-dom";
 
-// component
+// components
 import FormView from "../../../components/FormView/FormView";
-import { Input, Button } from "../../../components/FormView/Inputs";
+import { Input } from "../../../components/FormView/Inputs";
+import { Button } from "../../../components/Buttons/Buttons";
 import { Anchor } from "../../../components/Links/Links";
 
 // css
@@ -53,16 +54,16 @@ const LoginPage = () => {
 
   return (
     <FormView>
-      <div className='container'>
+      <div className="container">
         <h2>Login</h2>
         {error && <p> {error} </p>}
-        <form className='login-form' onSubmit={handleUserLogin}>
+        <form className="login-form" onSubmit={handleUserLogin}>
           <Input
-            type='email'
-            name='email'
-            id='email'
+            type="email"
+            name="email"
+            id="email"
             required={true}
-            placeholder='Email'
+            placeholder="Email"
             inputFuncs={{
               onChange: handleTextChange,
               value: userInputs.email,
@@ -70,29 +71,34 @@ const LoginPage = () => {
             }}
           />
           <Input
-            type='password'
-            name='password'
-            id='password'
+            type="password"
+            name="password"
+            id="password"
             required={true}
-            placeholder='password'
+            placeholder="password"
             inputFuncs={{
               onChange: handleTextChange,
               value: userInputs.password,
               disabled: loading,
             }}
           />
-          <Button type='submit' disabled={loading}>
+          <Button type="submit" disabled={loading}>
             {loading ? "loading..." : "login"}
           </Button>
         </form>
-        
+
         <footer>
-          <div className='signup-text'>
+          <div className="signup-text">
             <span>
-              Don't have an account? <Anchor className="form-link" to='/signup'>sign up</Anchor>
+              Don't have an account?{" "}
+              <Anchor className="form-link" to="/signup">
+                sign up
+              </Anchor>
             </span>
           </div>
-          <Anchor className="form-link" to='../recover-password'>forgot password?</Anchor>
+          <Anchor className="form-link" to="../recover-password">
+            forgot password?
+          </Anchor>
         </footer>
       </div>
     </FormView>
