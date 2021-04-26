@@ -1,0 +1,52 @@
+.logout-btn {
+  background-color: transparent;
+  color: #d63e39;
+  border: 0;
+  outline: none;
+  font-weight: lighter;
+  display: flex;
+  align-items: center;
+  padding: 3rem 1rem;
+  cursor: pointer;
+}
+.logout-btn span {
+  padding-left: 0.3rem;
+}
+/* form submit button */
+.submit-btn {
+  background-color: #d63e39;
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: "Nunito Sans", sans-serif;
+  color: #fff;
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 1.2rem;
+  border-radius: 4px;
+  text-transform: capitalize;
+  margin-top: 1rem;
+}
+.submit-btn:hover {
+  background-color: #a3312d;
+}
+.submit-btn:disabled {
+  background-color: #ccc;
+  color: black;
+}
+
+/* end of style for forms submit button */
+/* search field button */
+.search-field button {
+  background-color: transparent;
+  color: #00000047;
+  border: none;
+  outline: none;
+}
+
+@media screen and (min-width: 560px) {
+  .search-field button {
+    color: #d63e39;
+  }
+}
+/* end of style for search field button */

@@ -19,12 +19,6 @@
   color: #fff;
   font-family: "Barlow", sans-serif;
 }
-.form-page header .form-logo {
-  align-self: flex-end;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
 /* login form area */
 .form-page .form-main {
   border-radius: 3rem 0 0 0;
@@ -84,6 +78,7 @@
   border-radius: 4px;
   background-color: transparent;
   font-size: 1.3rem;
+  font-family: inherit;
 }
 .input-field input[type="file"] {
   position: relative;
@@ -128,7 +123,7 @@
 }
 
 /* buttons */
-.submit-btn {
+/* .submit-btn {
   background-color: #d63e39;
   font-size: 1.1rem;
   font-weight: 700;
@@ -148,8 +143,9 @@
 .submit-btn:disabled {
   background-color: #ccc;
   color: black;
-}
+} */
 
+/* search field */
 .search-field {
   width: 90%;
   max-width: 350px;
@@ -170,17 +166,21 @@
 .search-field input::placeholder {
   color: #00000047;
 }
-.search-field button {
+/* search field button */
+/* .search-field button {
   background-color: transparent;
   color: #00000047;
   border: none;
   outline: none;
 }
+
 @media screen and (min-width: 560px) {
   .search-field button {
     color: #d63e39;
   }
-}
+} */
+/*  */
+
 @media screen and (min-width: 700px) {
   .form-page {
     padding: 3rem;

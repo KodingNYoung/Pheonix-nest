@@ -22,9 +22,9 @@ export const NavLink = ({ children, to, className, onClick }) => {
     </Link>
   );
 };
-export const Hashlink = ({ children, to, className }) => {
+export const Hashlink = ({ children, to, className, onClick }) => {
   return (
-    <HashLink to={to} className={`hash-link ${className}`}>
+    <HashLink to={to} className={`hash-link ${className}`} onClick={onClick}>
       {children}
     </HashLink>
   );

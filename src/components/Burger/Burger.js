@@ -6,7 +6,7 @@ import "./Burger.css";
 
 export const Burger = ({ className, onClick }) => {
   return (
-    <button className={`burger icon-btn`} onClick={onClick}>
+    <button className={`burger icon-btn ${className}`} onClick={onClick}>
       <span></span>
       <span></span>
       <span></span>
@@ -14,9 +14,9 @@ export const Burger = ({ className, onClick }) => {
   );
 };
 
-export const Times = ({ onClick }) => {
+export const Times = ({ onClick, className }) => {
   return (
-    <button className='times icon-btn' onClick={onClick}>
+    <button className={`times icon-btn ${className}`} onClick={onClick}>
       <FontAwesomeIcon icon={faTimes}/>
     </button>
   );
