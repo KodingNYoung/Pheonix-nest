@@ -43,7 +43,7 @@ export const LandingNavDrawer = ({ currentUserId, open, closeDrawer }) => {
                 join phoenix nest
               </NavLink>
               <NavLink to="/login" className="transparent-link">
-                sign in/profile
+                sign in
               </NavLink>
             </>
           )}
