@@ -86,8 +86,8 @@ const CodeVerification = () => {
                 disabled: loading,
               }}
             />
-            <Button type="submit" disabled={loading}>
-              {loading ? "loading..." : "Verify code"}
+            <Button type="submit" loading={loading}>
+              Verify code
             </Button>
           </form>
           <button className="resend-btn">resend code</button>

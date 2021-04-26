@@ -85,8 +85,8 @@ const UploadAvatar = () => {
           }}
         />
 
-        <Button type="submit" disabled={loading}>
-          {loading ? "loading..." : "Upload avatar"}
+        <Button type="submit" loading={loading}>
+          Upload avatar
         </Button>
       </form>
     </div>

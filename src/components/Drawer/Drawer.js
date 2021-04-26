@@ -43,7 +43,7 @@ export const LandingNavDrawer = ({ currentUserId, open, closeDrawer }) => {
                 join phoenix nest
               </NavLink>
               <NavLink to="/login" className="transparent-link">
-                sign in/profile
+                sign in
               </NavLink>
             </>
           )}
@@ -90,6 +90,9 @@ export const HomeNavDrawer = ({ open, closeDrawer, payload, handleLogout }) => {
         </div>
       </header>
       <nav>
+        <NavLink to={`/user`} onClick={closeDrawer}>
+          home
+        </NavLink>
         <NavLink
           to={`/user/profile/${localStorage.getItem("currentUserId")}`}
           onClick={closeDrawer}
@@ -102,14 +105,9 @@ export const HomeNavDrawer = ({ open, closeDrawer, payload, handleLogout }) => {
         <NavLink to="" onClick={closeDrawer}>
           about phoenix nest
         </NavLink>
-        <NavLink to="" onClick={closeDrawer}>
-          check your investment
-        </NavLink>
+
         <NavLink to="" onClick={closeDrawer}>
           contact us
-        </NavLink>
-        <NavLink to="" onClick={closeDrawer}>
-          Terms and conditions
         </NavLink>
 
         <LogoutBtn onClick={handleLogout} />

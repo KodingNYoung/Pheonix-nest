@@ -129,9 +129,8 @@ const SignupPage = () => {
           </Anchor>{" "}
           of the organisation
         </p>
-        <Button type="submit" disabled={loading}>
-          {" "}
-          {loading ? "loading" : "sign up"}
+        <Button type="submit" loading={loading}>
+          sign up
         </Button>
         <span>
           Already have an account?{" "}

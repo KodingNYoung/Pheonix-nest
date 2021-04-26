@@ -2,6 +2,7 @@ import React from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import Preloader from "../PreLoader/Preloader";
 
 import "./Buttons.css";
 
@@ -14,10 +15,10 @@ export const LogoutBtn = ({ onClick }) => {
   );
 };
 
-export const Button = ({ type, children, disabled }) => {
+export const Button = ({ type, children, loading }) => {
   return (
-    <button type={type} className="submit-btn" disabled={disabled}>
-      {children}
+    <button type={type} className="submit-btn" disabled={loading}>
+      {loading ? <Preloader size={10} border={3} color="#333" /> : children}
     </button>
   );
 };
